@@ -1,0 +1,580 @@
+<?xml version="1.0" ?><wfs:WFS_Capabilities xmlns="http://www.opengis.net/wfs/2.0" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:ows="http://www.opengis.net/ows/1.1" xmlns:fes="http://www.opengis.net/fes/2.0" xmlns:esri="http://www.esri.com" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.0.0" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.esri.com https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?service=wfs%26version=2.0.0%26request=DescribeFeatureType">
+  <ows:ServiceIdentification>
+    <ows:Title>WFS</ows:Title>
+    <ows:Abstract/>
+    <ows:Keywords>
+      <ows:Keyword>ESRI(longlat)</ows:Keyword>
+    </ows:Keywords>
+    <ows:ServiceType>WFS</ows:ServiceType>
+    <ows:ServiceTypeVersion>2.0.0</ows:ServiceTypeVersion>
+    <ows:Fees/>
+    <ows:AccessConstraints/>
+  </ows:ServiceIdentification>
+  <ows:ServiceProvider>
+    <ows:ProviderName/>
+    <ows:ServiceContact>
+      <ows:IndividualName/>
+      <ows:PositionName/>
+      <ows:ContactInfo>
+        <ows:Phone>
+          <ows:Voice/>
+          <ows:Facsimile/>
+        </ows:Phone>
+        <ows:Address>
+          <ows:DeliveryPoint/>
+          <ows:City/>
+          <ows:AdministrativeArea/>
+          <ows:PostalCode/>
+          <ows:Country/>
+          <ows:ElectronicMailAddress/>
+        </ows:Address>
+        <ows:OnlineResource xlink:href=""/>
+        <ows:HoursOfService/>
+        <ows:ContactInstructions/>
+      </ows:ContactInfo>
+      <ows:Role/>
+    </ows:ServiceContact>
+  </ows:ServiceProvider>
+  <ows:OperationsMetadata>
+    <ows:Operation name="GetCapabilities">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+      <ows:Parameter name="AcceptVersions">
+        <ows:AllowedValues>
+          <ows:Value>1.0.0</ows:Value>
+          <ows:Value>1.1.0</ows:Value>
+          <ows:Value>2.0.0</ows:Value>
+      </ows:AllowedValues>
+      </ows:Parameter>
+    </ows:Operation>
+    <ows:Operation name="DescribeFeatureType">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+    <ows:Parameter name="outputFormat">
+      <ows:AllowedValues>
+        <ows:Value>text/xml; subtype=gml/3.2</ows:Value>
+      </ows:AllowedValues>
+    </ows:Parameter>
+    </ows:Operation>
+    <ows:Operation name="GetPropertyValue">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+      <ows:Parameter name="resolve">
+        <ows:AllowedValues>
+          <ows:Value>none</ows:Value>
+          <ows:Value>local</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+    </ows:Operation>
+    <ows:Operation name="GetFeature">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+      <ows:Parameter name="resultType">
+        <ows:AllowedValues>
+          <ows:Value>results</ows:Value>
+          <ows:Value>hits</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="outputFormat">
+        <ows:AllowedValues>
+          <ows:Value>GML32</ows:Value>
+          <ows:Value>GML32+ZIP</ows:Value>
+          <ows:Value>GML32+GZIP</ows:Value>
+          <ows:Value>application/gml+xml; version=3.2</ows:Value>
+          <ows:Value>GML3</ows:Value>
+          <ows:Value>GML3+ZIP</ows:Value>
+          <ows:Value>GML3+GZIP</ows:Value>
+          <ows:Value>text/xml; subtype=gml/3.1.1</ows:Value>
+          <ows:Value>GML2</ows:Value>
+          <ows:Value>GML2+ZIP</ows:Value>
+          <ows:Value>GML2+GZIP</ows:Value>
+          <ows:Value>text/xml; subtype=gml/2.1.2</ows:Value>
+          <ows:Value>GEOJSON</ows:Value>
+          <ows:Value>GEOJSON+ZIP</ows:Value>
+          <ows:Value>GEOJSON+GZIP</ows:Value>
+          <ows:Value>ESRIGEOJSON</ows:Value>
+          <ows:Value>ESRIGEOJSON+ZIP</ows:Value>
+          <ows:Value>ESRIGEOJSON+GZIP</ows:Value>
+          <ows:Value>KML</ows:Value>
+          <ows:Value>application/vnd.google-earth.kml xml</ows:Value>
+          <ows:Value>application/vnd.google-earth.kml+xml</ows:Value>
+          <ows:Value>KMZ</ows:Value>
+          <ows:Value>application/vnd.google-earth.kmz</ows:Value>
+          <ows:Value>SHAPE+ZIP</ows:Value>
+          <ows:Value>CSV</ows:Value>
+          <ows:Value>CSV+ZIP</ows:Value>
+          <ows:Value>CSV+GZIP</ows:Value>
+          <ows:Value>Geopackage</ows:Value>
+          <ows:Value>Geopackage+ZIP</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+      <ows:Parameter name="resolve">
+        <ows:AllowedValues>
+          <ows:Value>none</ows:Value>
+          <ows:Value>local</ows:Value>
+        </ows:AllowedValues>
+      </ows:Parameter>
+    </ows:Operation>
+    <ows:Operation name="GetGmlObject">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+    </ows:Operation>
+    <ows:Operation name="ListStoredQueries">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+    </ows:Operation>
+    <ows:Operation name="DescribeStoredQueries">
+      <ows:DCP>
+        <ows:HTTP>
+          <ows:Get xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?"/>
+          <ows:Post xlink:href="https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer"/>
+        </ows:HTTP>
+      </ows:DCP>
+    </ows:Operation>
+    <ows:Constraint name="ImplementsBasicWFS"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsTransactionalWFS"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsLockingWFS"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="KVPEncoding"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="XMLEncoding"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="SOAPEncoding"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsInheritance"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsRemoteResolve"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsResultPaging"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsStandardJoins"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsSpatialJoins"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsTemporalJoins"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ImplementsFeatureVersioning"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="ManageStoredQueries"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></ows:Constraint>
+    <ows:Constraint name="CountDefault"><ows:NoValues/><ows:DefaultValue>15000</ows:DefaultValue></ows:Constraint>
+  </ows:OperationsMetadata>
+  <wfs:FeatureTypeList>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Representative_Aboriginal_and_Torres_Strait_Islander_Body_Boundaries__NNTT-001_</wfs:Name>
+    <wfs:Title>Representative_Aboriginal_and_Torres_Strait_Islander_Body_Boundaries__NNTT-001_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>109.23558501 -47.19094999</ows:LowerCorner>
+      <ows:UpperCorner>163.19208500 -8.88047713</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:ESL_DFES_Polygons__DFES-013_</wfs:Name>
+    <wfs:Title>ESL_DFES_Polygons__DFES-013_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>113.51644786 -35.03955084</ows:LowerCorner>
+      <ows:UpperCorner>128.89667557 -15.42965348</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:DFES_Regions__DFES-015_</wfs:Name>
+    <wfs:Title>DFES_Regions__DFES-015_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81680484 -35.13506070</ows:LowerCorner>
+      <ows:UpperCorner>129.00192055 -10.41237716</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Fire_and_Rescue_Services_District__DFES-016_</wfs:Name>
+    <wfs:Title>Fire_and_Rescue_Services_District__DFES-016_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81699405 -35.03955097</ows:LowerCorner>
+      <ows:UpperCorner>128.75482702 -10.41234592</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Regional_Parks__DBCA-026_</wfs:Name>
+    <wfs:Title>Regional_Parks__DBCA-026_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>115.60979991 -33.39266201</ows:LowerCorner>
+      <ows:UpperCorner>116.37097671 -31.71745356</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:DBCA_Region_Boundaries__DBCA-022_</wfs:Name>
+    <wfs:Title>DBCA_Region_Boundaries__DBCA-022_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.86564070 -35.24185029</ows:LowerCorner>
+      <ows:UpperCorner>129.01991739 -13.50761805</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:DPIRD_Bioregions__DPIRD-095_</wfs:Name>
+    <wfs:Title>DPIRD_Bioregions__DPIRD-095_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>109.23349099 -38.52945692</ows:LowerCorner>
+      <ows:UpperCorner>129.03040588 -11.21521140</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Recreational_Fishing_Regions__DPIRD-096_</wfs:Name>
+    <wfs:Title>Recreational_Fishing_Regions__DPIRD-096_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>109.23349099 -38.52945692</ows:LowerCorner>
+      <ows:UpperCorner>129.03040588 -11.21521140</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:State_Environmental__Cockburn_Sound__Policy_Boundaries__DWER-058_</wfs:Name>
+    <wfs:Title>State_Environmental__Cockburn_Sound__Policy_Boundaries__DWER-058_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>115.63567710 -32.31630279</ows:LowerCorner>
+      <ows:UpperCorner>115.86077741 -32.06612776</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:DBCA_District_Boundaries__DBCA-023_</wfs:Name>
+    <wfs:Title>DBCA_District_Boundaries__DBCA-023_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.86564070 -35.24185029</ows:LowerCorner>
+      <ows:UpperCorner>129.01991739 -13.50761805</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Department_of_Water_and_Environmental_Regulation_Regional_Boundaries__DWER-001_</wfs:Name>
+    <wfs:Title>Department_of_Water_and_Environmental_Regulation_Regional_Boundaries__DWER-001_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>113.15587575 -35.13474761</ows:LowerCorner>
+      <ows:UpperCorner>129.00140557 -13.74040180</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Water_Demand_Region_Boundaries__DWER-002_</wfs:Name>
+    <wfs:Title>Water_Demand_Region_Boundaries__DWER-002_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92111343 -35.13484747</ows:LowerCorner>
+      <ows:UpperCorner>129.00193162 -13.68949125</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Wheatbelt_of_WA__DPIRD-024_</wfs:Name>
+    <wfs:Title>Wheatbelt_of_WA__DPIRD-024_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.10676709 -34.87807802</ows:LowerCorner>
+      <ows:UpperCorner>123.24833679 -27.52350332</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Crop_Variety_Testing_Zones_of_WA__DPIRD-028_</wfs:Name>
+    <wfs:Title>Crop_Variety_Testing_Zones_of_WA__DPIRD-028_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.09790504 -35.13552488</ows:LowerCorner>
+      <ows:UpperCorner>123.30922979 -27.48865663</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:State_Border__LGATE-245_</wfs:Name>
+    <wfs:Title>State_Border__LGATE-245_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>129.00043569 -31.74141500</ows:LowerCorner>
+      <ows:UpperCorner>129.00192415 -14.87345946</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Port_Authorities__LGATE-243_</wfs:Name>
+    <wfs:Title>Port_Authorities__LGATE-243_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.49999953 -35.10783940</ows:LowerCorner>
+      <ows:UpperCorner>128.29566453 -14.93276440</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Local_Government_Authority__LGA__Boundaries__LGATE-233_</wfs:Name>
+    <wfs:Title>Local_Government_Authority__LGA__Boundaries__LGATE-233_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81524047 -35.24184835</ows:LowerCorner>
+      <ows:UpperCorner>129.00192056 -10.41237716</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Townsites__LGATE-248_</wfs:Name>
+    <wfs:Title>Townsites__LGATE-248_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>113.51721821 -35.04522054</ows:LowerCorner>
+      <ows:UpperCorner>128.90056546 -15.33342774</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Localities__LGATE-234_</wfs:Name>
+    <wfs:Title>Localities__LGATE-234_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81524047 -35.13506064</ows:LowerCorner>
+      <ows:UpperCorner>129.00192056 -10.41237716</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Districts__LGATE-229_</wfs:Name>
+    <wfs:Title>Districts__LGATE-229_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81524047 -35.24184835</ows:LowerCorner>
+      <ows:UpperCorner>129.00192056 -10.41237716</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Ward_Boundaries__LGATE-249_</wfs:Name>
+    <wfs:Title>Ward_Boundaries__LGATE-249_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>113.39070040 -35.06967155</ows:LowerCorner>
+      <ows:UpperCorner>129.00053637 -19.49999003</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:State_Electorates__Current___LGATE-069_</wfs:Name>
+    <wfs:Title>State_Electorates__Current___LGATE-069_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92086897 -35.13507482</ows:LowerCorner>
+      <ows:UpperCorner>129.00192056 -13.67856549</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Native_Title__NNTT___LGATE-004_</wfs:Name>
+    <wfs:Title>Native_Title__NNTT___LGATE-004_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.67476130 -32.76520795</ows:LowerCorner>
+      <ows:UpperCorner>129.00046567 -15.87579942</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Native_Title__Fed_Court___LGATE-005_</wfs:Name>
+    <wfs:Title>Native_Title__Fed_Court___LGATE-005_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.69939653 -32.04648673</ows:LowerCorner>
+      <ows:UpperCorner>128.91093513 -16.03162439</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Native_Title__ILUA___LGATE-067_</wfs:Name>
+    <wfs:Title>Native_Title__ILUA___LGATE-067_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>113.42213283 -35.24186196</ows:LowerCorner>
+      <ows:UpperCorner>129.00186680 -13.67856606</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Native_Title__Determination___LGATE-066_</wfs:Name>
+    <wfs:Title>Native_Title__Determination___LGATE-066_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92093409 -35.24186354</ows:LowerCorner>
+      <ows:UpperCorner>129.00192078 -13.48961400</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Coastline__LGATE-070_</wfs:Name>
+    <wfs:Title>Coastline__LGATE-070_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81680483 -35.19199006</ows:LowerCorner>
+      <ows:UpperCorner>129.00192993 -10.41236894</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Emergency_Management_Boundaries__OEM-001_</wfs:Name>
+    <wfs:Title>Emergency_Management_Boundaries__OEM-001_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92093391 -35.18993741</ows:LowerCorner>
+      <ows:UpperCorner>129.00192055 -13.68870365</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Aquaculture_Sites__DPIRD-001_</wfs:Name>
+    <wfs:Title>Aquaculture_Sites__DPIRD-001_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.81956469 -35.09912199</ows:LowerCorner>
+      <ows:UpperCorner>128.75984161 -12.15240163</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Pearling_Leases__DPIRD-002_</wfs:Name>
+    <wfs:Title>Pearling_Leases__DPIRD-002_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.09899974 -22.48426422</ows:LowerCorner>
+      <ows:UpperCorner>126.70651321 -13.86144982</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Regional_Development_Commission_Boundaries__DPIRD-020_</wfs:Name>
+    <wfs:Title>Regional_Development_Commission_Boundaries__DPIRD-020_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92149948 -35.19397899</ows:LowerCorner>
+      <ows:UpperCorner>129.00192034 -13.68922921</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:South_west_agricultural_region__DPIRD-008_</wfs:Name>
+    <wfs:Title>South_west_agricultural_region__DPIRD-008_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.10831245 -35.13552487</ows:LowerCorner>
+      <ows:UpperCorner>123.24668696 -27.52350331</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Land_Conservation_Districts__DPIRD-029_</wfs:Name>
+    <wfs:Title>Land_Conservation_Districts__DPIRD-029_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.91659489 -35.13552550</ows:LowerCorner>
+      <ows:UpperCorner>129.01655417 -13.73879509</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:European_House_Borer_-_Restricted_Movement_Zones__DPIRD-052_</wfs:Name>
+    <wfs:Title>European_House_Borer_-_Restricted_Movement_Zones__DPIRD-052_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>115.36812242 -34.97930028</ows:LowerCorner>
+      <ows:UpperCorner>117.91763088 -30.89902561</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Pearl_Oyster_Fishery__DPIRD-058_</wfs:Name>
+    <wfs:Title>Pearl_Oyster_Fishery__DPIRD-058_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>114.08034972 -22.52499146</ows:LowerCorner>
+      <ows:UpperCorner>129.03040541 -11.21522529</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Navigable_Water_Regulation_Areas__DOT-005_</wfs:Name>
+    <wfs:Title>Navigable_Water_Regulation_Areas__DOT-005_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>96.82807077 -35.09542605</ows:LowerCorner>
+      <ows:UpperCorner>128.78001231 -10.42693309</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:Recognised_Biosecurity_Groups__DPIRD-081_</wfs:Name>
+    <wfs:Title>Recognised_Biosecurity_Groups__DPIRD-081_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.91648674 -34.48468074</ows:LowerCorner>
+      <ows:UpperCorner>129.00193404 -13.73179040</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  <wfs:FeatureType>
+    <wfs:Name>esri:State_Electorates__Proposed___LGATE-133_</wfs:Name>
+    <wfs:Title>State_Electorates__Proposed___LGATE-133_</wfs:Title>
+    <wfs:DefaultCRS>urn:ogc:def:crs:EPSG::7844</wfs:DefaultCRS>
+    <ows:WGS84BoundingBox>
+      <ows:LowerCorner>112.92086897 -35.13507482</ows:LowerCorner>
+      <ows:UpperCorner>129.00192056 -13.67856549</ows:UpperCorner>
+    </ows:WGS84BoundingBox>
+  <wfs:OtherCRS>urn:ogc:def:crs:EPSG::3857</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4326</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::4283</wfs:OtherCRS><wfs:OtherCRS>urn:ogc:def:crs:EPSG::7844</wfs:OtherCRS></wfs:FeatureType>
+  </wfs:FeatureTypeList>
+  <fes:Filter_Capabilities>
+  <fes:Conformance>
+    <fes:Constraint name="ImplementsQuery"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsAdHocQuery"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsFunctions"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsResourceId"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsMinStandardFilter"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsStandardFilter"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsMinSpatialFilter"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsSpatialFilter"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsMinTemporalFilter"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsTemporalFilter"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsVersionNav"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsSorting"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsExtendedOperators"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsMinimumXPath"><ows:NoValues/><ows:DefaultValue>TRUE</ows:DefaultValue></fes:Constraint>
+    <fes:Constraint name="ImplementsSchemaElementFunc"><ows:NoValues/><ows:DefaultValue>FALSE</ows:DefaultValue></fes:Constraint>
+  </fes:Conformance>
+  <fes:Id_Capabilities>
+    <fes:ResourceIdentifier name="fes:ResourceId"/>
+  </fes:Id_Capabilities>
+  <fes:Scalar_Capabilities>
+    <fes:LogicalOperators/>
+    <fes:ComparisonOperators>
+      <fes:ComparisonOperator name="PropertyIsEqualTo"/>
+      <fes:ComparisonOperator name="PropertyIsNotEqualTo"/>
+      <fes:ComparisonOperator name="PropertyIsLessThan"/>
+      <fes:ComparisonOperator name="PropertyIsGreaterThan"/>
+      <fes:ComparisonOperator name="PropertyIsLessThanOrEqualTo"/>
+      <fes:ComparisonOperator name="PropertyIsGreaterThanOrEqualTo"/>
+      <fes:ComparisonOperator name="PropertyIsLike"/>
+      <fes:ComparisonOperator name="PropertyIsNull"/>
+      <fes:ComparisonOperator name="PropertyIsNil"/>
+      <fes:ComparisonOperator name="PropertyIsBetween"/>
+    </fes:ComparisonOperators>
+  </fes:Scalar_Capabilities>
+  <fes:Spatial_Capabilities>
+    <fes:GeometryOperands xmlns:gml="http://www.opengis.net/gml" xmlns:gml32="http://www.opengis.net/gml">
+      <fes:GeometryOperand name="gml:Box"/>
+      <fes:GeometryOperand name="gml:Envelope"/>
+      <fes:GeometryOperand name="gml:Point"/>
+      <fes:GeometryOperand name="gml:LineString"/>
+      <fes:GeometryOperand name="gml:LinearRing"/>
+      <fes:GeometryOperand name="gml:Polygon"/>
+      <fes:GeometryOperand name="gml:MultiPoint"/>
+      <fes:GeometryOperand name="gml:MultiCurve"/>
+      <fes:GeometryOperand name="gml:MultiSurface"/>
+    </fes:GeometryOperands>
+    <fes:SpatialOperators>
+      <fes:SpatialOperator name="BBOX"/>
+      <fes:SpatialOperator name="Equals"/>
+      <fes:SpatialOperator name="Disjoint"/>
+      <fes:SpatialOperator name="Intersects"/>
+      <fes:SpatialOperator name="Touches"/>
+      <fes:SpatialOperator name="Crosses"/>
+      <fes:SpatialOperator name="Within"/>
+      <fes:SpatialOperator name="Contains"/>
+      <fes:SpatialOperator name="Overlaps"/>
+      <fes:SpatialOperator name="DWithin"/>
+    </fes:SpatialOperators>
+  </fes:Spatial_Capabilities>
+  </fes:Filter_Capabilities>
+</wfs:WFS_Capabilities>

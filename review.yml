@@ -1,0 +1,351 @@
+aid: landgate
+name: Landgate
+review:
+  question: Does Landgate expose a genuinely public, machine-readable API surface for
+    real estate and property data, and what must a developer sign or join to reach the
+    rest of it?
+  answer: partially
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  tier: land-registry-govt
+  summary: |
+    Landgate — the Western Australian Land Information Authority — runs a genuinely
+    two-tier surface, and the two tiers must not be conflated.
+
+    TIER 1, OPEN AND ANONYMOUSLY CALLABLE (confirmed HTTP 200 on 2026-07-26):
+      * SLIP public ArcGIS REST directory at
+        https://public-services.slip.wa.gov.au/public/rest/services (and the equivalent
+        services.slip.wa.gov.au host) — ArcGIS Server 12.1, 65 map services in five
+        folders, authInfo.isTokenBasedSecurity = false. A real feature query against
+        SLIP_Public_Services/Boundaries/MapServer/14 returned live LGA boundary
+        geometry and attributes with no credential of any kind.
+      * OGC WMS 1.3.0 GetCapabilities (56 layers) and WFS 2.0.0 GetCapabilities
+        (38 feature types) on the same host, both retrieved anonymously.
+      * Data WA CKAN Action API at https://catalogue.data.wa.gov.au/api/3/action —
+        status_show, package_search, package_list and organization_show all 200
+        anonymously. 2,872 datasets total; the Landgate organization publishes 395.
+        DCAT JSON-LD catalog at /catalog.jsonld also 200.
+
+    TIER 2, GATED (confirmed HTTP 401 / login redirect on 2026-07-26):
+      * SLIP subscription services at
+        https://services.slip.wa.gov.au/arcgis/rest/services (and the
+        Landgate_v2_Subscription_Services folder) returned HTTP 401 anonymously. Even
+        /arcgis/rest/info is 401. These are the endpoints referenced from Data WA
+        dataset records for products such as Historical Cadastre, so the catalogue
+        openly advertises endpoints a developer cannot call.
+      * Bulk downloads at https://data-downloads.slip.wa.gov.au/<LGATE-id>/<format>
+        return an HTTP 200 body that is a redirect page to /Account/Login — a SLIP
+        account is required before any file is served.
+
+    THE FINDING: Landgate is the counterweight to private portal control in WA, but
+    only partially. The open tier is real and callable; the authoritative registry
+    record (titles, tenure, ownership, sales evidence, valuations) is not in it. Under
+    the 2019 restructure WA's automated land titling operations moved to a commercial
+    services arrangement while Landgate retained the Registrar of Titles function —
+    the practical effect for a developer is that the public record is sold back through
+    licences and reseller agreements rather than exposed as an open API.
+reso:
+  posture: No RESO reference found — RESO is absent from this Australian government
+    land registry.
+  certified: false
+  webApiCertification: none found
+  dataDictionaryCertification: none found
+  dataDictionaryVersion: null
+  directoryEvidence: none — no RESO certification directory listing was located, and
+    none would be expected; RESO certification is a North American MLS/broker standard
+    administered by an industry body affiliated with NAR, and Landgate is neither an
+    MLS nor a listing portal.
+  upi:
+    universalPropertyIdentifier: false
+    note: |
+      No RESO Universal Property Identifier is used. Landgate identifies land by
+      Western Australian cadastral identifiers instead — parcel/lot on plan,
+      Certificate of Title volume/folio, and dataset-level LGATE-nnn product codes
+      (e.g. LGATE-217 Cadastre (Polygon), LGATE-233 LGA Boundaries).
+  odata:
+    present: false
+    metadataProbed:
+      - url: https://public-services.slip.wa.gov.au/public/rest/services/$metadata
+        status: 404
+      - url: https://catalogue.data.wa.gov.au/$metadata
+        status: 200
+        note: HTTP 200 but the body is CKAN's HTML not-found page (text/html, 20,499
+          bytes), NOT an OData $metadata document. Do not treat this 200 as a contract.
+    note: The machine-readable contracts on this estate are Esri ArcGIS REST service
+      descriptors and OGC GetCapabilities documents, not OData. No $metadata exists.
+accessGate:
+  gate: licence-agreement
+  gated: true
+  note: |
+    Classified licence-agreement because the substantive data — everything beyond the
+    public SLIP viewer layers and the open catalogue metadata — requires a signed
+    Landgate licence before it is delivered. The open SLIP/CKAN tier is genuinely
+    self-serve and needs no signup at all, which is why this provider is scored as
+    "built" rather than "built-stub", but the gate that governs the product is the
+    licence, not a developer key.
+  whatADeveloperMustSignOrJoin:
+    - SLIP Subscription Licence — 24-hour online access to selected products via the
+      Shared Location Information Platform.
+    - Location Information Subscription Licence — recurring data supply at an agreed
+      update frequency.
+    - Transaction Licence — a single purchase with no ongoing updates.
+    - Publication Licence — required to publish Landgate data digitally, online or in
+      print.
+    - Broker Agreement — required to resell title or commercial products.
+    - Distributor Agreement — required to buy and resell at wholesale rates.
+    - Value Added Reseller (VAR) Agreement — required to create derived products from
+      Landgate data.
+    - Trial Licence — SLIP trial or Location Information Sample for evaluation.
+    - MyLandgate account — required before any bulk download from
+      data-downloads.slip.wa.gov.au is served.
+  licenceSource: https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/
+  selfServeApiKeys: false
+  applicationForm: false
+  membershipRequired: false
+  brokerOrAgentOnly: false
+  note2: There is no API key issuance flow, no client registration, no rate-limit
+    documentation and no terms-of-use page addressed to developers. Onboarding is a
+    phone-and-email commercial process through Landgate Customer Experience
+    (+61 8 9273 7683, CustomerExperience@Landgate.wa.gov.au).
+openData:
+  openDataExists: true
+  qualified: true
+  note: |
+    Open data exists but is narrower than the "government open data portal" label
+    suggests, and the distinction is the point.
+
+    GENUINELY OPEN AND UNLICENSED IN PRACTICE:
+      * The SLIP public ArcGIS REST / WMS / WFS services — callable anonymously,
+        no token, no signup, real features returned.
+      * The Data WA CKAN Action API itself — the catalogue metadata and search are
+        fully open.
+
+    NOT OPEN LICENSED: the licence facet across the 395 Landgate-published datasets on
+    data.wa.gov.au, queried 2026-07-26, is
+      custom_other .............. 371
+      custom_government .......... 13
+      cc-nc ....................... 5   (Creative Commons non-commercial)
+      custom_public_domain ........ 2
+      custom_personal_academic .... 1
+    Zero datasets carry CC-BY or any other permissive open licence. A publicly callable
+    endpoint under a bespoke Landgate licence is not the same thing as open data, and
+    both facts are recorded here deliberately.
+  policyContext: Landgate leads implementation of the WA Whole of Government Open Data
+    Policy and operates data.wa.gov.au on behalf of the WA public sector, with the
+    Department of the Premier and Cabinet's Office of Digital Government owning the
+    policy.
+authModel:
+  publicTier:
+    scheme: none
+    evidence: 'https://public-services.slip.wa.gov.au/public/rest/info?f=json returned
+      HTTP 200 with {"fullVersion":"12.1.0","currentVersion":12.1,"authInfo":{"isTokenBasedSecurity":false}}'
+  catalogTier:
+    scheme: none for read; CKAN API token would be required for write operations, which
+      are not offered to the public.
+  gatedTier:
+    scheme: HTTP 401 challenge on https://services.slip.wa.gov.au/arcgis/rest/services —
+      Esri ArcGIS web-tier authentication in front of the subscription services. No
+      token endpoint is published and no documentation describes how a subscriber
+      authenticates programmatically.
+  identityProvider:
+    product: Ping Identity PingFederate
+    issuer: https://sign-on.app.landgate.wa.gov.au
+    discovery: https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration
+    discoveryStatus: 200
+    fetched: '2026-07-26'
+    authorizationEndpoint: https://sign-on.app.landgate.wa.gov.au/as/authorization.oauth2
+    tokenEndpoint: https://sign-on.app.landgate.wa.gov.au/as/token.oauth2
+    userinfoEndpoint: https://sign-on.app.landgate.wa.gov.au/idp/userinfo.openid
+    jwksUri: https://sign-on.app.landgate.wa.gov.au/pf/JWKS
+    scopesSupported:
+      - openid
+      - profile
+      - email
+      - address
+      - phone
+      - ATO
+    note: |
+      This is the MyLandgate / Land Enquiry Services / SLIP customer sign-on, not a
+      public API authorization server. The discovery document advertises a broad set of
+      grant types (authorization_code, implicit, refresh_token, password,
+      client_credentials, jwt-bearer, saml2-bearer, device_code, token-exchange, CIBA)
+      because that is the PingFederate default surface — it does NOT imply a developer
+      can register a client. No public client registration endpoint is offered and no
+      developer documentation references OAuth at all. Recorded as a genuine artifact,
+      not as evidence of a developer programme.
+      https://sign-on.app.landgate.wa.gov.au/idp/startSSO.ping returned HTTP 500 when
+      called without partner parameters, which is expected behaviour for a PingFederate
+      SSO initiator and is not evidence of an outage.
+developerSurface:
+  developerPortal: null
+  portalConfirmed: false
+  probed:
+    - url: https://developer.landgate.wa.gov.au/
+      status: '000 (DNS does not resolve)'
+    - url: https://developers.landgate.wa.gov.au/
+      status: '000 (DNS does not resolve)'
+    - url: https://api.landgate.wa.gov.au/
+      status: '000 (DNS does not resolve)'
+    - url: https://docs.landgate.wa.gov.au/
+      status: '000 (DNS does not resolve)'
+    - url: https://slip.wa.gov.au/
+      status: '000 (DNS does not resolve — SLIP lives on data.wa.gov.au/slip and the
+        maps./services./public-services. subdomains instead)'
+    - url: https://www.landgate.wa.gov.au/api
+      status: 404
+    - url: https://www.landgate.wa.gov.au/developers
+      status: 404
+    - url: https://www.landgate.wa.gov.au/openapi.yaml
+      status: 404
+    - url: https://www.landgate.wa.gov.au/openapi.json
+      status: 404
+    - url: https://catalogue.data.wa.gov.au/openapi.json
+      status: 200 — but the body is CKAN's HTML not-found page, not a spec. Rejected.
+    - url: https://catalogue.data.wa.gov.au/swagger.json
+      status: 200 — same CKAN HTML not-found page. Rejected.
+    - url: https://catalogue.data.wa.gov.au/api-docs
+      status: 200 — same CKAN HTML not-found page. Rejected.
+    - url: https://data.wa.gov.au/api/3/action/status_show
+      status: 500 (the www host does not proxy the CKAN API; the catalogue. host does)
+    - url: https://toolkit.data.wa.gov.au/hc/en-gb
+      status: 403 to a non-browser client (Zendesk help centre)
+    - url: https://www.landgate.wa.gov.au/favicon.ico
+      status: 404 — no brand icon trivially available, network placeholder image used
+  openapiPublished: false
+  webhooks: none published — no event, notification or callback surface is documented
+    anywhere on the Landgate or Data WA estate.
+  events: none published.
+  sdks: none published — no client libraries, no package registry presence, no GitHub
+    organization located for the WA Landgate.
+  postman: none published — no Postman workspace or collection located.
+  cli: none published.
+  statusPage: none located.
+  changelog: none located for the data services.
+marketPosition:
+  role: Western Australian state land registry, statutory valuer, and custodian of the
+    state's foundational location data.
+  valueChain: |
+    Sits beneath the Australian portal duopoly (REA Group's realestate.com.au and
+    Domain) and beneath PEXA's electronic conveyancing rail. Portals and valuation
+    vendors (PropTrack, CoreLogic) consume registry-derived attributes and sales
+    evidence; Landgate is one of the state-level sources those chains rest on. Landgate
+    publishes an explicit "product on-sellers" page, which is the plainest possible
+    statement that the intended distribution model for its data is through licensed
+    commercial resellers rather than through a public API.
+  privatisationNote: |
+    Western Australia is one of the Australian states that commercialised registry
+    operations — the automated land titling and registry operating functions were
+    transferred under a long-term commercial services arrangement in 2019 while
+    Landgate retained the Registrar of Titles statutory function and data custodianship.
+    Recorded here because a privatised registry selling the public record back to the
+    market is itself the finding for this tier; the specific corporate details of the
+    operator were not independently verified during this bootstrap and are deliberately
+    left unnamed rather than asserted.
+  eConveyancing:
+    note: Landgate publishes an e-conveyancing toolkit for WA practitioners. Electronic
+      lodgement in WA runs through the national Electronic Lodgement Network; no
+      Landgate-published API for lodgement was located, and none is offered to general
+      developers.
+    url: https://www.landgate.wa.gov.au/land-and-property/electronic-conveyancing/e-conveyancing-toolkit/
+harvestedArtifacts:
+  - path: openapi/landgate-slip-public-arcgis-rest-services.json
+    sourceURL: https://services.slip.wa.gov.au/public/rest/services?f=json
+    httpStatus: 200
+    contentType: application/json;charset=UTF-8
+    fetched: '2026-07-26'
+    parses: true
+    note: ArcGIS Server 12.1 root services directory. Folders — Land_Monitor,
+      Landgate_Public_Imagery, Landgate_Public_Maps, SLIP_Public_Services, Utilities.
+  - path: openapi/landgate-slip-public-services-folder.json
+    sourceURL: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services?f=json
+    httpStatus: 200
+    contentType: application/json;charset=UTF-8
+    fetched: '2026-07-26'
+    parses: true
+    note: 57 MapServer services in the SLIP_Public_Services folder.
+  - path: openapi/landgate-slip-public-wms-capabilities.xml
+    sourceURL: https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetCapabilities&service=WMS
+    httpStatus: 200
+    contentType: text/xml
+    fetched: '2026-07-26'
+    parses: true
+    note: OGC WMS 1.3.0 GetCapabilities, 56 Layer elements. Machine-readable service
+      contract for the public WMS tier.
+  - path: openapi/landgate-slip-public-wfs-capabilities.xml
+    sourceURL: https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?request=GetCapabilities&service=WFS
+    httpStatus: 200
+    contentType: text/xml;charset=UTF-8
+    fetched: '2026-07-26'
+    parses: true
+    note: OGC WFS 2.0.0 GetCapabilities, 38 FeatureType entries.
+  - path: openapi/landgate-mylandgate-openid-configuration.json
+    sourceURL: https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration
+    httpStatus: 200
+    contentType: application/json
+    fetched: '2026-07-26'
+    parses: true
+    note: PingFederate OpenID Connect discovery document for MyLandgate customer SSO.
+      Fetched anonymously. Not a public developer API.
+liveCallEvidence:
+  - call: GET https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/14/query?where=1%3D1&outFields=*&resultRecordCount=1&f=json
+    status: 200
+    credential: none
+    result: Returned a real LGA Boundary feature (COOROW, SHIRE OF; boundary_id
+      3928489; abs_lga_number 2030) with polygon geometry.
+  - call: GET https://catalogue.data.wa.gov.au/api/3/action/package_search?fq=organization:landgate&rows=0
+    status: 200
+    credential: none
+    result: 395 datasets published by the Landgate organization.
+  - call: GET https://services.slip.wa.gov.au/arcgis/rest/services?f=json
+    status: 401
+    credential: none
+    result: Subscription tier refuses anonymous access.
+  - call: GET https://data-downloads.slip.wa.gov.au/LGATE-233/GeoJSON
+    status: 200
+    credential: none
+    result: Body is an "Object moved" redirect to /Account/Login — bulk download requires
+      a SLIP account.
+sources:
+  - url: https://www.landgate.wa.gov.au/
+    status: 200
+    type: Website
+  - url: https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/
+    status: 200
+    type: Documentation
+    note: SLIP overview; points to data.wa.gov.au/slip and maps.slip.wa.gov.au/landgate/locate/.
+  - url: https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/
+    status: 200
+    type: Documentation
+    note: Lists 16+ foundation datasets and the MyLandgate / Land Enquiry Services /
+      Map Viewer Plus / LandInfo WA access channels. Names no REST API.
+  - url: https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/
+    status: 200
+    type: TermsOfService
+    note: Source for the eight licence types recorded under accessGate.
+  - url: https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/data-wa/
+    status: 200
+    type: Documentation
+    note: Confirms Landgate operates data.wa.gov.au under the WA Whole of Government
+      Open Data Policy.
+  - url: https://www.landgate.wa.gov.au/about-us/
+    status: 200
+    type: About
+    note: Identifies the organisation as the Western Australian Land Information
+      Authority; secures land interests, values property, provides location information.
+  - url: https://catalogue.data.wa.gov.au/api/3/action/status_show
+    status: 200
+    type: CKAN
+    note: Confirms CKAN with dcat, spatial_metadata, spatial_query, wmts_view and
+      wa_data_dictionary extensions enabled.
+notes:
+  imageChoice: The shared APIs.json network placeholder image is used. No Landgate
+    favicon or brand icon was trivially retrievable (favicon.ico returned 404).
+  homonymWarning: |
+    "Landgate" is a homonym. https://www.linkedin.com/company/landgate resolves to a
+    page titled "LandGate", which is a different company (a US land/energy data
+    marketplace at landgate.com) and NOT the Western Australian Land Information
+    Authority. It was deliberately excluded from apis.yml. Any future enrichment must
+    not attach landgate.com assets, social accounts, or APIs to this record.
+  scopeBoundary: This bootstrap covers identity, honest public-API posture, and spec
+    harvest only. No enrichment artifacts were generated.

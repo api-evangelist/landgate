@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WMS_Capabilities version="1.3.0"
+  xmlns="http://www.opengis.net/wms"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:esri_wms="http://www.esri.com/wms"
+  xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd http://www.esri.com/wms https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?version=1.3.0%26service=WMS%26request=GetSchemaExtension">
+  <Service>
+    <Name><![CDATA[WMS]]></Name>
+    <Title>WMS</Title>
+    <Abstract>WMS</Abstract>
+    <KeywordList><Keyword><![CDATA[]]></Keyword></KeywordList>
+    <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?"/>
+    <ContactInformation>
+      <ContactPersonPrimary>
+        <ContactPerson><![CDATA[]]></ContactPerson>
+        <ContactOrganization><![CDATA[]]></ContactOrganization>
+      </ContactPersonPrimary>
+      <ContactPosition><![CDATA[]]></ContactPosition>
+      <ContactAddress>
+        <AddressType><![CDATA[]]></AddressType>
+        <Address><![CDATA[]]></Address>
+        <City><![CDATA[]]></City>
+        <StateOrProvince><![CDATA[]]></StateOrProvince>
+        <PostCode><![CDATA[]]></PostCode>
+        <Country><![CDATA[]]></Country>
+      </ContactAddress>
+      <ContactVoiceTelephone><![CDATA[]]></ContactVoiceTelephone>
+      <ContactFacsimileTelephone><![CDATA[]]></ContactFacsimileTelephone>
+      <ContactElectronicMailAddress><![CDATA[]]></ContactElectronicMailAddress>
+    </ContactInformation>
+    <Fees><![CDATA[]]></Fees>
+    <AccessConstraints><![CDATA[]]></AccessConstraints>
+    <MaxWidth>4096</MaxWidth>
+    <MaxHeight>4096</MaxHeight>
+  </Service>
+  <Capability>
+    <Request>
+      <GetCapabilities>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>text/xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?"/></Get></HTTP>
+        </DCPType>
+      </GetCapabilities>
+      <GetMap>
+        <Format>image/bmp</Format>
+        <Format>image/jpeg</Format>
+        <Format>image/tiff</Format>
+        <Format>image/png</Format>
+        <Format>image/png8</Format>
+        <Format>image/png24</Format>
+        <Format>image/png32</Format>
+        <Format>image/gif</Format>
+        <Format>image/svg+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?"/></Get></HTTP>
+        </DCPType>
+      </GetMap>
+      <GetFeatureInfo>
+        <Format>application/vnd.esri.wms_raw_xml</Format>
+        <Format>application/vnd.esri.wms_featureinfo_xml</Format>
+        <Format>application/vnd.ogc.wms_xml</Format>
+        <Format>application/geo+json</Format>
+        <Format>text/xml</Format>
+        <Format>text/html</Format>
+        <Format>text/plain</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?"/></Get></HTTP>
+        </DCPType>
+      </GetFeatureInfo>
+      <esri_wms:GetStyles>
+        <Format>application/vnd.ogc.sld+xml</Format>
+        <DCPType>
+          <HTTP><Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?"/></Get></HTTP>
+        </DCPType>
+      </esri_wms:GetStyles>
+    </Request>
+    <Exception>
+      <Format>application/vnd.ogc.se_xml</Format>
+      <Format>application/vnd.ogc.se_inimage</Format>
+      <Format>application/vnd.ogc.se_blank</Format>
+      <Format>text/xml</Format>
+      <Format>XML</Format>
+    </Exception>
+    <Layer>
+      <Title><![CDATA[Boundaries]]></Title>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.815240</westBoundLongitude><eastBoundLongitude>163.192085</eastBoundLongitude><southBoundLatitude>-47.190950</southBoundLatitude><northBoundLatitude>-8.880477</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.815240" miny="-47.190950" maxx="163.192085" maxy="-8.880477"/>
+<BoundingBox CRS="EPSG:4326" minx="-47.190950" miny="96.815240" maxx="-8.880477" maxy="163.192085"/>
+<BoundingBox CRS="EPSG:7844" minx="-47.190950" miny="96.815240" maxx="-8.880477" maxy="163.192085"/>
+<BoundingBox CRS="EPSG:3857" minx="10777423.270594" miny="-5973297.857571" maxx="18166459.803247" maxy="-992552.201708"/>
+<BoundingBox CRS="EPSG:102100" minx="10777423.270594" miny="-5973297.857571" maxx="18166459.803247" maxy="-992552.201708"/>
+<BoundingBox CRS="EPSG:4283" minx="-47.190950" miny="96.815240" maxx="-8.880477" maxy="163.192085"/>
+      <Layer queryable="1">
+        <Name>0</Name>
+        <Title><![CDATA[Recognised Biosecurity Groups (DPIRD-081)]]></Title>
+        <Abstract><![CDATA[Recognised Biosecurity Group (RBG) areas in Western Australia. RBGs are community based groups formally recognised under the Biosecurity and Agriculture Management Act 2007 (BAM Act). They each operate within a prescribed area.
+
+License: Creative Commons Attribution
+
+Tags: RBG, Recognised Biosecurity Group
+
+Contact: gis@dpird.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.916498</westBoundLongitude><eastBoundLongitude>129.001938</eastBoundLongitude><southBoundLatitude>-34.484667</southBoundLatitude><northBoundLatitude>-13.731778</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.916498" miny="-34.484667" maxx="129.001938" maxy="-13.731778"/>
+<BoundingBox CRS="EPSG:4326" minx="-34.484667" miny="112.916498" maxx="-13.731778" maxy="129.001938"/>
+<BoundingBox CRS="EPSG:7844" minx="-34.484667" miny="112.916498" maxx="-13.731778" maxy="129.001938"/>
+<BoundingBox CRS="EPSG:3857" minx="12569807.071097" miny="-4094068.051208" maxx="14360430.010878" maxy="-1543461.925841"/>
+<BoundingBox CRS="EPSG:102100" minx="12569807.071097" miny="-4094068.051208" maxx="14360430.010878" maxy="-1543461.925841"/>
+<BoundingBox CRS="EPSG:4283" minx="-34.484667" miny="112.916498" maxx="-13.731778" maxy="129.001938"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Recognised Biosecurity Groups (DPIRD-081)]]></Title>
+          <LegendURL width="19" height="19">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=0" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>1</Name>
+        <Title><![CDATA[Pearl Oyster Fishery (DPIRD-058)]]></Title>
+        <Abstract><![CDATA[This spatial boundary supports Pearl Oyster Fishery Ministerial Policy Guideline No 17 in relation to section 54 of the Fish Resources Management Act 1994 and Section 24 of the Pearling Act 1990.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.080360</westBoundLongitude><eastBoundLongitude>129.030409</eastBoundLongitude><southBoundLatitude>-22.524977</southBoundLatitude><northBoundLatitude>-11.215225</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.080360" miny="-22.524977" maxx="129.030409" maxy="-11.215225"/>
+<BoundingBox CRS="EPSG:4326" minx="-22.524977" miny="114.080360" maxx="-11.215225" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:7844" minx="-22.524977" miny="114.080360" maxx="-11.215225" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:3857" minx="12699367.621226" miny="-2574672.781052" maxx="14363599.408805" maxy="-1256522.973609"/>
+<BoundingBox CRS="EPSG:102100" minx="12699367.621226" miny="-2574672.781052" maxx="14363599.408805" maxy="-1256522.973609"/>
+<BoundingBox CRS="EPSG:4283" minx="-22.524977" miny="114.080360" maxx="-11.215225" maxy="129.030409"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Pearl Oyster Fishery (DPIRD-058)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=1" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Title><![CDATA[Quarantine Area Notices (DPIRD-103)]]></Title>
+        <Abstract><![CDATA[New Group Layer]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.449114</westBoundLongitude><eastBoundLongitude>116.877778</eastBoundLongitude><southBoundLatitude>-32.482415</southBoundLatitude><northBoundLatitude>-20.520339</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.449114" miny="-32.482415" maxx="116.877778" maxy="-20.520339"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:3857" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:102100" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+      <Layer queryable="1">
+        <Name>3</Name>
+        <Title><![CDATA[Red Dwarf Honey Bee (Apis florea), and Euvarroa Brood Mite (Euvarroa sinhai)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.449114</westBoundLongitude><eastBoundLongitude>116.877778</eastBoundLongitude><southBoundLatitude>-32.482415</southBoundLatitude><northBoundLatitude>-20.520339</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.449114" miny="-32.482415" maxx="116.877778" maxy="-20.520339"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:3857" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:102100" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Red Dwarf Honey Bee (Apis florea), and Euvarroa Brood Mite (Euvarroa sinhai)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=3" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>4</Name>
+        <Title><![CDATA[Queensland Fruit Fly (Bactrocera tryoni) (QFly)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.449114</westBoundLongitude><eastBoundLongitude>116.877778</eastBoundLongitude><southBoundLatitude>-32.482415</southBoundLatitude><northBoundLatitude>-20.520339</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.449114" miny="-32.482415" maxx="116.877778" maxy="-20.520339"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:3857" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:102100" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Queensland Fruit Fly (Bactrocera tryoni) (QFly)]]></Title>
+          <LegendURL width="152" height="79">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=4" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>5</Name>
+        <Title><![CDATA[Polyphagous Shot-Hole Borer (Euwallacea fornicatus) (PSHB)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.449114</westBoundLongitude><eastBoundLongitude>116.877778</eastBoundLongitude><southBoundLatitude>-32.482415</southBoundLatitude><northBoundLatitude>-20.520339</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.449114" miny="-32.482415" maxx="116.877778" maxy="-20.520339"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+<BoundingBox CRS="EPSG:3857" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:102100" minx="12851736.601605" miny="-3826803.014301" maxx="13010774.688817" maxy="-2334775.147171"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.482415" miny="115.449114" maxx="-20.520339" maxy="116.877778"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Polyphagous Shot-Hole Borer (Euwallacea fornicatus) (PSHB)]]></Title>
+          <LegendURL width="116" height="80">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=5" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      </Layer>
+      <Layer queryable="1">
+        <Name>6</Name>
+        <Title><![CDATA[European House Borer - Restricted Movement Zones (DPIRD-052)]]></Title>
+        <Abstract><![CDATA[European house borer (EHB), Hylotrupes bajulus Linnaeus, is a destructive pest of seasoned coniferous timber including pine, fir and spruce. If allowed to become established it can cause major structural damage to buildings.
+
+This data set shows Restricted Movement Zones (RMZ) surrounding areas in which EHB has been found. Restricted movement of pinewood may apply within all or part of these areas.
+
+EHB Restricted Movement Zones are subject to change. See the DPIRD website for up to date specific information on EHB RMZs and requirements.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.368134</westBoundLongitude><eastBoundLongitude>117.917641</eastBoundLongitude><southBoundLatitude>-34.979287</southBoundLatitude><northBoundLatitude>-30.899012</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.368134" miny="-34.979287" maxx="117.917641" maxy="-30.899012"/>
+<BoundingBox CRS="EPSG:4326" minx="-34.979287" miny="115.368134" maxx="-30.899012" maxy="117.917641"/>
+<BoundingBox CRS="EPSG:7844" minx="-34.979287" miny="115.368134" maxx="-30.899012" maxy="117.917641"/>
+<BoundingBox CRS="EPSG:3857" minx="12842721.920631" miny="-4161066.662871" maxx="13126531.760904" maxy="-3619640.889412"/>
+<BoundingBox CRS="EPSG:102100" minx="12842721.920631" miny="-4161066.662871" maxx="13126531.760904" maxy="-3619640.889412"/>
+<BoundingBox CRS="EPSG:4283" minx="-34.979287" miny="115.368134" maxx="-30.899012" maxy="117.917641"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[European House Borer - Restricted Movement Zones (DPIRD-052)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=6" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Title><![CDATA[Navigable Water Regulation Areas (DOT-005)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+      <Layer queryable="1">
+        <Name>8</Name>
+        <Title><![CDATA[Personal Watercraft - Freestyle Driving Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Personal Watercraft - Freestyle Driving Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=8" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>9</Name>
+        <Title><![CDATA[12 Knot Speed Restriction Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[12 Knot Speed Restriction Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=9" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>10</Name>
+        <Title><![CDATA[8 Knot Speed Restriction Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[8 Knot Speed Restriction Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=10" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>11</Name>
+        <Title><![CDATA[6 Knot Speed Restriction Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[6 Knot Speed Restriction Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=11" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>12</Name>
+        <Title><![CDATA[5 Knot Speed Restriction Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[5 Knot Speed Restriction Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=12" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>13</Name>
+        <Title><![CDATA[Closed Waters (All Vessels)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Closed Waters (All Vessels)]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=13" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>14</Name>
+        <Title><![CDATA[Closed Waters (Motorised Vessels)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Closed Waters (Motorised Vessels)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=14" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>15</Name>
+        <Title><![CDATA[Water Ski Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Water Ski Area]]></Title>
+          <LegendURL width="18" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=15" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>16</Name>
+        <Title><![CDATA[10 Knot Speed Restriction Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[10 Knot Speed Restriction Area]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=16" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>17</Name>
+        <Title><![CDATA[Others]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Others]]></Title>
+          <LegendURL width="19" height="19">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=17" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>18</Name>
+        <Title><![CDATA[Parasailing Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Parasailing Area]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=18" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>19</Name>
+        <Title><![CDATA[Prohibited Swimming Area]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.828071</westBoundLongitude><eastBoundLongitude>128.780012</eastBoundLongitude><southBoundLatitude>-35.095412</southBoundLatitude><northBoundLatitude>-10.426933</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.828071" miny="-35.095412" maxx="128.780012" maxy="-10.426933"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+<BoundingBox CRS="EPSG:3857" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:102100" minx="10778851.532611" miny="-4176854.873324" maxx="14335725.395035" maxy="-1167181.292070"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.095412" miny="96.828071" maxx="-10.426933" maxy="128.780012"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Prohibited Swimming Area]]></Title>
+          <LegendURL width="22" height="22">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=19" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>944940.476190</MaxScaleDenominator>
+      </Layer>
+      </Layer>
+      <Layer queryable="1">
+        <Name>20</Name>
+        <Title><![CDATA[Pearling Leases (DPIRD-002)]]></Title>
+        <Abstract><![CDATA[Polygon coverage of all pearling leases, holding sites, application sites and transport exempt areas.
+
+Data from Department of Primary Industries and Regional Development is provided under Creative Common (Attribution) licence 4.0. A full list of the terms and conditions associated with this licence can be found at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+It is requested that the following attribution is used: © State of Western Australia, Department of Primary Industries and Regional Development.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.099010</westBoundLongitude><eastBoundLongitude>126.706522</eastBoundLongitude><southBoundLatitude>-22.484250</southBoundLatitude><northBoundLatitude>-13.861436</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.099010" miny="-22.484250" maxx="126.706522" maxy="-13.861436"/>
+<BoundingBox CRS="EPSG:4326" minx="-22.484250" miny="114.099010" maxx="-13.861436" maxy="126.706522"/>
+<BoundingBox CRS="EPSG:7844" minx="-22.484250" miny="114.099010" maxx="-13.861436" maxy="126.706522"/>
+<BoundingBox CRS="EPSG:3857" minx="12701443.728616" miny="-2569765.469453" maxx="14104905.487519" maxy="-1558324.289476"/>
+<BoundingBox CRS="EPSG:102100" minx="12701443.728616" miny="-2569765.469453" maxx="14104905.487519" maxy="-1558324.289476"/>
+<BoundingBox CRS="EPSG:4283" minx="-22.484250" miny="114.099010" maxx="-13.861436" maxy="126.706522"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Pearling Leases (DPIRD-002)]]></Title>
+          <LegendURL width="165" height="63">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=20" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>21</Name>
+        <Title><![CDATA[Aquaculture Sites (DPIRD-001)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.819565</westBoundLongitude><eastBoundLongitude>128.759842</eastBoundLongitude><southBoundLatitude>-35.099108</southBoundLatitude><northBoundLatitude>-12.152402</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.819565" miny="-35.099108" maxx="128.759842" maxy="-12.152402"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.099108" miny="96.819565" maxx="-12.152402" maxy="128.759842"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.099108" miny="96.819565" maxx="-12.152402" maxy="128.759842"/>
+<BoundingBox CRS="EPSG:3857" minx="10777904.640340" miny="-4177357.734694" maxx="14333480.002648" maxy="-1363057.619564"/>
+<BoundingBox CRS="EPSG:102100" minx="10777904.640340" miny="-4177357.734694" maxx="14333480.002648" maxy="-1363057.619564"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.099108" miny="96.819565" maxx="-12.152402" maxy="128.759842"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Aquaculture Sites (DPIRD-001)]]></Title>
+          <LegendURL width="177" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=21" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>22</Name>
+        <Title><![CDATA[Emergency Management Boundaries (OEM-001)]]></Title>
+        <Abstract><![CDATA[State Emergency Management Boundaries
+
+Tags: Boundaries, State, Emergency, Management
+
+License: Creative Commons Attribution
+
+Contact: gisoem@oem.wa.gov.au
+P: 08 6551 4008]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.920945</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.189924</southBoundLatitude><northBoundLatitude>-13.688691</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.920945" miny="-35.189924" maxx="129.001928" maxy="-13.688691"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.189924" miny="112.920945" maxx="-13.688691" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.189924" miny="112.920945" maxx="-13.688691" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="12570302.135812" miny="-4189721.042855" maxx="14360428.910150" maxy="-1538524.855945"/>
+<BoundingBox CRS="EPSG:102100" minx="12570302.135812" miny="-4189721.042855" maxx="14360428.910150" maxy="-1538524.855945"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.189924" miny="112.920945" maxx="-13.688691" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Emergency Management Boundaries (OEM-001)]]></Title>
+          <LegendURL width="19" height="19">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=22" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>23</Name>
+        <Title><![CDATA[Crop Variety Testing Zones of WA (DPIRD-028)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.097916</westBoundLongitude><eastBoundLongitude>123.309239</eastBoundLongitude><southBoundLatitude>-35.135511</southBoundLatitude><northBoundLatitude>-27.488644</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.097916" miny="-35.135511" maxx="123.309239" maxy="-27.488644"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135511" miny="114.097916" maxx="-27.488644" maxy="123.309239"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135511" miny="114.097916" maxx="-27.488644" maxy="123.309239"/>
+<BoundingBox CRS="EPSG:3857" minx="12701321.940307" miny="-4182311.862462" maxx="13726721.704158" maxy="-3184655.124057"/>
+<BoundingBox CRS="EPSG:102100" minx="12701321.940307" miny="-4182311.862462" maxx="13726721.704158" maxy="-3184655.124057"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135511" miny="114.097916" maxx="-27.488644" maxy="123.309239"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Crop Variety Testing Zones of WA (DPIRD-028)]]></Title>
+          <LegendURL width="157" height="133">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=23" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>24</Name>
+        <Title><![CDATA[Wheatbelt of WA (DPIRD-024)]]></Title>
+        <Abstract><![CDATA[The Wheatbelt boundary of Western Australia defines the area of cropping for wheat in Western Australia.
+This dataset was created in August 2009 to accurately define the limit of cropping for wheat in Western Australia. The western/southern limit was defined using interpretation of the best available aerial photography. The Clearing Line October 2002 was used to define the eastern limit of cropping.
+The data set updated in June 2012 to incorporate 2011 recapture of the Clearing Line to define the eastern limit of cropping.
+
+Licence: Public CC BY-NC
+
+hyperlink to http://researchlibrary.agric.wa.gov.au/gis_maps/2/]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.106778</westBoundLongitude><eastBoundLongitude>123.248346</eastBoundLongitude><southBoundLatitude>-34.878064</southBoundLatitude><northBoundLatitude>-27.523491</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.106778" miny="-34.878064" maxx="123.248346" maxy="-27.523491"/>
+<BoundingBox CRS="EPSG:4326" minx="-34.878064" miny="114.106778" maxx="-27.523491" maxy="123.248346"/>
+<BoundingBox CRS="EPSG:7844" minx="-34.878064" miny="114.106778" maxx="-27.523491" maxy="123.248346"/>
+<BoundingBox CRS="EPSG:3857" minx="12702308.456640" miny="-4147322.869240" maxx="13719943.154569" maxy="-3189028.598832"/>
+<BoundingBox CRS="EPSG:102100" minx="12702308.456640" miny="-4147322.869240" maxx="13719943.154569" maxy="-3189028.598832"/>
+<BoundingBox CRS="EPSG:4283" minx="-34.878064" miny="114.106778" maxx="-27.523491" maxy="123.248346"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Wheatbelt of WA (DPIRD-024)]]></Title>
+          <LegendURL width="19" height="19">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=24" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>25</Name>
+        <Title><![CDATA[Coastline (LGATE-070)]]></Title>
+        <Abstract><![CDATA[Generalised 250k coastline overview of Western Australia.
+
+© Western Australian Land Information Authority (Landgate). Use of Landgate data is subject to [Personal Use License](https://www0.landgate.wa.gov.au/__data/assets/pdf_file/0009/19890/SLIP-Transaction-Personal-Use-Licence.pdf) terms and conditions unless otherwise authorised under [approved License terms and conditions](https://www0.landgate.wa.gov.au/business-and-government/partnering-with-you/licensing-agreements).
+
+License: Other (Non-Commercial)
+
+Tags: Harvested, SLIP Future
+
+Contact: TopoMaintenance@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.816805</westBoundLongitude><eastBoundLongitude>129.001937</eastBoundLongitude><southBoundLatitude>-35.191976</southBoundLatitude><northBoundLatitude>-10.412369</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.816805" miny="-35.191976" maxx="129.001937" maxy="-10.412369"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.191976" miny="96.816805" maxx="-10.412369" maxy="129.001937"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.191976" miny="96.816805" maxx="-10.412369" maxy="129.001937"/>
+<BoundingBox CRS="EPSG:3857" minx="10777597.413796" miny="-4190000.644087" maxx="14360429.953882" maxy="-1165532.834977"/>
+<BoundingBox CRS="EPSG:102100" minx="10777597.413796" miny="-4190000.644087" maxx="14360429.953882" maxy="-1165532.834977"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.191976" miny="96.816805" maxx="-10.412369" maxy="129.001937"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Coastline (LGATE-070)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=25" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>26</Name>
+        <Title><![CDATA[Land Conservation Districts (DPIRD-029)]]></Title>
+        <Abstract><![CDATA[Land conservation district committees (LCDCs) are statutory committees appointed by the Commissioner of Soil and Land Conservation to administer Land Conservation Districts in accordance with an Order proclaimed by the Governor. Their main function is to promote sustainable land management and undertake projects.
+
+LCDCs may be active, abolished or in-recess.  The associated spreadsheet indicates the status of each district.
+
+Tags:
+LCD, LCDC, Conservation committee, Land conservation, Commissioner of Soil and Land Conservation
+
+Licence:  Public CC BY-NC
+
+ Data Quality Contact	Name:  Phil Goulding
+	Position Title: GIS Officer
+	Phone Number: 08 9368 3925
+	Email Address: phillip.goulding@agric.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.916606</westBoundLongitude><eastBoundLongitude>129.016557</eastBoundLongitude><southBoundLatitude>-35.135512</southBoundLatitude><northBoundLatitude>-13.738782</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.916606" miny="-35.135512" maxx="129.016557" maxy="-13.738782"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135512" miny="112.916606" maxx="-13.738782" maxy="129.016557"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135512" miny="112.916606" maxx="-13.738782" maxy="129.016557"/>
+<BoundingBox CRS="EPSG:3857" minx="12569819.117870" miny="-4182311.898807" maxx="14362057.481239" maxy="-1544264.628484"/>
+<BoundingBox CRS="EPSG:102100" minx="12569819.117870" miny="-4182311.898807" maxx="14362057.481239" maxy="-1544264.628484"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135512" miny="112.916606" maxx="-13.738782" maxy="129.016557"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Land Conservation Districts (DPIRD-029)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=26" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>27</Name>
+        <Title><![CDATA[Regional Development Commission Boundaries (DPIRD-020)]]></Title>
+        <Abstract><![CDATA[A dataset that contains boundaries representing regions in Western Australia. These regions were established to support the Regional Development Commissions Act 1993, which defined their extents and established Regional Development Commissions to promote their economic development.
+
+This data from Department of Primary Industries and Regional Development is provided under Creative Common (Attribution) licence 4.0.  A full list of the terms and conditions associated with this licence can be found at https://creativecommons.org/licenses/by/4.0/legalcode.
+
+It is requested that the following attribution is used: © State of Western Australia, Department of Primary Industries and Regional Development.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.921511</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.193965</southBoundLatitude><northBoundLatitude>-13.689216</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.921511" miny="-35.193965" maxx="129.001928" maxy="-13.689216"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.193965" miny="112.921511" maxx="-13.689216" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.193965" miny="112.921511" maxx="-13.689216" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="12570365.094665" miny="-4190271.576413" maxx="14360428.886885" maxy="-1538585.070994"/>
+<BoundingBox CRS="EPSG:102100" minx="12570365.094665" miny="-4190271.576413" maxx="14360428.886885" maxy="-1538585.070994"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.193965" miny="112.921511" maxx="-13.689216" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Regional Development Commission Boundaries (DPIRD-020)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=27" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>28</Name>
+        <Title><![CDATA[Native Title (Determination) (LGATE-066)]]></Title>
+        <Abstract><![CDATA[This dataset contains the external spatial extent of all Native Title Applications within Western Australia that have been determined by the Federal Court of Australia. This dataset is a spatial depiction of the last stage of the Native Title process. When a Determination of Native Title over an Application has been handed down from the Federal Court (by litigation or mediation) the Application is captured in this dataset.
+
+
+
+
+---
+
+## NOTICE: Geospatial product changes
+Landgate’s geospatial product offering has been updated. From 1 March 2018, we have introduced contemporary formats and have phased out older formats that are no longer supported. There will be changes to the file formats and the attributes of some geospatial data file products (cadastre, tenure, administrative boundaries, property street address, reserves report).
+
+To learn more about the changes, including the data dictionaries and to access sample extracts, please refer to our [Geospatial products upgrade overview](https://www0.landgate.wa.gov.au/about-us/current-projects/geospatial-products-upgrade).
+
+If you have any questions or concerns, please contact your Landgate Service Manager or email [salesandservice@landgate.wa.gov.au](mailto:salesandservice@landgate.wa.gov.au).
+
+
+
+License: Other (Non-Commercial)
+
+Tags: court, determination, federal, native, nntt, planning, property, public, title, tribunal
+
+Contact: Todd.Harris@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.920946</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.241848</southBoundLatitude><northBoundLatitude>-13.489601</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.920946" miny="-35.241848" maxx="129.001928" maxy="-13.489601"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241848" miny="112.920946" maxx="-13.489601" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241848" miny="112.920946" maxx="-13.489601" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="12570302.156295" miny="-4196796.088391" maxx="14360428.936088" maxy="-1515724.017989"/>
+<BoundingBox CRS="EPSG:102100" minx="12570302.156295" miny="-4196796.088391" maxx="14360428.936088" maxy="-1515724.017989"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241848" miny="112.920946" maxx="-13.489601" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Native Title (Determination) (LGATE-066)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=28" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>29</Name>
+        <Title><![CDATA[Native Title (ILUA) (LGATE-067)]]></Title>
+        <Abstract><![CDATA[This dataset contains the external spatial extent of all Indigenous Land Use Agreements (ILUA) within Western Australia, which has been registered or is in notification with the National Native Title Tribunal (NNTT). This dataset is a spatial depiction of ILUAs that can be made outside of the Native Title process but can still be part of a Native Title Determination. When an ILUA is registered or in notification with NNTT the extent of the agreement is captured in this dataset.
+
+
+
+---
+
+## NOTICE: Geospatial product changes
+Landgate’s geospatial product offering has been updated. From 1 March 2018, we have introduced contemporary formats and have phased out older formats that are no longer supported. There will be changes to the file formats and the attributes of some geospatial data file products (cadastre, tenure, administrative boundaries, property street address, reserves report).
+
+To learn more about the changes, including the data dictionaries and to access sample extracts, please refer to our [Geospatial products upgrade overview](https://www0.landgate.wa.gov.au/about-us/current-projects/geospatial-products-upgrade).
+
+If you have any questions or concerns, please contact your Landgate Service Manager or email [salesandservice@landgate.wa.gov.au](mailto:salesandservice@landgate.wa.gov.au).
+
+License: Other (Non-Commercial)
+
+Tags: claim, court, federal, ilua, native, planning, property, public, title, tribunal
+
+Contact: Todd.Harris@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>113.422144</westBoundLongitude><eastBoundLongitude>129.001870</eastBoundLongitude><southBoundLatitude>-35.241848</southBoundLatitude><northBoundLatitude>-13.678553</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="113.422144" miny="-35.241848" maxx="129.001870" maxy="-13.678553"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241848" miny="113.422144" maxx="-13.678553" maxy="129.001870"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241848" miny="113.422144" maxx="-13.678553" maxy="129.001870"/>
+<BoundingBox CRS="EPSG:3857" minx="12626095.335467" miny="-4196796.126555" maxx="14360422.526757" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:102100" minx="12626095.335467" miny="-4196796.126555" maxx="14360422.526757" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241848" miny="113.422144" maxx="-13.678553" maxy="129.001870"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Native Title (ILUA) (LGATE-067)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=29" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>30</Name>
+        <Title><![CDATA[Native Title (Fed Court) (LGATE-005)]]></Title>
+        <Abstract><![CDATA[This dataset contains the external spatial extent of all Native Title Applications within Western Australia that have been filed/lodged with the Federal Court of Australia. This dataset is a spatial depiction of the first stage of the Native Title process. When a claimant group files an application with the Federal Court to have Native Title determined over their lands the extent of those lands are captured in this dataset.
+
+
+
+
+---
+
+## NOTICE: Geospatial product changes
+Landgate’s geospatial product offering has been updated. From 1 March 2018, we have introduced contemporary formats and have phased out older formats that are no longer supported. There will be changes to the file formats and the attributes of some geospatial data file products (cadastre, tenure, administrative boundaries, property street address, reserves report).
+
+To learn more about the changes, including the data dictionaries and to access sample extracts, please refer to our [Geospatial products upgrade overview](https://www0.landgate.wa.gov.au/about-us/current-projects/geospatial-products-upgrade).
+
+If you have any questions or concerns, please contact your Landgate Service Manager or email [salesandservice@landgate.wa.gov.au](mailto:salesandservice@landgate.wa.gov.au).
+
+License: Other (Non-Commercial)
+
+Tags: boundaries, federal, geographic, native, nntt, public, title
+
+Contact: Todd.Harris@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.699407</westBoundLongitude><eastBoundLongitude>128.910943</eastBoundLongitude><southBoundLatitude>-32.046473</southBoundLatitude><northBoundLatitude>-16.031614</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.699407" miny="-32.046473" maxx="128.910943" maxy="-16.031614"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.046473" miny="114.699407" maxx="-16.031614" maxy="128.910943"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.046473" miny="114.699407" maxx="-16.031614" maxy="128.910943"/>
+<BoundingBox CRS="EPSG:3857" minx="12768279.626615" miny="-3769412.480959" maxx="14350300.489471" maxy="-1808384.113017"/>
+<BoundingBox CRS="EPSG:102100" minx="12768279.626615" miny="-3769412.480959" maxx="14350300.489471" maxy="-1808384.113017"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.046473" miny="114.699407" maxx="-16.031614" maxy="128.910943"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Native Title (Fed Court) (LGATE-005)]]></Title>
+          <LegendURL width="144" height="118">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=30" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>31</Name>
+        <Title><![CDATA[Native Title (NNTT) (LGATE-004)]]></Title>
+        <Abstract><![CDATA[This dataset contains the external spatial extent of all Native Title Applications within Western Australia that have been registered with the National Native Title Tribunal (NNTT). This dataset is a spatial depiction of the second stage of the Native Title process. NNTT applies a registration test to all filed/lodged applications and if the application passes that test, the application is captured in this dataset.
+
+
+
+
+---
+
+## NOTICE: Geospatial product changes
+Landgate’s geospatial product offering has been updated. From 1 March 2018, we have introduced contemporary formats and have phased out older formats that are no longer supported. There will be changes to the file formats and the attributes of some geospatial data file products (cadastre, tenure, administrative boundaries, property street address, reserves report).
+
+To learn more about the changes, including the data dictionaries and to access sample extracts, please refer to our [Geospatial products upgrade overview](https://www0.landgate.wa.gov.au/about-us/current-projects/geospatial-products-upgrade).
+
+If you have any questions or concerns, please contact your Landgate Service Manager or email [salesandservice@landgate.wa.gov.au](mailto:salesandservice@landgate.wa.gov.au).
+
+License: Other (Non-Commercial)
+
+Tags: boundaries, federal, geographic, native, nntt, planning, property, public, title
+
+Contact: Todd.Harris@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.674773</westBoundLongitude><eastBoundLongitude>129.000473</eastBoundLongitude><southBoundLatitude>-32.765194</southBoundLatitude><northBoundLatitude>-15.875788</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.674773" miny="-32.765194" maxx="129.000473" maxy="-15.875788"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.765194" miny="114.674773" maxx="-15.875788" maxy="129.000473"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.765194" miny="114.674773" maxx="-15.875788" maxy="129.000473"/>
+<BoundingBox CRS="EPSG:3857" minx="12765537.295672" miny="-3864178.696165" maxx="14360266.952982" maxy="-1790342.733812"/>
+<BoundingBox CRS="EPSG:102100" minx="12765537.295672" miny="-3864178.696165" maxx="14360266.952982" maxy="-1790342.733812"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.765194" miny="114.674773" maxx="-15.875788" maxy="129.000473"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Native Title (NNTT) (LGATE-004)]]></Title>
+          <LegendURL width="80" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=31" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>32</Name>
+        <Title><![CDATA[State Electorates [Proposed] (LGATE-133)]]></Title>
+        <Abstract><![CDATA[MLA and MLC boundaries are updated every four years prior to the State General Election. The current electoral dataset (LGATE-069) depicts the State Electoral Districts and Regions that were used in the State General Election of March 2017.
+
+This dataset describes the PROPOSED MLA and MLC boundaries that were Gazetted on 27th November 2019. They will be used in the next State General Election to be held on 13th March 2021. If a by-election is held before the next State General Election, the 2017 boundaries will still apply.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.920880</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.135060</southBoundLatitude><northBoundLatitude>-13.678553</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.920880" miny="-35.135060" maxx="129.001928" maxy="-13.678553"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="12570294.906390" miny="-4182250.497013" maxx="14360428.910484" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:102100" minx="12570294.906390" miny="-4182250.497013" maxx="14360428.910484" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[State Electorates [Proposed] (LGATE-133)]]></Title>
+          <LegendURL width="126" height="48">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=32" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>33</Name>
+        <Title><![CDATA[State Electorates [Current] (LGATE-069)]]></Title>
+        <Abstract><![CDATA[MLA and MLC boundaries are updated every four years prior to the state elections. The current electoral dataset depicts the State Electoral Districts and Regions that were used in the State Election of March 2013. These districts and regions are described by technical description, and were published under the Electoral Act 1907, in the Govt Gazette on 10th October 2011.
+The current state electoral dataset that depicts the MLA District and the MLC Region boundaries remain the current dataset until the next state election is declared. Therefore, if a By-election is declared for any district prior to the next State General Election, this is the dataset that must be used.
+
+License: Other (Non-Commercial)
+
+Tags: admin, administrative, boundaries, electoral, electorates, political, public, state
+
+Contacts: Todd.Harris@landgate.wa.gov.au]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.920880</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.135060</southBoundLatitude><northBoundLatitude>-13.678553</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.920880" miny="-35.135060" maxx="129.001928" maxy="-13.678553"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="12570294.906390" miny="-4182250.497013" maxx="14360428.910484" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:102100" minx="12570294.906390" miny="-4182250.497013" maxx="14360428.910484" maxy="-1537363.319332"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135060" miny="112.920880" maxx="-13.678553" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[State Electorates [Current] (LGATE-069)]]></Title>
+          <LegendURL width="72" height="48">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=33" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>34</Name>
+        <Title><![CDATA[Ward Boundaries (LGATE-249)]]></Title>
+        <Abstract><![CDATA[LGA Wards are divisions within an LGA used for the election of councillors. Not all LGAs have to be divided into wards. The extents of the LGA Wards are defined by technical descriptions and published in the Government Gazette. Derived from the Spatial Cadastral Database (SCDB) and based on GDA.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>113.390712</westBoundLongitude><eastBoundLongitude>129.000544</eastBoundLongitude><southBoundLatitude>-35.069658</southBoundLatitude><northBoundLatitude>-19.499986</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="113.390712" miny="-35.069658" maxx="129.000544" maxy="-19.499986"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.069658" miny="113.390712" maxx="-19.499986" maxy="129.000544"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.069658" miny="113.390712" maxx="-19.499986" maxy="129.000544"/>
+<BoundingBox CRS="EPSG:3857" minx="12622596.292140" miny="-4173351.420250" maxx="14360274.845200" maxy="-2213890.579273"/>
+<BoundingBox CRS="EPSG:102100" minx="12622596.292140" miny="-4173351.420250" maxx="14360274.845200" maxy="-2213890.579273"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.069658" miny="113.390712" maxx="-19.499986" maxy="129.000544"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Ward Boundaries (LGATE-249)]]></Title>
+          <LegendURL width="25" height="25">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=34" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>35</Name>
+        <Title><![CDATA[Districts (LGATE-229)]]></Title>
+        <Abstract><![CDATA[The Land District is the highest level of land division used for land titling in WA, under the Land Act. Numeric locations created within a district were originally used to describe land parcels. Now land is described as Lot on Plan, and so Land Districts are used more for descriptive purposes today. Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94. Updated regularly when amendments/changes are formalised.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.815240</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.241835</southBoundLatitude><northBoundLatitude>-10.412377</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.815240" miny="-35.241835" maxx="129.001928" maxy="-10.412377"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="10777423.270594" miny="-4196794.289094" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:102100" minx="10777423.270594" miny="-4196794.289094" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Districts (LGATE-229)]]></Title>
+          <LegendURL width="73" height="25">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=35" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>36</Name>
+        <Title><![CDATA[Localities (LGATE-234)]]></Title>
+        <Abstract><![CDATA[Locality Boundaries for the State of Western Australia. Generally, Post Code boundaries coincide with the Locality boundaries. Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94. Updated regularly when amendments/changes are formalised.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.815240</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.135047</southBoundLatitude><northBoundLatitude>-10.412377</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.815240" miny="-35.135047" maxx="129.001928" maxy="-10.412377"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135047" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135047" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="10777423.270594" miny="-4182248.678027" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:102100" minx="10777423.270594" miny="-4182248.678027" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135047" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Localities (LGATE-234)]]></Title>
+          <LegendURL width="126" height="24">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=36" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+        <MaxScaleDenominator>1417410.714286</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="1">
+        <Name>37</Name>
+        <Title><![CDATA[Townsites (LGATE-248)]]></Title>
+        <Abstract><![CDATA[Townsites are the urban centres described by technical description. A townsite must be approved (by document) by the Minister for Lands, under the Land Administration Act 1997. A townsite consists of urban land, rather than rural land. Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94. Updated regularly when amendments/changes are formalised.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>113.517230</westBoundLongitude><eastBoundLongitude>128.900574</eastBoundLongitude><southBoundLatitude>-35.045207</southBoundLatitude><northBoundLatitude>-15.333414</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="113.517230" miny="-35.045207" maxx="128.900574" maxy="-15.333414"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.045207" miny="113.517230" maxx="-15.333414" maxy="128.900574"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.045207" miny="113.517230" maxx="-15.333414" maxy="128.900574"/>
+<BoundingBox CRS="EPSG:3857" minx="12636680.187877" miny="-4170026.289150" maxx="14349146.205092" maxy="-1727655.161118"/>
+<BoundingBox CRS="EPSG:102100" minx="12636680.187877" miny="-4170026.289150" maxx="14349146.205092" maxy="-1727655.161118"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.045207" miny="113.517230" maxx="-15.333414" maxy="128.900574"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Townsites (LGATE-248)]]></Title>
+          <LegendURL width="25" height="25">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=37" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>38</Name>
+        <Title><![CDATA[Local Government Authority (LGA) Boundaries (LGATE-233)]]></Title>
+        <Abstract><![CDATA[Local Government Authority and Locality Boundaries for the State of Western Australia. Generally, Post Code boundaries coincide with the Locality boundaries. Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94. Updated regularly when amendments/changes are formalised.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.815240</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.241835</southBoundLatitude><northBoundLatitude>-10.412377</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.815240" miny="-35.241835" maxx="129.001928" maxy="-10.412377"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="10777423.270594" miny="-4196794.289094" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:102100" minx="10777423.270594" miny="-4196794.289094" maxx="14360428.910484" maxy="-1165533.765344"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241835" miny="96.815240" maxx="-10.412377" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Local Government Authority (LGA) Boundaries (LGATE-233)]]></Title>
+          <LegendURL width="43" height="25">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=38" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>39</Name>
+        <Title><![CDATA[South west agricultural region (DPIRD-008)]]></Title>
+        <Abstract><![CDATA[The zone managed for intensive agricultural activities in South-Western Australia. Also known as the South West Agricultural Area or Clearing Line. © Government of Western Australia 2014. Department of Agriculture and Food. Update Frequency: As needed Licence agreement:CC-BY-NC Contact: David Groves,david.groves@agric.wa.gov.au,(08) 9368 3853
+
+Tags:  DAFWA-004,Biology,Ecology,Zone,Boundaries,Farming,Agriculture,public,ds:Intensive_Land_Use_Zone_DAFWA,wfs:Environment,wfs:PropertyandPlanning,wfs:Resources]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.108324</westBoundLongitude><eastBoundLongitude>123.246695</eastBoundLongitude><southBoundLatitude>-35.135511</southBoundLatitude><northBoundLatitude>-27.523491</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.108324" miny="-35.135511" maxx="123.246695" maxy="-27.523491"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135511" miny="114.108324" maxx="-27.523491" maxy="123.246695"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135511" miny="114.108324" maxx="-27.523491" maxy="123.246695"/>
+<BoundingBox CRS="EPSG:3857" minx="12702480.488111" miny="-4182311.861237" maxx="13719759.364197" maxy="-3189028.597828"/>
+<BoundingBox CRS="EPSG:102100" minx="12702480.488111" miny="-4182311.861237" maxx="13719759.364197" maxy="-3189028.597828"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135511" miny="114.108324" maxx="-27.523491" maxy="123.246695"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[South west agricultural region (DPIRD-008)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=39" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>40</Name>
+        <Title><![CDATA[Port Authorities (LGATE-243)]]></Title>
+        <Abstract><![CDATA[Port Authorities for the State of Western Australia. As originally declared under individual Port Authority Acts (7) and more recently declared under the Port Authorities Act 1999 (2). Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94. Updated regularly when amendments/changes to boundaries are formalised, all of which are now gazetted under the Port Authorities Act 1999. This dataset uses the W_LAND_ADM_CUR_ALL_VIEW layer which identifies all polygons in the SCDB with a Port Authority usage code of 190.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>114.500011</westBoundLongitude><eastBoundLongitude>128.295673</eastBoundLongitude><southBoundLatitude>-35.107826</southBoundLatitude><northBoundLatitude>-14.932751</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="114.500011" miny="-35.107826" maxx="128.295673" maxy="-14.932751"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.107826" miny="114.500011" maxx="-14.932751" maxy="128.295673"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.107826" miny="114.500011" maxx="-14.932751" maxy="128.295673"/>
+<BoundingBox CRS="EPSG:3857" minx="12746082.887060" miny="-4178543.916193" maxx="14281808.978988" maxy="-1681451.149852"/>
+<BoundingBox CRS="EPSG:102100" minx="12746082.887060" miny="-4178543.916193" maxx="14281808.978988" maxy="-1681451.149852"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.107826" miny="114.500011" maxx="-14.932751" maxy="128.295673"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Port Authorities (LGATE-243)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=40" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>41</Name>
+        <Title><![CDATA[State Border (LGATE-245)]]></Title>
+        <Abstract><![CDATA[The State Border of Western Australia, which separates WA from South Australia and the Northern Territory, and situated approximately on the 129 degrees East, Meridian of Longitude. Derived from the Spatial Cadastral Database (SCDB) and based on GDA 94.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>129.000446</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-31.741401</southBoundLatitude><northBoundLatitude>-14.873446</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="129.000446" miny="-31.741401" maxx="129.001928" maxy="-14.873446"/>
+<BoundingBox CRS="EPSG:4326" minx="-31.741401" miny="129.000446" maxx="-14.873446" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-31.741401" miny="129.000446" maxx="-14.873446" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="14360263.953144" miny="-3729413.175437" maxx="14360428.910484" maxy="-1674619.500528"/>
+<BoundingBox CRS="EPSG:102100" minx="14360263.953144" miny="-3729413.175437" maxx="14360428.910484" maxy="-1674619.500528"/>
+<BoundingBox CRS="EPSG:4283" minx="-31.741401" miny="129.000446" maxx="-14.873446" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[State Border (LGATE-245)]]></Title>
+          <LegendURL width="21" height="18">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=41" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>42</Name>
+        <Title><![CDATA[Water Demand Region Boundaries (DWER-002)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.921125</westBoundLongitude><eastBoundLongitude>129.001939</eastBoundLongitude><southBoundLatitude>-35.134833</southBoundLatitude><northBoundLatitude>-13.689478</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.921125" miny="-35.134833" maxx="129.001939" maxy="-13.689478"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.134833" miny="112.921125" maxx="-13.689478" maxy="129.001939"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.134833" miny="112.921125" maxx="-13.689478" maxy="129.001939"/>
+<BoundingBox CRS="EPSG:3857" minx="12570322.118662" miny="-4182219.548844" maxx="14360430.141789" maxy="-1538615.094127"/>
+<BoundingBox CRS="EPSG:102100" minx="12570322.118662" miny="-4182219.548844" maxx="14360430.141789" maxy="-1538615.094127"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.134833" miny="112.921125" maxx="-13.689478" maxy="129.001939"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Water Demand Region Boundaries (DWER-002)]]></Title>
+          <LegendURL width="140" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=42" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>43</Name>
+        <Title><![CDATA[Department of Water and Environmental Regulation Regional Boundaries (DWER-001)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>113.155887</westBoundLongitude><eastBoundLongitude>129.001413</eastBoundLongitude><southBoundLatitude>-35.134733</southBoundLatitude><northBoundLatitude>-13.740389</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="113.155887" miny="-35.134733" maxx="129.001413" maxy="-13.740389"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.134733" miny="113.155887" maxx="-13.740389" maxy="129.001413"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.134733" miny="113.155887" maxx="-13.740389" maxy="129.001413"/>
+<BoundingBox CRS="EPSG:3857" minx="12596455.736909" miny="-4182205.956522" maxx="14360371.583284" maxy="-1544448.744135"/>
+<BoundingBox CRS="EPSG:102100" minx="12596455.736909" miny="-4182205.956522" maxx="14360371.583284" maxy="-1544448.744135"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.134733" miny="113.155887" maxx="-13.740389" maxy="129.001413"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Department of Water and Environmental Regulation Regional Boundaries (DWER-001)]]></Title>
+          <LegendURL width="120" height="126">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=43" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>44</Name>
+        <Title><![CDATA[DBCA District Boundaries (DBCA-023)]]></Title>
+        <Abstract><![CDATA[DBCA's administrative district boundaries.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.865652</westBoundLongitude><eastBoundLongitude>129.019925</eastBoundLongitude><southBoundLatitude>-35.241835</southBoundLatitude><northBoundLatitude>-13.507606</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.865652" miny="-35.241835" maxx="129.019925" maxy="-13.507606"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+<BoundingBox CRS="EPSG:3857" minx="12564146.924721" miny="-4196794.289503" maxx="14362432.309215" maxy="-1517785.183040"/>
+<BoundingBox CRS="EPSG:102100" minx="12564146.924721" miny="-4196794.289503" maxx="14362432.309215" maxy="-1517785.183040"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[DBCA District Boundaries (DBCA-023)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=44" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>45</Name>
+        <Title><![CDATA[Marine and Harbours Act Areas (DOT-003)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.971183</westBoundLongitude><eastBoundLongitude>121.940104</eastBoundLongitude><southBoundLatitude>-35.037733</southBoundLatitude><northBoundLatitude>-20.300769</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.971183" miny="-35.037733" maxx="121.940104" maxy="-20.300769"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.037733" miny="112.971183" maxx="-20.300769" maxy="121.940104"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.037733" miny="112.971183" maxx="-20.300769" maxy="121.940104"/>
+<BoundingBox CRS="EPSG:3857" minx="12575894.564872" miny="-4169010.085084" maxx="13574310.324856" maxy="-2308695.353701"/>
+<BoundingBox CRS="EPSG:102100" minx="12575894.564872" miny="-4169010.085084" maxx="13574310.324856" maxy="-2308695.353701"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.037733" miny="112.971183" maxx="-20.300769" maxy="121.940104"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Marine and Harbours Act Areas (DOT-003)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=45" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>46</Name>
+        <Title><![CDATA[State Environmental (Cockburn Sound) Policy Boundaries (DWER-058)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.635688</westBoundLongitude><eastBoundLongitude>115.860788</eastBoundLongitude><southBoundLatitude>-32.316289</southBoundLatitude><northBoundLatitude>-32.066114</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.635688" miny="-32.316289" maxx="115.860788" maxy="-32.066114"/>
+<BoundingBox CRS="EPSG:4326" minx="-32.316289" miny="115.635688" maxx="-32.066114" maxy="115.860788"/>
+<BoundingBox CRS="EPSG:7844" minx="-32.316289" miny="115.635688" maxx="-32.066114" maxy="115.860788"/>
+<BoundingBox CRS="EPSG:3857" minx="12872505.939865" miny="-3804900.491338" maxx="12897563.933420" maxy="-3771992.291128"/>
+<BoundingBox CRS="EPSG:102100" minx="12872505.939865" miny="-3804900.491338" maxx="12897563.933420" maxy="-3771992.291128"/>
+<BoundingBox CRS="EPSG:4283" minx="-32.316289" miny="115.635688" maxx="-32.066114" maxy="115.860788"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[State Environmental (Cockburn Sound) Policy Boundaries (DWER-058)]]></Title>
+          <LegendURL width="24" height="24">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=46" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>47</Name>
+        <Title><![CDATA[Recreational Fishing Regions (DPIRD-096)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>109.233491</westBoundLongitude><eastBoundLongitude>129.030409</eastBoundLongitude><southBoundLatitude>-38.529443</southBoundLatitude><northBoundLatitude>-11.215211</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="109.233491" miny="-38.529443" maxx="129.030409" maxy="-11.215211"/>
+<BoundingBox CRS="EPSG:4326" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:7844" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:3857" minx="12159816.594801" miny="-4654490.742890" maxx="14363599.409139" maxy="-1256521.397052"/>
+<BoundingBox CRS="EPSG:102100" minx="12159816.594801" miny="-4654490.742890" maxx="14363599.409139" maxy="-1256521.397052"/>
+<BoundingBox CRS="EPSG:4283" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Recreational Fishing Regions (DPIRD-096)]]></Title>
+          <LegendURL width="19" height="19">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=47" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>48</Name>
+        <Title><![CDATA[DPIRD Bioregions (DPIRD-095)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>109.233491</westBoundLongitude><eastBoundLongitude>129.030409</eastBoundLongitude><southBoundLatitude>-38.529443</southBoundLatitude><northBoundLatitude>-11.215211</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="109.233491" miny="-38.529443" maxx="129.030409" maxy="-11.215211"/>
+<BoundingBox CRS="EPSG:4326" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:7844" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+<BoundingBox CRS="EPSG:3857" minx="12159816.594801" miny="-4654490.742890" maxx="14363599.409139" maxy="-1256521.397052"/>
+<BoundingBox CRS="EPSG:102100" minx="12159816.594801" miny="-4654490.742890" maxx="14363599.409139" maxy="-1256521.397052"/>
+<BoundingBox CRS="EPSG:4283" minx="-38.529443" miny="109.233491" maxx="-11.215211" maxy="129.030409"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[DPIRD Bioregions (DPIRD-095)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=48" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>49</Name>
+        <Title><![CDATA[DBCA Region Boundaries (DBCA-022)]]></Title>
+        <Abstract><![CDATA[CALM's administrative region boundaries renamed to DEC, DPaW and subsequently DBCA Region Boundaries. The Department of Biodiversity, Conservation and Attractions administers a variety of environmental services to the public through 9 regional offices throughout Western Australia. The boundaries define the jurisdictional boundaries for regional offices to deploy DBCA services.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>112.865652</westBoundLongitude><eastBoundLongitude>129.019925</eastBoundLongitude><southBoundLatitude>-35.241835</southBoundLatitude><northBoundLatitude>-13.507606</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="112.865652" miny="-35.241835" maxx="129.019925" maxy="-13.507606"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+<BoundingBox CRS="EPSG:3857" minx="12564146.924721" miny="-4196794.289503" maxx="14362432.309215" maxy="-1517785.183040"/>
+<BoundingBox CRS="EPSG:102100" minx="12564146.924721" miny="-4196794.289503" maxx="14362432.309215" maxy="-1517785.183040"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.241835" miny="112.865652" maxx="-13.507606" maxy="129.019925"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[DBCA Region Boundaries (DBCA-022)]]></Title>
+          <LegendURL width="21" height="21">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=49" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>50</Name>
+        <Title><![CDATA[Regional Parks (DBCA-026)]]></Title>
+        <Abstract><![CDATA[The Regional Parks Unit (formally known as the Regional Parks Branch) was set up in 1997 to coordinate the management of Perth's regional parks. This network of regional parks represents the majority of land reserved for parks and recreation in the metropolitan area. The current land tenure arrangements within the regional parks are complex with a number of different landholders of both Crown and freehold lands. The Regional Parks Unit works closely with local government authorities and the community to manage these diverse multi-purpose parks for the enjoyment of local residents and visitors. The Western Australian Planning Commission has proceeded to, and will continue to, acquire the land that is required to consolidate the parks.]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>115.609811</westBoundLongitude><eastBoundLongitude>116.370987</eastBoundLongitude><southBoundLatitude>-33.392648</southBoundLatitude><northBoundLatitude>-31.717440</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="115.609811" miny="-33.392648" maxx="116.370987" maxy="-31.717440"/>
+<BoundingBox CRS="EPSG:4326" minx="-33.392648" miny="115.609811" maxx="-31.717440" maxy="116.370987"/>
+<BoundingBox CRS="EPSG:7844" minx="-33.392648" miny="115.609811" maxx="-31.717440" maxy="116.370987"/>
+<BoundingBox CRS="EPSG:3857" minx="12869625.265512" miny="-3947538.175832" maxx="12954359.051350" maxy="-3726277.132825"/>
+<BoundingBox CRS="EPSG:102100" minx="12869625.265512" miny="-3947538.175832" maxx="12954359.051350" maxy="-3726277.132825"/>
+<BoundingBox CRS="EPSG:4283" minx="-33.392648" miny="115.609811" maxx="-31.717440" maxy="116.370987"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Regional Parks (DBCA-026)]]></Title>
+          <LegendURL width="22" height="22">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=50" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>51</Name>
+        <Title><![CDATA[Fire and Rescue Services District (DFES-016)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.816984</westBoundLongitude><eastBoundLongitude>128.754827</eastBoundLongitude><southBoundLatitude>-35.039537</southBoundLatitude><northBoundLatitude>-10.412359</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.816984" miny="-35.039537" maxx="128.754827" maxy="-10.412359"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.039537" miny="96.816984" maxx="-10.412359" maxy="128.754827"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.039537" miny="96.816984" maxx="-10.412359" maxy="128.754827"/>
+<BoundingBox CRS="EPSG:3857" minx="10777617.342768" miny="-4169255.400577" maxx="14332921.781042" maxy="-1165531.666133"/>
+<BoundingBox CRS="EPSG:102100" minx="10777617.342768" miny="-4169255.400577" maxx="14332921.781042" maxy="-1165531.666133"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.039537" miny="96.816984" maxx="-10.412359" maxy="128.754827"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Fire and Rescue Services District (DFES-016)]]></Title>
+          <LegendURL width="22" height="22">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=51" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>52</Name>
+        <Title><![CDATA[DFES Regions (DFES-015)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>96.816795</westBoundLongitude><eastBoundLongitude>129.001928</eastBoundLongitude><southBoundLatitude>-35.135047</southBoundLatitude><northBoundLatitude>-10.412390</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="96.816795" miny="-35.135047" maxx="129.001928" maxy="-10.412390"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.135047" miny="96.816795" maxx="-10.412390" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.135047" miny="96.816795" maxx="-10.412390" maxy="129.001928"/>
+<BoundingBox CRS="EPSG:3857" minx="10777596.279673" miny="-4182248.676938" maxx="14360428.909705" maxy="-1165535.202547"/>
+<BoundingBox CRS="EPSG:102100" minx="10777596.279673" miny="-4182248.676938" maxx="14360428.909705" maxy="-1165535.202547"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.135047" miny="96.816795" maxx="-10.412390" maxy="129.001928"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[DFES Regions (DFES-015)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=52" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>53</Name>
+        <Title><![CDATA[ESL DFES Polygons (DFES-013)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>113.516459</westBoundLongitude><eastBoundLongitude>128.896683</eastBoundLongitude><southBoundLatitude>-35.039537</southBoundLatitude><northBoundLatitude>-15.429640</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="113.516459" miny="-35.039537" maxx="128.896683" maxy="-15.429640"/>
+<BoundingBox CRS="EPSG:4326" minx="-35.039537" miny="113.516459" maxx="-15.429640" maxy="128.896683"/>
+<BoundingBox CRS="EPSG:7844" minx="-35.039537" miny="113.516459" maxx="-15.429640" maxy="128.896683"/>
+<BoundingBox CRS="EPSG:3857" minx="12636594.433464" miny="-4169255.400577" maxx="14348713.124628" maxy="-1738764.902642"/>
+<BoundingBox CRS="EPSG:102100" minx="12636594.433464" miny="-4169255.400577" maxx="14348713.124628" maxy="-1738764.902642"/>
+<BoundingBox CRS="EPSG:4283" minx="-35.039537" miny="113.516459" maxx="-15.429640" maxy="128.896683"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[ESL DFES Polygons (DFES-013)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=53" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+      <Layer queryable="1">
+        <Name>54</Name>
+        <Title><![CDATA[Representative Aboriginal and Torres Strait Islander Body Boundaries (NNTT-001)]]></Title>
+        <Abstract><![CDATA[]]></Abstract>
+<CRS>CRS:84</CRS>
+<CRS>EPSG:4326</CRS>
+<CRS>EPSG:7844</CRS>
+<CRS>EPSG:3857</CRS>
+ <!-- alias 3857 -->
+<CRS>EPSG:102100</CRS>
+<CRS>EPSG:4283</CRS>
+<EX_GeographicBoundingBox><westBoundLongitude>109.235585</westBoundLongitude><eastBoundLongitude>163.192085</eastBoundLongitude><southBoundLatitude>-47.190950</southBoundLatitude><northBoundLatitude>-8.880477</northBoundLatitude></EX_GeographicBoundingBox>
+<BoundingBox CRS="CRS:84" minx="109.235585" miny="-47.190950" maxx="163.192085" maxy="-8.880477"/>
+<BoundingBox CRS="EPSG:4326" minx="-47.190950" miny="109.235585" maxx="-8.880477" maxy="163.192085"/>
+<BoundingBox CRS="EPSG:7844" minx="-47.190950" miny="109.235585" maxx="-8.880477" maxy="163.192085"/>
+<BoundingBox CRS="EPSG:3857" minx="12160049.699819" miny="-5973297.857571" maxx="18166459.803247" maxy="-992552.201708"/>
+<BoundingBox CRS="EPSG:102100" minx="12160049.699819" miny="-5973297.857571" maxx="18166459.803247" maxy="-992552.201708"/>
+<BoundingBox CRS="EPSG:4283" minx="-47.190950" miny="109.235585" maxx="-8.880477" maxy="163.192085"/>
+        <Style>
+          <Name>default</Name>
+          <Title><![CDATA[Representative Aboriginal and Torres Strait Islander Body Boundaries (NNTT-001)]]></Title>
+          <LegendURL width="20" height="20">
+            <Format>image/png</Format>
+            <OnlineResource xlink:href="https://services.slip.wa.gov.au:443/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetLegendGraphic%26version=1.3.0%26format=image/png%26layer=54" xlink:type="simple" xmlns:xlink="http://www.w3.org/1999/xlink" />
+          </LegendURL>
+        </Style>
+      </Layer>
+    </Layer>
+  </Capability>
+</WMS_Capabilities>
