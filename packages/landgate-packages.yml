@@ -1,0 +1,53 @@
+generated: '2026-07-26'
+method: searched
+source: npm registry search, PyPI, GitHub org github.com/Landgate, plus the Landgate website
+note: |
+  Landgate ships NO first-party client library in any package registry. Searched 2026-07-26:
+  npm registry search for "landgate" returned 0 objects; PyPI /pypi/landgate/json returned
+  404; no SDK, CLI or client-library page exists on landgate.wa.gov.au; the Landgate GitHub
+  org has 15 public repos and none of them is a published package.
+
+  Because there is no official SDK, NO `SDKs` pointer is wired in apis.yml for this provider.
+  The third-party entries below are recorded for integrator convenience only and are marked
+  official: false.
+packages: []
+official_packages: 0
+third_party:
+  - language: python
+    registry: pypi
+    name: ckanapi
+    url: https://pypi.org/project/ckanapi/
+    install: pip install ckanapi
+    official: false
+    maintainer: Ian Ward (CKAN community)
+    relevance: works against the Data WA CKAN Action API at
+      https://catalogue.data.wa.gov.au/api/3/action — not a Landgate product
+registries_probed:
+  - { registry: npm, query: landgate, results: 0, probed: '2026-07-26' }
+  - { registry: pypi, query: landgate, status: 404, probed: '2026-07-26' }
+  - { registry: github, org: Landgate, repos: 15, published_packages: 0, probed: '2026-07-26' }
+github_org:
+  url: https://github.com/Landgate
+  public_repos: 15
+  note: |
+    The org is real but effectively dormant for API purposes — the developer-facing repos
+    (slip-developer-documentation, slip-code-samples, Sandbox, Locate, govhack) date from
+    2013-2015 and target the retired Google Maps Engine era of SLIP. The only repo touched
+    recently is Geodetic (Excel/VBA survey calculation spreadsheets, pushed 2026-02-23),
+    which is not a client library.
+  repos:
+    - { name: Geodetic, language: VBA, pushed: '2026-02-23', note: Excel/VBA geodetic survey calculation tools }
+    - { name: govhack, language: HTML, pushed: '2019-08-15', note: GovHack developer resources }
+    - { name: DatumSpreadsheets, language: Visual Basic, pushed: '2019-05-02' }
+    - { name: ArcREST, language: Python, pushed: '2017-02-20', note: fork of Esri's ArcREST helper }
+    - { name: pocs, language: HTML, pushed: '2017-02-10' }
+    - { name: govhack2015, pushed: '2015-07-14', note: CKAN + RStudio + Shiny data-science stack }
+    - { name: ready-steady-gov, language: CSS, pushed: '2015-10-11' }
+    - { name: slip-code-samples, language: JavaScript, pushed: '2015-04-23', note: SLIP Future (Google Maps Engine) samples — dead platform }
+    - { name: Locate, pushed: '2015-03-16', note: resources for the Locate map service }
+    - { name: Unearthed, pushed: '2015-03-21' }
+    - { name: findmypollingplace, language: JavaScript, pushed: '2014-12-10' }
+    - { name: SLIP-Demos, pushed: '2014-11-24' }
+    - { name: Sandbox, pushed: '2014-07-21', note: SLIP sandbox layer list; the sandbox service itself no longer exists }
+    - { name: slip-developer-documentation, pushed: '2014-02-02', note: wiki-only; documents the retired GME-based SLIP }
+    - { name: 'GovHack-2014', pushed: '2015-06-27' }

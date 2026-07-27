@@ -1,0 +1,89 @@
+generated: '2026-07-26'
+method: derived
+source: live error probes of the three public Landgate surfaces, 2026-07-26
+format: vendor
+rfc9457: false
+note: |
+  Landgate publishes no error reference. Every entry below was produced by deliberately
+  calling a public endpoint in a way that fails and recording exactly what came back. Nothing
+  is extrapolated from documentation that does not exist.
+
+  The single most important operational fact for an integrator: the SLIP ArcGIS REST surface
+  signals failure with HTTP 200 and an `error` object in the body. Status-code-only error
+  handling will silently treat "Layer not found" as success.
+envelopes:
+  - surface: SLIP ArcGIS REST
+    shape: '{"error": {"code": <int>, "message": "<string>", "details": [<string>]}}'
+    status_semantics: HTTP 200 carries the error; the `code` inside the body is the real signal.
+  - surface: Data WA CKAN Action API
+    shape: '{"help": "<url>", "success": false, "error": {"__type": "<string>", ...}}'
+    status_semantics: HTTP status is meaningful (400 bad request, 409 validation error).
+  - surface: SLIP OGC WMS/WFS
+    shape: XML ServiceExceptionReport / ows:ExceptionReport, or an ArcGIS Server HTML error page
+    status_semantics: mixed — HTTP 400 observed with an HTML ArcGIS Server error page.
+problems:
+  - surface: SLIP ArcGIS REST
+    http_status: 200
+    code: 404
+    title: Layer not found
+    body: '{"error":{"code":404,"details":[],"message":"Layer not found"}}'
+    remediation: Enumerate valid layer ids with getSlipMapService before querying.
+    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipLayer
+    evidence:
+      url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/9999?f=json
+      probed: '2026-07-26'
+  - surface: Data WA CKAN Action API
+    http_status: 400
+    code: bad-request
+    title: Action name not known
+    body: '"Bad request - Action name not known: not_a_real_action"'
+    remediation: Call ckanHelpShow with a known action name; the body for this class is a bare
+      JSON string, not the standard envelope.
+    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanHelpShow
+    evidence:
+      url: https://catalogue.data.wa.gov.au/api/3/action/not_a_real_action
+      probed: '2026-07-26'
+  - surface: Data WA CKAN Action API
+    http_status: 409
+    code: Validation Error
+    title: Missing required parameter
+    body: '{"help":"...","error":{"name_or_id":["Missing value"],"__type":"Validation Error"},"success":false}'
+    remediation: Supply the required `id` parameter. The error object is keyed by the failing
+      field name alongside `__type`.
+    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageShow
+    evidence:
+      url: https://catalogue.data.wa.gov.au/api/3/action/package_show
+      probed: '2026-07-26'
+  - surface: SLIP OGC WFS
+    http_status: 400
+    code: arcgis-server-error
+    title: WFS requested on a service that does not publish WFS
+    body: HTML — "ArcGIS Server Error"
+    remediation: Use the `*_WFS` map services (e.g. SLIP_Public_Services/Boundaries_WFS); the
+      plain Boundaries service answers WMS but not WFS.
+    source_operation: openapi/landgate-slip-public-ogc-openapi.yml#slipWfsRequest
+    evidence:
+      url: https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WFSServer?service=WFS&request=GetCapabilities
+      probed: '2026-07-26'
+  - surface: SLIP Subscription Services (gated tier)
+    http_status: 401
+    code: unauthorized
+    title: Subscription service requires a licensed credential
+    remediation: A signed SLIP subscription/publication/broker/distributor/VAR licence is
+      required. There is no self-service path; even /arcgis/rest/info returns 401.
+    evidence:
+      url: https://services.slip.wa.gov.au/arcgis/rest/services
+      probed: '2026-07-26'
+  - surface: catalogue.data.wa.gov.au (non-API paths)
+    http_status: 200
+    code: soft-404
+    title: Unknown path returns an HTML page with HTTP 200
+    remediation: Do not treat a 200 from this host as proof a document exists — check
+      content-type. A 20,499-byte text/html body is the CKAN not-found shell.
+    evidence:
+      url: https://catalogue.data.wa.gov.au/.well-known/security.txt
+      probed: '2026-07-26'
+summary:
+  problem_count: 6
+  surfaces_covered: 4
+  provider_published_reference: false

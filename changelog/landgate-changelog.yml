@@ -1,0 +1,64 @@
+generated: '2026-07-26'
+method: searched
+source: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/
+url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/
+note: |
+  SCOPE CAVEAT, read this first. Landgate publishes no API changelog and no release notes for
+  the SLIP or Data WA services. What it publishes is the Customer Information Bulletin (CIB) —
+  a numbered, monthly, dated stream announcing changes to land-transaction practice, forms,
+  fees, systems and outages. That is the provider's real change-communication channel for its
+  services, and it is captured here as such. It is NOT an API changelog: none of the entries
+  below describe a change to an endpoint, schema or contract.
+scheme: numbered monthly bulletin (CIB nnn) plus ad-hoc customer updates
+current: 'CIB 452 (July 2026)'
+cadence: monthly
+machine_readable_feed: none found (no RSS/Atom/JSON feed located on 2026-07-26)
+entries:
+  - version: CIB 452
+    date: '2026-07'
+    title: 'Customer Information Bulletin 452: July 2026'
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/july/customer-informationbulletin-452-july-2026/
+    breaking: unknown
+    scope: land-transaction practice
+  - version: null
+    date: '2026-07'
+    title: Privacy updates now available
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/july/privacy-updates-now-available/
+    breaking: false
+    scope: privacy policy
+  - version: CIB 451
+    date: '2026-06'
+    title: 'Customer Information Bulletin 451: June 2026'
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/june/customer-informationbulletin-451-june-2026/
+    breaking: unknown
+    scope: land-transaction practice
+  - version: null
+    date: '2026-05'
+    title: 'Customer Update: Publication of 2026-27 Landgate regulated and associated fees increase'
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/may/customer-update-publication-of-2026-27-landgate-fees-increase/
+    breaking: false
+    scope: pricing
+  - version: CIB 450
+    date: '2026-05'
+    title: 'Customer Information Bulletin 450: May 2026'
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/may/customer-information-bulletin-450-may-2026/
+    breaking: unknown
+    scope: land-transaction practice
+  - version: CIB 449
+    date: '2026-04'
+    title: 'Customer Information Bulletin 449: April 2026'
+    url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2026/march2/customer-information-bulletin-449-april-2026/
+    breaking: unknown
+    scope: land-transaction practice
+api_change_history:
+  published: false
+  observed_platform_changes:
+    - date: '2018'
+      title: SLIP has been upgraded
+      url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2018/1/slip-has-been-upgraded/
+    - date: '2016'
+      title: A new chapter for SLIP
+      url: https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/2016/1/a-new-chapter-for-slip/
+  note: The 2016/2018 SLIP re-platforming (off Google Maps Engine, onto the current Esri
+    ArcGIS Server stack) was announced through this same news stream, with no migration guide
+    or deprecation window published for the retired developer surface.

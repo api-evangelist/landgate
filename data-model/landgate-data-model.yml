@@ -1,0 +1,159 @@
+generated: '2026-07-26'
+method: derived
+source: openapi/landgate-data-wa-ckan-openapi.yml, openapi/landgate-slip-public-arcgis-openapi.yml,
+  openapi/landgate-slip-public-ogc-openapi.yml plus live response bodies probed 2026-07-26
+note: |
+  Two unrelated data models sit behind the Landgate public estate and they do not share
+  identifiers. The catalogue model (CKAN) describes datasets ABOUT the data; the geospatial
+  model (ArcGIS/OGC) describes the data itself. The only join between them is a human-entered
+  URL on a CKAN resource pointing at a SLIP service, plus the LGATE-nnn product code Landgate
+  uses in dataset titles.
+domains:
+  - name: catalogue
+    surface: Data WA CKAN Action API
+    entities: [Package, Resource, Organization, Group, Tag, License, Vocabulary]
+  - name: geospatial
+    surface: SLIP Public Services (ArcGIS REST + OGC)
+    entities: [ServicesDirectory, Folder, MapService, Layer, Field, Feature, FeatureType]
+entities:
+  - name: Package
+    domain: catalogue
+    description: A dataset in the Data WA catalogue. 2,872 exist; 395 belong to Landgate.
+    id_field: id
+    natural_key: name
+    key_fields: [id, name, title, notes, license_id, access_level, metadata_created,
+      metadata_modified, author, author_email]
+    source: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageShow
+  - name: Resource
+    domain: catalogue
+    description: A distribution of a dataset — a file, a service URL or an API endpoint.
+    id_field: id
+    key_fields: [id, package_id, name, url, format, description]
+    caution: Resource URLs frequently point at gated SLIP subscription endpoints that return
+      HTTP 401 anonymously — a catalogued resource is not necessarily a reachable one.
+  - name: Organization
+    domain: catalogue
+    description: The publishing agency. Landgate is `landgate` (395 packages on 2026-07-26).
+    id_field: id
+    natural_key: name
+    key_fields: [id, name, title, description, package_count]
+  - name: Group
+    domain: catalogue
+    description: Thematic grouping of datasets.
+    id_field: id
+  - name: Tag
+    domain: catalogue
+    id_field: name
+  - name: License
+    domain: catalogue
+    description: Licence vocabulary. Landgate datasets are overwhelmingly `custom_other`
+      (371 of 395), not an open licence.
+    id_field: id
+  - name: Vocabulary
+    domain: catalogue
+    id_field: id
+  - name: ServicesDirectory
+    domain: geospatial
+    description: Root of the ArcGIS REST surface; lists folders and services.
+    key_fields: [currentVersion, folders, services]
+  - name: Folder
+    domain: geospatial
+    natural_key: name
+    values: [Land_Monitor, Landgate_Public_Imagery, Landgate_Public_Maps, SLIP_Public_Services, Utilities]
+  - name: MapService
+    domain: geospatial
+    description: One published map service, e.g. SLIP_Public_Services/Boundaries.
+    natural_key: name
+    key_fields: [documentInfo, maxRecordCount, maxImageWidth, layers]
+  - name: Layer
+    domain: geospatial
+    description: A numbered layer inside a map service.
+    id_field: id
+    key_fields: [id, name, geometryType, extent, fields]
+  - name: Field
+    domain: geospatial
+    key_fields: [name, type, alias]
+    note: 'observed on LGA boundaries layer 14: objectid, boundary_id, type_code,
+      type_description, feature_number, name, abs_lga_number, postcode, land_area,
+      area_derivation'
+  - name: Feature
+    domain: geospatial
+    description: A single geographic record returned by a query.
+    id_field: objectid
+    key_fields: [attributes, geometry]
+  - name: FeatureType
+    domain: geospatial
+    description: The WFS projection of a layer, e.g. esri:DFES_Regions__DFES-015_.
+    natural_key: typeName
+relationships:
+  - from: Package
+    to: Resource
+    kind: has_many
+    via: resources[]
+  - from: Resource
+    to: Package
+    kind: belongs_to
+    via: package_id
+  - from: Package
+    to: Organization
+    kind: belongs_to
+    via: organization
+  - from: Organization
+    to: Package
+    kind: has_many
+    via: organization_show?include_datasets=true
+  - from: Package
+    to: Tag
+    kind: has_many
+    via: tags[]
+  - from: Package
+    to: License
+    kind: belongs_to
+    via: license_id
+  - from: Package
+    to: Group
+    kind: has_many
+    via: groups[]
+  - from: ServicesDirectory
+    to: Folder
+    kind: has_many
+    via: folders[]
+  - from: Folder
+    to: MapService
+    kind: has_many
+    via: services[]
+  - from: MapService
+    to: Layer
+    kind: has_many
+    via: layers[]
+  - from: Layer
+    to: Field
+    kind: has_many
+    via: fields[]
+  - from: Layer
+    to: Feature
+    kind: has_many
+    via: /query
+  - from: Layer
+    to: FeatureType
+    kind: has_one
+    via: the paired *_WFS map service
+  - from: Resource
+    to: MapService
+    kind: references
+    via: url (free-text service URL — not a foreign key, and often gated)
+identifiers:
+  - id: LGATE-nnn
+    description: Landgate product code used in dataset titles and SLIP layer names, e.g.
+      LGATE-217 Cadastre (Polygon), LGATE-233 LGA Boundaries.
+    authoritative: true
+  - id: AGENCY-nnn suffix on WFS type names
+    description: WFS feature types carry the custodian agency code, e.g. DFES-015, DBCA-022,
+      NNTT-001 — the SLIP public tier aggregates other WA agencies' data, not only Landgate's.
+  - id: volume/folio
+    description: Certificate of Title identifier for WA land. Not present on any public API
+      surface — it lives behind the gated registry.
+  - id: RESO UPI
+    present: false
+    note: not used; see review.yml
+render: null

@@ -1,0 +1,435 @@
+openapi: 3.1.0
+info:
+  title: Landgate SLIP Public Services (ArcGIS REST)
+  version: '12.1'
+  summary: OpenAPI description of the anonymously callable ArcGIS Server REST surface of
+    Landgate's Shared Location Information Platform (SLIP) public tier.
+  description: |
+    Landgate does not publish an OpenAPI definition. This document is an API Evangelist
+    GENERATED description of the Esri ArcGIS Server 12.1 REST surface that Landgate serves
+    anonymously at https://public-services.slip.wa.gov.au/public/rest.
+
+    Every path and operation below was probed live and returned HTTP 200 without any
+    credential (see `x-evidence` on each operation, probed 2026-07-26). Nothing here is
+    invented: the operations are the standard ArcGIS REST resources that this specific
+    server answers, and the parameters are the ones exercised in the probes.
+
+    The server's own machine-readable contract remains the ArcGIS REST services directory
+    (`?f=json`), which is saved verbatim in this repo as
+    `openapi/landgate-slip-public-arcgis-rest-services.json` and
+    `openapi/landgate-slip-public-services-folder.json`.
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+  license:
+    name: Landgate data licensing (custom; see licensing page)
+    url: https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://public-services.slip.wa.gov.au/public/rest
+x-authentication: none — /public/rest/info reports authInfo.isTokenBasedSecurity=false
+servers:
+  - url: https://public-services.slip.wa.gov.au/public/rest
+    description: SLIP public ArcGIS REST services directory (anonymous)
+tags:
+  - name: Server
+    description: Server-level information and the services directory
+  - name: Services
+    description: Map service and layer metadata
+  - name: Query
+    description: Feature query, identify and image export
+paths:
+  /info:
+    get:
+      operationId: getSlipServerInfo
+      tags: [Server]
+      summary: Get ArcGIS Server info
+      description: Returns the ArcGIS Server version and the authentication posture of the
+        public SLIP instance.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/info?f=json
+        status: 200
+        probed: '2026-07-26'
+        sample: '{"fullVersion":"12.1.0","currentVersion":12.1,"authInfo":{"isTokenBasedSecurity":false}}'
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Server info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerInfo'
+  /services:
+    get:
+      operationId: listSlipRootServices
+      tags: [Services]
+      summary: List root folders and services
+      description: Lists the folders (Land_Monitor, Landgate_Public_Imagery,
+        Landgate_Public_Maps, SLIP_Public_Services, Utilities) and any root-level services.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services?f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Services directory
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicesDirectory'
+  /services/{folder}:
+    get:
+      operationId: listSlipFolderServices
+      tags: [Services]
+      summary: List the services in a folder
+      description: Lists the map services published inside one SLIP folder, e.g. the 57 services in SLIP_Public_Services.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services?f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Folder services directory
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServicesDirectory'
+  /services/{folder}/{service}/MapServer:
+    get:
+      operationId: getSlipMapService
+      tags: [Services]
+      summary: Get map service metadata
+      description: Returns documentInfo, spatial reference, extent, maxRecordCount and the
+        layer list for a public SLIP map service.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer?f=json
+        status: 200
+        probed: '2026-07-26'
+        note: maxRecordCount observed 10000
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Map service metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MapService'
+  /services/{folder}/{service}/MapServer/legend:
+    get:
+      operationId: getSlipMapServiceLegend
+      tags: [Services]
+      summary: Get the legend for a map service
+      description: Returns the legend swatches and labels for every layer in the map service, including base64 image data.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/legend?f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Legend document
+          content:
+            application/json:
+              schema:
+                type: object
+  /services/{folder}/{service}/MapServer/{layerId}:
+    get:
+      operationId: getSlipLayer
+      tags: [Services]
+      summary: Get layer metadata
+      description: Returns the field list, geometry type, extent and capabilities of a single
+        layer within a public SLIP map service.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/14?f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - $ref: '#/components/parameters/LayerId'
+        - $ref: '#/components/parameters/Format'
+      x-error-behaviour: |
+        This server returns HTTP 200 with an `error` object for an unknown layer
+        (probed 2026-07-26: /MapServer/9999?f=json -> 200
+        {"error":{"code":404,"details":[],"message":"Layer not found"}}). See
+        errors/landgate-problem-types.yml.
+      responses:
+        '200':
+          description: Layer metadata, or an `error` object (this server signals errors with HTTP 200)
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/Layer'
+                  - type: object
+                    properties:
+                      error:
+                        $ref: '#/components/schemas/EsriError'
+  /services/{folder}/{service}/MapServer/{layerId}/query:
+    get:
+      operationId: querySlipLayerFeatures
+      tags: [Query]
+      summary: Query features on a layer
+      description: Standard ArcGIS feature query. Verified anonymously against
+        SLIP_Public_Services/Boundaries/MapServer/14 (LGA boundaries, 139 features).
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/14/query?where=1%3D1&returnCountOnly=true&f=json
+        status: 200
+        probed: '2026-07-26'
+        sample: '{"count":139}'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - $ref: '#/components/parameters/LayerId'
+        - name: where
+          in: query
+          description: SQL where clause, e.g. `1=1`.
+          schema: { type: string }
+        - name: outFields
+          in: query
+          description: Comma-separated field list or `*`.
+          schema: { type: string }
+        - name: geometry
+          in: query
+          schema: { type: string }
+        - name: geometryType
+          in: query
+          schema:
+            type: string
+            enum: [esriGeometryPoint, esriGeometryMultipoint, esriGeometryPolyline, esriGeometryPolygon, esriGeometryEnvelope]
+        - name: inSR
+          in: query
+          schema: { type: string }
+        - name: outSR
+          in: query
+          schema: { type: string }
+        - name: returnGeometry
+          in: query
+          schema: { type: boolean }
+        - name: returnCountOnly
+          in: query
+          schema: { type: boolean }
+        - name: resultOffset
+          in: query
+          description: Pagination offset (see conventions/landgate-conventions.yml).
+          schema: { type: integer }
+        - name: resultRecordCount
+          in: query
+          description: Page size; capped by the service maxRecordCount (10000 observed).
+          schema: { type: integer }
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Feature set (or an `error` object — this server signals errors with HTTP 200)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureSet'
+  /services/{folder}/{service}/MapServer/identify:
+    get:
+      operationId: identifySlipFeatures
+      tags: [Query]
+      summary: Identify features at a location
+      description: Returns the features from one or more layers that intersect a point or geometry, given a map extent and display size.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/identify?geometry=115.86,-31.95&geometryType=esriGeometryPoint&tolerance=5&mapExtent=115,-32,116,-31&imageDisplay=400,400,96&layers=all&f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - name: geometry
+          in: query
+          required: true
+          schema: { type: string }
+        - name: geometryType
+          in: query
+          required: true
+          schema: { type: string }
+        - name: tolerance
+          in: query
+          required: true
+          schema: { type: integer }
+        - name: mapExtent
+          in: query
+          required: true
+          schema: { type: string }
+        - name: imageDisplay
+          in: query
+          required: true
+          schema: { type: string }
+        - name: layers
+          in: query
+          schema: { type: string }
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Identify results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items: { type: object }
+  /services/{folder}/{service}/MapServer/export:
+    get:
+      operationId: exportSlipMapImage
+      tags: [Query]
+      summary: Export a map image
+      description: Renders the map service to an image for a bounding box and size; with f=json the response carries an href to the generated image.
+      x-evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/services/SLIP_Public_Services/Boundaries/MapServer/export?bbox=115,-32,116,-31&size=200,200&format=png&f=json
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+        - $ref: '#/components/parameters/Folder'
+        - $ref: '#/components/parameters/Service'
+        - name: bbox
+          in: query
+          required: true
+          schema: { type: string }
+        - name: size
+          in: query
+          schema: { type: string }
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [png, png8, png24, png32, jpg, pdf, gif, svg]
+        - name: bboxSR
+          in: query
+          schema: { type: string }
+        - name: imageSR
+          in: query
+          schema: { type: string }
+        - $ref: '#/components/parameters/Format'
+      responses:
+        '200':
+          description: Image reference (f=json) or the image itself (f=image)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  href: { type: string, format: uri }
+            image/png: {}
+components:
+  parameters:
+    Format:
+      name: f
+      in: query
+      description: Response format. `json` for the machine-readable response.
+      schema:
+        type: string
+        enum: [html, json, pjson, image, kmz]
+        default: html
+    Folder:
+      name: folder
+      in: path
+      required: true
+      description: Services folder.
+      schema:
+        type: string
+        enum: [Land_Monitor, Landgate_Public_Imagery, Landgate_Public_Maps, SLIP_Public_Services, Utilities]
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name within the folder, e.g. `Boundaries`.
+      schema: { type: string }
+    LayerId:
+      name: layerId
+      in: path
+      required: true
+      description: Numeric layer id within the map service.
+      schema: { type: integer }
+  schemas:
+    ServerInfo:
+      type: object
+      properties:
+        currentVersion: { type: number }
+        fullVersion: { type: string }
+        soapUrl: { type: string, format: uri }
+        authInfo:
+          type: object
+          properties:
+            isTokenBasedSecurity: { type: boolean }
+    ServicesDirectory:
+      type: object
+      properties:
+        currentVersion: { type: number }
+        folders:
+          type: array
+          items: { type: string }
+        services:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              type: { type: string }
+    MapService:
+      type: object
+      properties:
+        documentInfo: { type: object }
+        maxRecordCount: { type: integer }
+        maxImageWidth: { type: integer }
+        layers:
+          type: array
+          items: { type: object }
+    Layer:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        geometryType: { type: string }
+        extent: { type: object }
+        fields:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              type: { type: string }
+              alias: { type: string }
+    FeatureSet:
+      type: object
+      properties:
+        displayFieldName: { type: string }
+        fieldAliases: { type: object }
+        fields:
+          type: array
+          items: { type: object }
+        features:
+          type: array
+          items:
+            type: object
+            properties:
+              attributes: { type: object }
+              geometry: { type: object }
+        count: { type: integer }
+        error:
+          $ref: '#/components/schemas/EsriError'
+    EsriError:
+      type: object
+      properties:
+        code: { type: integer }
+        message: { type: string }
+        details:
+          type: array
+          items: { type: string }

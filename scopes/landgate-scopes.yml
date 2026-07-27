@@ -1,0 +1,53 @@
+generated: '2026-07-26'
+method: searched
+source: https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration
+docs: null
+note: |
+  Landgate publishes no scopes/permissions reference page. This scope catalogue is taken
+  verbatim from the `scopes_supported` array of the MyLandgate PingFederate discovery
+  documents (both the OIDC discovery doc and the RFC 8414 authorization-server metadata
+  advertise the same six values, fetched HTTP 200 anonymously on 2026-07-26).
+
+  The public SLIP and Data WA CKAN surfaces carry NO OAuth scopes — they are anonymous.
+  These scopes govern MyLandgate / Land Enquiry Services sign-on only.
+schemes:
+  - name: MyLandgateOAuth2
+    source: well-known/landgate-oauth-authorization-server.json
+    issuer: https://sign-on.app.landgate.wa.gov.au
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://sign-on.app.landgate.wa.gov.au/as/authorization.oauth2
+        tokenUrl: https://sign-on.app.landgate.wa.gov.au/as/token.oauth2
+scopes:
+  - scope: openid
+    description: Standard OpenID Connect scope — requests an ID token for the signed-in
+      MyLandgate user.
+    flows: [authorizationCode, implicit]
+    sources: [well-known/landgate-openid-configuration.json]
+  - scope: profile
+    description: Standard OIDC claim set — name and profile claims for the MyLandgate user.
+    flows: [authorizationCode, implicit]
+    sources: [well-known/landgate-openid-configuration.json]
+  - scope: email
+    description: Standard OIDC email claim.
+    flows: [authorizationCode, implicit]
+    sources: [well-known/landgate-openid-configuration.json]
+  - scope: address
+    description: Standard OIDC address claim.
+    flows: [authorizationCode, implicit]
+    sources: [well-known/landgate-openid-configuration.json]
+  - scope: phone
+    description: Standard OIDC phone-number claim.
+    flows: [authorizationCode, implicit]
+    sources: [well-known/landgate-openid-configuration.json]
+  - scope: ATO
+    description: Non-standard Landgate-specific scope advertised by the authorization server.
+      No published definition was found; not documented on any Landgate page located on
+      2026-07-26. Recorded verbatim without interpretation.
+    flows: [authorizationCode]
+    sources: [well-known/landgate-oauth-authorization-server.json]
+summary:
+  scope_count: 6
+  standard_oidc: 5
+  provider_specific: 1
+  documented_by_provider: false

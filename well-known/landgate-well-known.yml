@@ -1,0 +1,88 @@
+generated: '2026-07-26'
+method: searched
+source: live probes of every apis.yml baseURL host, the OpenAPI servers[] hosts and the
+  docs/portal hosts
+note: |
+  Two well-known documents exist on the Landgate estate, both on the MyLandgate PingFederate
+  identity host. No security.txt (RFC 9116) is published anywhere on landgate.wa.gov.au,
+  slip.wa.gov.au or data.wa.gov.au.
+
+  CAUTION on catalogue.data.wa.gov.au: that host answers HTTP 200 for EVERY unknown path,
+  returning a 20,499-byte CKAN HTML not-found page (content-type text/html). Its /.well-known/*
+  and /llms.txt "200"s are therefore NOT documents — they are the soft-404 shell. Each is
+  recorded below as status 200 with real: false so a later round does not mistake them for hits.
+hosts:
+  - host: https://sign-on.app.landgate.wa.gov.au
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        real: true
+        content_type: application/json
+        file: landgate-openid-configuration.json
+        standard: OpenID Connect Discovery 1.0
+        note: PingFederate. Issuer https://sign-on.app.landgate.wa.gov.au; 56 metadata keys.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        real: true
+        content_type: application/json
+        file: landgate-oauth-authorization-server.json
+        standard: RFC 8414 OAuth 2.0 Authorization Server Metadata
+        note: 41 metadata keys; scopes_supported openid/profile/email/address/phone/ATO.
+      - path: /.well-known/security.txt
+        status: 404
+        real: false
+      - path: /.well-known/api-catalog
+        status: 404
+        real: false
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        real: false
+      - path: /llms.txt
+        status: 404
+        real: false
+  - host: https://public-services.slip.wa.gov.au
+    documents:
+      - { path: /.well-known/security.txt, status: 404, real: false }
+      - { path: /.well-known/openid-configuration, status: 404, real: false }
+      - { path: /.well-known/oauth-authorization-server, status: 404, real: false }
+      - { path: /.well-known/api-catalog, status: 404, real: false }
+      - { path: /.well-known/ai-plugin.json, status: 404, real: false }
+      - { path: /llms.txt, status: 404, real: false }
+  - host: https://services.slip.wa.gov.au
+    documents:
+      - { path: /.well-known/security.txt, status: 404, real: false }
+      - { path: /.well-known/openid-configuration, status: 404, real: false }
+      - { path: /.well-known/oauth-authorization-server, status: 404, real: false }
+      - { path: /.well-known/api-catalog, status: 404, real: false }
+      - { path: /.well-known/ai-plugin.json, status: 404, real: false }
+      - { path: /llms.txt, status: 404, real: false }
+  - host: https://catalogue.data.wa.gov.au
+    documents:
+      - { path: /.well-known/security.txt, status: 200, real: false, note: CKAN HTML soft-404 shell (20499 bytes, text/html) }
+      - { path: /.well-known/openid-configuration, status: 200, real: false, note: CKAN HTML soft-404 shell }
+      - { path: /.well-known/oauth-authorization-server, status: 200, real: false, note: CKAN HTML soft-404 shell }
+      - { path: /.well-known/api-catalog, status: 200, real: false, note: CKAN HTML soft-404 shell }
+      - { path: /.well-known/ai-plugin.json, status: 200, real: false, note: CKAN HTML soft-404 shell }
+      - { path: /llms.txt, status: 200, real: false, note: CKAN HTML soft-404 shell }
+  - host: https://www.landgate.wa.gov.au
+    documents:
+      - { path: /.well-known/security.txt, status: 404, real: false }
+      - { path: /.well-known/openid-configuration, status: 404, real: false }
+      - { path: /.well-known/oauth-authorization-server, status: 404, real: false }
+      - { path: /.well-known/api-catalog, status: 404, real: false }
+      - { path: /.well-known/ai-plugin.json, status: 404, real: false }
+      - { path: /llms.txt, status: 404, real: false }
+  - host: https://data.wa.gov.au
+    documents:
+      - { path: /.well-known/security.txt, status: 403, real: false }
+      - { path: /.well-known/openid-configuration, status: 404, real: false }
+      - { path: /.well-known/oauth-authorization-server, status: 404, real: false }
+      - { path: /.well-known/api-catalog, status: 404, real: false }
+      - { path: /.well-known/ai-plugin.json, status: 403, real: false }
+      - { path: /llms.txt, status: 403, real: false }
+summary:
+  documents_found: 2
+  security_txt: false
+  api_catalog: false
+  ai_plugin: false
+  llms_txt: false

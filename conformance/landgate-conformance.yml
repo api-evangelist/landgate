@@ -1,0 +1,109 @@
+generated: '2026-07-26'
+method: derived
+source: harvested GetCapabilities documents, the PingFederate discovery documents, live probes
+  of the ArcGIS REST and CKAN surfaces (all 2026-07-26)
+note: |
+  Landgate makes no explicit standards-conformance claim anywhere on its site, and holds no
+  published certification programme (no trust centre, no SOC 2 / ISO 27001 statement was
+  found — see the probe result in security/). Everything below is derived from what the
+  services actually emit. No Compliance pointer is wired for this provider because no
+  compliance programme is published.
+standards:
+  - id: ogc-wms-1.3.0
+    conforms: true
+    evidence: WMS_Capabilities version="1.3.0" served at
+      /public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer (HTTP 200, 56 layers);
+      saved verbatim as openapi/landgate-slip-public-wms-capabilities.xml
+  - id: ogc-wfs-2.0.0
+    conforms: true
+    evidence: wfs:WFS_Capabilities xmlns="http://www.opengis.net/wfs/2.0" served at
+      /public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer (HTTP 200,
+      38 feature types); saved verbatim as openapi/landgate-slip-public-wfs-capabilities.xml
+  - id: ogc-gml-3.2
+    conforms: true
+    evidence: WFS GetFeature returns xmlns:gml="http://www.opengis.net/gml/3.2" FeatureCollections
+  - id: esri-arcgis-rest
+    conforms: true
+    evidence: ArcGIS Server 12.1.0 REST services directory, /public/rest/info reports
+      currentVersion 12.1
+  - id: ckan-action-api-v3
+    conforms: true
+    evidence: /api/3/action/* returns the standard CKAN {help, success, result} envelope;
+      status_show lists the installed CKAN extensions
+  - id: dcat
+    conforms: true
+    evidence: DCAT JSON-LD catalog served at https://catalogue.data.wa.gov.au/catalog.jsonld
+      (HTTP 200, application/ld+json, dcat#Distribution / dcterms terms)
+  - id: json-ld
+    conforms: true
+    evidence: catalog.jsonld returns application/ld+json
+  - id: openid-connect-discovery
+    conforms: true
+    evidence: /.well-known/openid-configuration on sign-on.app.landgate.wa.gov.au (HTTP 200,
+      PingFederate, 56 metadata keys)
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server (HTTP 200, 41 metadata keys)
+  - id: oauth2
+    conforms: true
+    evidence: authorization/token/revocation/introspection endpoints advertised; 11 grant types
+      including authorization_code, client_credentials, device_code and token-exchange
+  - id: rfc7009-token-revocation
+    conforms: true
+    evidence: revocation_endpoint advertised at /as/revoke_token.oauth2
+  - id: rfc7662-token-introspection
+    conforms: true
+    evidence: introspection_endpoint advertised at /as/introspect.oauth2
+  - id: rfc8628-device-authorization-grant
+    conforms: true
+    evidence: device_authorization_endpoint advertised; urn:ietf:params:oauth:grant-type:device_code
+      in grant_types_supported
+  - id: rfc8705-mtls-client-authentication
+    conforms: true
+    evidence: tls_client_auth in token_endpoint_auth_methods_supported
+  - id: openapi
+    conforms: false
+    evidence: no OpenAPI is published anywhere on the estate. Probed /openapi.json, /swagger.json,
+      /api-docs and /docs on public-services.slip.wa.gov.au, services.slip.wa.gov.au,
+      catalogue.data.wa.gov.au, land-enquiry.app.landgate.wa.gov.au and maps.slip.wa.gov.au —
+      all 404, HTML soft-404, or a login shell. The OpenAPI documents in openapi/*.yml are
+      API Evangelist generated descriptions of probed behaviour, not provider artifacts.
+  - id: asyncapi
+    conforms: false
+    evidence: no event, streaming or webhook surface exists on the public estate
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: no application/problem+json anywhere; CKAN uses its own {success,error} envelope
+      and ArcGIS returns {"error":{code,message,details}} with HTTP 200
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404 on every Landgate and SLIP host
+  - id: rfc8594-sunset-header
+    conforms: false
+    evidence: no Sunset or Deprecation header observed on any public endpoint
+  - id: odata
+    conforms: false
+    evidence: no $metadata document exists; catalogue.data.wa.gov.au/$metadata returns HTTP 200
+      with the CKAN HTML soft-404 shell, not an OData document
+  - id: reso-web-api
+    conforms: false
+    evidence: RESO is a North American MLS standard; no RESO reference exists on this
+      Australian government land registry (see review.yml)
+  - id: json-api
+    conforms: false
+  - id: graphql
+    conforms: false
+    evidence: no /graphql surface found on any host
+  - id: mcp
+    conforms: false
+    evidence: no hosted MCP server published; see mcp/landgate-mcp.yml (candidate only)
+policy_alignment:
+  - id: wa-whole-of-government-open-data-policy
+    role: Landgate leads implementation and operates data.wa.gov.au for the WA public sector
+    url: https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/data-wa/
+    caveat: openness of the platform does not mean openness of the data — 371 of the 395
+      Landgate datasets in the catalogue carry license_id custom_other rather than an open licence
+summary:
+  conforms_count: 14
+  does_not_conform_count: 9
+  certifications_published: false

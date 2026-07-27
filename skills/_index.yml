@@ -1,0 +1,23 @@
+generated: '2026-07-26'
+method: generated
+source: OpenAPI operations in openapi/*.yml, all verified live 2026-07-26
+note: |
+  Landgate publishes no agent skills, no AGENTS.md and no agent guidance of any kind (searched
+  2026-07-26). These three skills are API Evangelist generated, and every step is grounded in an
+  operationId that exists in the specs in this repo. They cover the anonymous public tier only —
+  there is no skill for the gated registry, because there is no callable contract behind it.
+skills:
+  - file: landgate-find-wa-open-data.md
+    name: Find Western Australian open data through Data WA
+    api: openapi/landgate-data-wa-ckan-openapi.yml
+    operations: [ckanPackageSearch, ckanPackageShow, ckanOrganizationShow, ckanLicenseList,
+      ckanResourceSearch, ckanHelpShow]
+  - file: landgate-query-slip-boundaries.md
+    name: Query Western Australian boundaries and cadastral layers on SLIP
+    api: openapi/landgate-slip-public-arcgis-openapi.yml
+    operations: [getSlipServerInfo, listSlipRootServices, listSlipFolderServices,
+      getSlipMapService, getSlipLayer, querySlipLayerFeatures, identifySlipFeatures]
+  - file: landgate-consume-slip-ogc-services.md
+    name: Consume Landgate SLIP data through OGC WMS and WFS
+    api: openapi/landgate-slip-public-ogc-openapi.yml
+    operations: [slipWmsRequest, slipWfsRequest]

@@ -1,0 +1,285 @@
+generated: '2026-07-26'
+method: generated
+source: openapi/landgate-data-wa-ckan-openapi.yml, openapi/landgate-slip-public-arcgis-openapi.yml,
+  openapi/landgate-slip-public-ogc-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 27
+  by_action_class:
+    connected: 27
+  by_consequence:
+    read: 27
+  human_in_the_loop_required: 0
+operations:
+- path: /api/3/action/status_show
+  method: get
+  operationId: ckanStatusShow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/package_list
+  method: get
+  operationId: ckanPackageList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/package_search
+  method: get
+  operationId: ckanPackageSearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/package_show
+  method: get
+  operationId: ckanPackageShow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/current_package_list_with_resources
+  method: get
+  operationId: ckanCurrentPackageListWithResources
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/organization_list
+  method: get
+  operationId: ckanOrganizationList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/organization_show
+  method: get
+  operationId: ckanOrganizationShow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/group_list
+  method: get
+  operationId: ckanGroupList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/tag_list
+  method: get
+  operationId: ckanTagList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/license_list
+  method: get
+  operationId: ckanLicenseList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/vocabulary_list
+  method: get
+  operationId: ckanVocabularyList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/resource_search
+  method: get
+  operationId: ckanResourceSearch
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/package_autocomplete
+  method: get
+  operationId: ckanPackageAutocomplete
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/format_autocomplete
+  method: get
+  operationId: ckanFormatAutocomplete
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/3/action/help_show
+  method: get
+  operationId: ckanHelpShow
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /catalog.jsonld
+  method: get
+  operationId: getDataWaDcatCatalog
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /info
+  method: get
+  operationId: getSlipServerInfo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services
+  method: get
+  operationId: listSlipRootServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}
+  method: get
+  operationId: listSlipFolderServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer
+  method: get
+  operationId: getSlipMapService
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer/legend
+  method: get
+  operationId: getSlipMapServiceLegend
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer/{layerId}
+  method: get
+  operationId: getSlipLayer
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer/{layerId}/query
+  method: get
+  operationId: querySlipLayerFeatures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer/identify
+  method: get
+  operationId: identifySlipFeatures
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /services/{folder}/{service}/MapServer/export
+  method: get
+  operationId: exportSlipMapImage
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{folder}/{service}/MapServer/WMSServer
+  method: get
+  operationId: slipWmsRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /{folder}/{service}/MapServer/WFSServer
+  method: get
+  operationId: slipWfsRequest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

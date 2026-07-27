@@ -1,0 +1,63 @@
+generated: '2026-07-26'
+method: searched
+source: live probes 2026-07-26 plus the Landgate customer news and media stream
+note: |
+  Landgate publishes no API versioning policy, no deprecation policy, no SLA for the public
+  data services and no status page. What it does publish is a dated Customer Information
+  Bulletin (CIB) stream that carries service changes, fee changes and outage notices — that
+  is the closest thing to release notes on this estate and it is captured in
+  changelog/landgate-changelog.yml.
+versioning:
+  policy_published: false
+  surfaces:
+    - surface: SLIP Public Services (ArcGIS REST)
+      scheme: server-version-in-payload
+      current: '12.1'
+      evidence:
+        url: https://public-services.slip.wa.gov.au/public/rest/info?f=json
+        status: 200
+        probed: '2026-07-26'
+        body: '{"fullVersion":"12.1.0","currentVersion":12.1}'
+      risk: the version is not in the URI, so an Esri upgrade changes behaviour under
+        unchanged URLs with no consumer-facing version signal.
+    - surface: Data WA CKAN Action API
+      scheme: uri-path
+      current: '3'
+      evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/status_show
+        status: 200
+        probed: '2026-07-26'
+    - surface: SLIP Public OGC Services
+      scheme: query-parameter
+      current: 'WMS 1.3.0; WFS 2.0.0'
+      also_supported: ['WMS 1.1.1', 'WFS 1.1.0']
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  evidence: no Sunset or Deprecation response header was returned by any probed public
+    endpoint on 2026-07-26; no deprecation or API-retirement page exists on landgate.wa.gov.au
+  historic_precedent: |
+    Landgate has retired a whole developer platform before without a published policy: the
+    2013-2015 "SLIP Future" platform was built on Google Maps Engine (see the Landgate GitHub
+    org repos slip-code-samples, slip-developer-documentation and Sandbox), and disappeared
+    with GME. Those repos are still public and still point at googleapis.com endpoints that no
+    longer exist. Treat the absence of a deprecation policy as a live integration risk.
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page:
+  url: null
+  published: false
+  probed:
+    - { url: 'https://status.landgate.wa.gov.au/', status: 000, note: does not resolve }
+    - { url: 'https://www.landgate.wa.gov.au/system-status', status: 404 }
+  note: |
+    No status page exists. Outages and scheduled maintenance are announced as news articles in
+    the customer news stream (e.g. "Scheduled system outage notification"), which is a
+    human-readable channel with no machine-readable feed for service health.
+support:
+  url: https://www.landgate.wa.gov.au/help-centre/
+deprecated_operations: []

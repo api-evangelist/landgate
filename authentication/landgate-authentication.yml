@@ -1,0 +1,107 @@
+generated: '2026-07-26'
+method: searched
+source: live probes of the SLIP public services, the Data WA CKAN catalogue and the
+  MyLandgate PingFederate discovery documents
+docs: https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/
+note: |
+  Landgate's authentication story is split three ways and the split is the whole finding.
+  The public tier takes NO credential at all; the subscription tier takes a credential that
+  cannot be self-issued (it is granted after a licence is signed); and the identity provider
+  that fronts the gated tier is a real, standards-compliant OAuth 2.0 / OIDC authorization
+  server that publishes no public client registration path.
+summary:
+  types: [none, oauth2, openIdConnect]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, implicit, clientCredentials, refreshToken, deviceCode,
+    tokenExchange, jwtBearer, saml2Bearer, ciba, password]
+  self_service_signup: false
+  public_client_registration: false
+surfaces:
+  - name: SLIP Public Services (ArcGIS REST)
+    base: https://public-services.slip.wa.gov.au/public/rest
+    auth: none
+    evidence:
+      url: https://public-services.slip.wa.gov.au/public/rest/info?f=json
+      status: 200
+      probed: '2026-07-26'
+      body: '{"authInfo":{"isTokenBasedSecurity":false}}'
+    note: Confirmed anonymous — a live feature query returned real LGA boundary features
+      with no credential.
+  - name: SLIP Public OGC Services (WMS / WFS)
+    base: https://public-services.slip.wa.gov.au/public/services
+    auth: none
+    evidence:
+      url: https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetCapabilities&service=WMS
+      status: 200
+      probed: '2026-07-26'
+  - name: Data WA CKAN Action API
+    base: https://catalogue.data.wa.gov.au/api/3/action
+    auth: none (read)
+    evidence:
+      url: https://catalogue.data.wa.gov.au/api/3/action/status_show
+      status: 200
+      probed: '2026-07-26'
+    note: |
+      Read actions are anonymous. CKAN write actions require an API key sent in the
+      `Authorization` header, but Data WA issues no public API keys — no self-service key
+      surface was found. Do not record an apiKey scheme for the public surface.
+  - name: SLIP Subscription Services (ArcGIS REST)
+    base: https://services.slip.wa.gov.au/arcgis/rest/services
+    auth: gated
+    evidence:
+      url: https://services.slip.wa.gov.au/arcgis/rest/services
+      status: 401
+      probed: '2026-07-26'
+    note: HTTP 401 anonymously — even /arcgis/rest/info is 401. Access follows a signed SLIP
+      subscription / publication / broker / distributor / value-added-reseller licence.
+  - name: MyLandgate / Land Enquiry Services
+    base: https://sign-on.app.landgate.wa.gov.au
+    auth: oauth2 + openIdConnect
+    evidence:
+      url: https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration
+      status: 200
+      probed: '2026-07-26'
+schemes:
+  - name: MyLandgateOIDC
+    type: openIdConnect
+    openIdConnectUrl: https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration
+    issuer: https://sign-on.app.landgate.wa.gov.au
+    product: PingFederate
+    sources:
+      - well-known/landgate-openid-configuration.json
+      - openapi/landgate-mylandgate-openid-configuration.json
+  - name: MyLandgateOAuth2
+    type: oauth2
+    sources: [well-known/landgate-oauth-authorization-server.json]
+    metadata: RFC 8414 OAuth 2.0 Authorization Server Metadata
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://sign-on.app.landgate.wa.gov.au/as/authorization.oauth2
+        tokenUrl: https://sign-on.app.landgate.wa.gov.au/as/token.oauth2
+        scopes: [openid, profile, email, address, phone, ATO]
+      - flow: implicit
+        authorizationUrl: https://sign-on.app.landgate.wa.gov.au/as/authorization.oauth2
+      - flow: clientCredentials
+        tokenUrl: https://sign-on.app.landgate.wa.gov.au/as/token.oauth2
+      - flow: deviceCode
+        deviceAuthorizationUrl: https://sign-on.app.landgate.wa.gov.au/as/device_authz.oauth2
+    endpoints:
+      token: https://sign-on.app.landgate.wa.gov.au/as/token.oauth2
+      revocation: https://sign-on.app.landgate.wa.gov.au/as/revoke_token.oauth2
+      introspection: https://sign-on.app.landgate.wa.gov.au/as/introspect.oauth2
+      userinfo: https://sign-on.app.landgate.wa.gov.au/idp/userinfo.openid
+      jwks: https://sign-on.app.landgate.wa.gov.au/pf/JWKS
+      registration: https://sign-on.app.landgate.wa.gov.au/as/clients.oauth2
+      end_session: https://sign-on.app.landgate.wa.gov.au/idp/init_logout.openid
+    token_endpoint_auth_methods: [client_secret_basic, client_secret_post, client_secret_jwt,
+      private_key_jwt, tls_client_auth, none]
+    note: |
+      A registration_endpoint is advertised but this is the standard PingFederate dynamic
+      client registration URL — no public developer flow, documentation or onboarding page was
+      found for it. Treat the identity surface as staff/subscriber sign-on, not a developer API.
+onboarding:
+  self_service: false
+  api_key_issuance: none found
+  gate: signed licence (SLIP subscription / publication / broker / distributor / VAR) plus a
+    MyLandgate account for bulk downloads
+  contact: https://www.landgate.wa.gov.au/help-centre/
