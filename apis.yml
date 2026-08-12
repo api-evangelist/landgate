@@ -158,6 +158,8 @@ apis:
   - type: OAuthScopes
     url: scopes/landgate-scopes.yml
 common:
+- type: MCPServer
+  url: mcp/landgate-mcp.yml
 - type: AgenticAccess
   url: agentic-access/landgate-agentic-access.yml
 - type: DomainSecurity
