@@ -34,7 +34,7 @@ tags:
 - PropTech
 created: '2026-07-26'
 modified: '2026-07-26'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: landgate:slip-public-arcgis-rest-services
   name: SLIP Public Services (ArcGIS REST)
