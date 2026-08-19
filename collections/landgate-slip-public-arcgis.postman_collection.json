@@ -1,0 +1,1265 @@
+{
+  "item": [
+    {
+      "id": "0554ca0a-d06c-48cc-88d1-5169008222bc",
+      "name": "Server",
+      "description": {
+        "content": "Server-level information and the services directory",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54936908-311d-41b6-a321-8560d1fece6b",
+          "name": "Get ArcGIS Server info",
+          "request": {
+            "name": "Get ArcGIS Server info",
+            "description": {
+              "content": "Returns the ArcGIS Server version and the authentication posture of the public SLIP instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e03c21d-956f-43fe-a56b-f2df2ed86b88",
+              "name": "Server info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 5599.929210489201,\n  \"fullVersion\": \"string\",\n  \"soapUrl\": \"http://gCwKndOyxiusFcUpnbsgngUAGgyLhysb.rrlUOGRNep6CZuEw.FksLPKaiG64v0IvXj+f8YwFuL+mJqvfub\",\n  \"authInfo\": {\n    \"isTokenBasedSecurity\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "6d1319b2-3945-4eb8-b3f2-697f0774d886",
+      "name": "Services",
+      "description": {
+        "content": "Map service and layer metadata",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "18448360-570b-48b0-9aee-8a080069a113",
+          "name": "List root folders and services",
+          "request": {
+            "name": "List root folders and services",
+            "description": {
+              "content": "Lists the folders (Land_Monitor, Landgate_Public_Imagery, Landgate_Public_Maps, SLIP_Public_Services, Utilities) and any root-level services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b2ceff67-e472-4c6f-8cc1-ba7db804e3d2",
+              "name": "Services directory",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 8849.802129653975,\n  \"folders\": [\n    \"string\",\n    \"string\"\n  ],\n  \"services\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "891e77e8-6188-48a4-b156-4f287a1825b0",
+          "name": "List the services in a folder",
+          "request": {
+            "name": "List the services in a folder",
+            "description": {
+              "content": "Lists the map services published inside one SLIP folder, e.g. the 57 services in SLIP_Public_Services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de4ff7cd-aa87-4f4a-b426-b73563481cca",
+              "name": "Folder services directory",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentVersion\": 8849.802129653975,\n  \"folders\": [\n    \"string\",\n    \"string\"\n  ],\n  \"services\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "902e4849-4c99-48ad-b14d-bd51d36c9373",
+          "name": "Get map service metadata",
+          "request": {
+            "name": "Get map service metadata",
+            "description": {
+              "content": "Returns documentInfo, spatial reference, extent, maxRecordCount and the layer list for a public SLIP map service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae953f2c-6a69-4976-a6a5-19f60db0144f",
+              "name": "Map service metadata",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentInfo\": {},\n  \"maxRecordCount\": 5275,\n  \"maxImageWidth\": 5938\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3bd5206-8aa7-41cc-857d-b4d95a7b2a97",
+          "name": "Get the legend for a map service",
+          "request": {
+            "name": "Get the legend for a map service",
+            "description": {
+              "content": "Returns the legend swatches and labels for every layer in the map service, including base64 image data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer",
+                "legend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ae73999e-992c-4312-872a-2edefe9c064b",
+              "name": "Legend document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer",
+                    "legend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d37b06cd-2f49-48fe-b4b0-80b3cc5de519",
+          "name": "Get layer metadata",
+          "request": {
+            "name": "Get layer metadata",
+            "description": {
+              "content": "Returns the field list, geometry type, extent and capabilities of a single layer within a public SLIP map service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer",
+                ":layerId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "layerId",
+                  "description": "(Required) Numeric layer id within the map service."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35cdd1e7-16df-43e6-9f74-b7b5122d83de",
+              "name": "Layer metadata, or an `error` object (this server signals errors with HTTP 200)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer",
+                    ":layerId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "layerId",
+                      "description": "(Required) Numeric layer id within the map service."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 9448,\n  \"name\": \"string\",\n  \"geometryType\": \"string\",\n  \"extent\": {},\n  \"fields\": [\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"alias\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"type\": \"string\",\n      \"alias\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ba550a77-2177-4607-b692-1f582c027bc0",
+      "name": "Query",
+      "description": {
+        "content": "Feature query, identify and image export",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e5b6e5a-35cb-41e5-a767-129f8f9559cf",
+          "name": "Query features on a layer",
+          "request": {
+            "name": "Query features on a layer",
+            "description": {
+              "content": "Standard ArcGIS feature query. Verified anonymously against SLIP_Public_Services/Boundaries/MapServer/14 (LGA boundaries, 139 features).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer",
+                ":layerId",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "SQL where clause, e.g. `1=1`."
+                },
+                {
+                  "disabled": false,
+                  "key": "outFields",
+                  "value": "<string>",
+                  "description": "Comma-separated field list or `*`."
+                },
+                {
+                  "disabled": false,
+                  "key": "geometry",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "geometryType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "inSR",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "outSR",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnGeometry",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "returnCountOnly",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resultOffset",
+                  "value": "<integer>",
+                  "description": "Pagination offset (see conventions/landgate-conventions.yml)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultRecordCount",
+                  "value": "<integer>",
+                  "description": "Page size; capped by the service maxRecordCount (10000 observed)."
+                },
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "layerId",
+                  "description": "(Required) Numeric layer id within the map service."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16722569-6979-4856-8e50-928b40621463",
+              "name": "Feature set (or an `error` object — this server signals errors with HTTP 200)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer",
+                    ":layerId",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outFields",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geometry",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geometryType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "inSR",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "outSR",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "returnGeometry",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "returnCountOnly",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "resultOffset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "resultRecordCount",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "layerId",
+                      "description": "(Required) Numeric layer id within the map service."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"displayFieldName\": \"string\",\n  \"fieldAliases\": {},\n  \"features\": [\n    {\n      \"attributes\": {},\n      \"geometry\": {}\n    },\n    {\n      \"attributes\": {},\n      \"geometry\": {}\n    }\n  ],\n  \"count\": 8246,\n  \"error\": {\n    \"code\": 9001,\n    \"message\": \"string\",\n    \"details\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28d184f3-c38c-4d34-8796-f3e3c8101eab",
+          "name": "Identify features at a location",
+          "request": {
+            "name": "Identify features at a location",
+            "description": {
+              "content": "Returns the features from one or more layers that intersect a point or geometry, given a map extent and display size.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer",
+                "identify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "geometry",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "geometryType",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "tolerance",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "mapExtent",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "imageDisplay",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "layers",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "14e11ae1-dd0e-48c6-b35b-caf186360376",
+              "name": "Identify results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer",
+                    "identify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "geometry",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "geometryType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tolerance",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "mapExtent",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "imageDisplay",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "layers",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d274a6f-b229-4d0e-906d-fc28695db714",
+          "name": "Export a map image",
+          "request": {
+            "name": "Export a map image",
+            "description": {
+              "content": "Renders the map service to an image for a bounding box and size; with f=json the response carries an href to the generated image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "services",
+                ":folder",
+                ":service",
+                "MapServer",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bboxSR",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "imageSR",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "f",
+                  "value": "html",
+                  "description": "Response format. `json` for the machine-readable response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "folder",
+                  "description": "(Required) Services folder."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "service",
+                  "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72c61500-e2ad-4061-b97b-ca9a00a893a4",
+              "name": "Image reference (f=json) or the image itself (f=image)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "services",
+                    ":folder",
+                    ":service",
+                    "MapServer",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "size",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bboxSR",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "imageSR",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "f",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "folder",
+                      "description": "(Required) Services folder."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "service",
+                      "description": "(Required) Service name within the folder, e.g. `Boundaries`."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"href\": \"http://wGnDuy.khS-+orYl8,pPtbuSys.MyA+0+9AEMAvz2MAGQr3A4E+POLelU6k\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://public-services.slip.wa.gov.au/public/rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "21423dbc-7408-4a28-bdf2-0e881e1bca7c",
+    "name": "Landgate SLIP Public Services (ArcGIS REST)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Landgate does not publish an OpenAPI definition. This document is an API Evangelist\nGENERATED description of the Esri ArcGIS Server 12.1 REST surface that Landgate serves\nanonymously at https://public-services.slip.wa.gov.au/public/rest.\n\nEvery path and operation below was probed live and returned HTTP 200 without any\ncredential (see `x-evidence` on each operation, probed 2026-07-26). Nothing here is\ninvented: the operations are the standard ArcGIS REST resources that this specific\nserver answers, and the parameters are the ones exercised in the probes.\n\nThe server's own machine-readable contract remains the ArcGIS REST services directory\n(`?f=json`), which is saved verbatim in this repo as\n`openapi/landgate-slip-public-arcgis-rest-services.json` and\n`openapi/landgate-slip-public-services-folder.json`.\n\n\nContact Support:\n Name: Landgate Customer Service",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Data WA CKAN Action API (operated by Landgate)",
+    "version": "3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Site",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get catalogue status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/status_show"
+          },
+          "docs": "Returns the CKAN version, site title/url and the installed extension list."
+        },
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/tag_list",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List tags"
+        },
+        {
+          "info": {
+            "name": "List the licences the catalogue recognises",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/license_list"
+          },
+          "docs": "Useful for interpreting `license_id` on Landgate datasets — most are `custom_other` (a Landgate licence), not an open licence."
+        },
+        {
+          "info": {
+            "name": "List controlled vocabularies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/vocabulary_list"
+          },
+          "docs": "List controlled vocabularies"
+        },
+        {
+          "info": {
+            "name": "Get the docstring (parameter reference) for any action",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/help_show",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "CKAN's own machine-readable parameter reference. Every envelope returned by this API carries a `help` URL pointing back at this action."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Datasets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List every dataset name in the catalogue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/package_list",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List every dataset name in the catalogue"
+        },
+        {
+          "info": {
+            "name": "Search datasets (Solr query surface)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/package_search",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Solr query. Default `*:*`."
+              },
+              {
+                "name": "fq",
+                "value": "",
+                "type": "query",
+                "description": "Filter query, e.g. `organization:landgate` or `res_format:CSV`."
+              },
+              {
+                "name": "rows",
+                "value": "",
+                "type": "query",
+                "description": "Page size. Default 10; upper limit 1000."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "facet.field",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "include_private",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "The primary discovery operation. Accepts a subset of Solr parameters. Filter to\nLandgate's own datasets with `fq=organization:landgate` (395 datasets on 2026-07-26).\n"
+        },
+        {
+          "info": {
+            "name": "Get one dataset with its resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/package_show",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Dataset name or id."
+              }
+            ]
+          },
+          "docs": "Get one dataset with its resources"
+        },
+        {
+          "info": {
+            "name": "List recent datasets with their resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/current_package_list_with_resources",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List recent datasets with their resources"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List publishing organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/organization_list"
+          },
+          "docs": "List publishing organizations"
+        },
+        {
+          "info": {
+            "name": "Get one organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/organization_show",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "Organization name or id, e.g. `landgate`."
+              },
+              {
+                "name": "include_datasets",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get one organization"
+        },
+        {
+          "info": {
+            "name": "List catalogue groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/group_list"
+          },
+          "docs": "List catalogue groups"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search resources (distributions) directly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/resource_search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Field-scoped query, e.g. `name:cadastre`."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Search resources (distributions) directly"
+        },
+        {
+          "info": {
+            "name": "Autocomplete dataset titles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/package_autocomplete",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Autocomplete dataset titles"
+        },
+        {
+          "info": {
+            "name": "Autocomplete resource formats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/api/3/action/format_autocomplete",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Autocomplete resource formats"
+        },
+        {
+          "info": {
+            "name": "Get the DCAT catalog as JSON-LD",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://catalogue.data.wa.gov.au/catalog.jsonld"
+          },
+          "docs": "Get the DCAT catalog as JSON-LD"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

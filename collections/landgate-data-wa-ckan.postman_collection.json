@@ -1,0 +1,1528 @@
+{
+  "item": [
+    {
+      "id": "319da3fa-e4f1-4fec-ab3e-2b9764602cc0",
+      "name": "Site",
+      "description": {
+        "content": "Catalogue-level status and reference lists",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4a49cd7e-02d4-4e12-91fb-496ef0f77841",
+          "name": "Get catalogue status",
+          "request": {
+            "name": "Get catalogue status",
+            "description": {
+              "content": "Returns the CKAN version, site title/url and the installed extension list.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "status_show"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1942b6af-2bbb-4904-9501-932dfa101a1d",
+              "name": "Status envelope",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "status_show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5620202e-651d-4a2d-9ee5-3c182bd5032b",
+          "name": "List tags",
+          "request": {
+            "name": "List tags",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "tag_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8ed0a612-cf54-4d55-8914-41337d7aa087",
+              "name": "Envelope whose result is an array of tag names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "tag_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abeeaf35-ced6-4cb0-970f-96d831f3397a",
+          "name": "List the licences the catalogue recognises",
+          "request": {
+            "name": "List the licences the catalogue recognises",
+            "description": {
+              "content": "Useful for interpreting `license_id` on Landgate datasets — most are `custom_other` (a Landgate licence), not an open licence.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "license_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "06aa8f80-e089-43b1-9f81-b96ebbee52b8",
+              "name": "Envelope whose result is an array of licence objects",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "license_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "26c2a426-5b39-4e64-b951-b22e8cc60fdd",
+          "name": "List controlled vocabularies",
+          "request": {
+            "name": "List controlled vocabularies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "vocabulary_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9d957772-e9e2-4c6e-b0fc-a5f3d20ab489",
+              "name": "Envelope whose result is an array of vocabularies",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "vocabulary_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bbca83f-af69-4d2d-8ffe-8eca083971a0",
+          "name": "Get the docstring (parameter reference) for any action",
+          "request": {
+            "name": "Get the docstring (parameter reference) for any action",
+            "description": {
+              "content": "CKAN's own machine-readable parameter reference. Every envelope returned by this API carries a `help` URL pointing back at this action.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "help_show"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "270dfeda-a12f-453b-b146-d625912c4dc8",
+              "name": "Envelope whose result is the action docstring",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "help_show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b2cec4c1-fb48-4f64-ab7c-b0499892a66b",
+      "name": "Datasets",
+      "description": {
+        "content": "Dataset (package) discovery and retrieval",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bb2bb88e-e8db-469f-8364-751897d19741",
+          "name": "List every dataset name in the catalogue",
+          "request": {
+            "name": "List every dataset name in the catalogue",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "package_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08b62775-56f5-4dfb-ad51-80ca0ff11f7f",
+              "name": "Envelope whose result is an array of dataset names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "package_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de679907-8089-4024-b321-058714b54792",
+          "name": "Search datasets (Solr query surface)",
+          "request": {
+            "name": "Search datasets (Solr query surface)",
+            "description": {
+              "content": "The primary discovery operation. Accepts a subset of Solr parameters. Filter to\nLandgate's own datasets with `fq=organization:landgate` (395 datasets on 2026-07-26).\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "package_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "Solr query. Default `*:*`."
+                },
+                {
+                  "disabled": false,
+                  "key": "fq",
+                  "value": "<string>",
+                  "description": "Filter query, e.g. `organization:landgate` or `res_format:CSV`."
+                },
+                {
+                  "disabled": false,
+                  "key": "rows",
+                  "value": "10",
+                  "description": "Page size. Default 10; upper limit 1000."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "0",
+                  "description": "Pagination offset."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "facet.field",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_private",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7af75424-7d9b-4689-8894-12cbeea5f18f",
+              "name": "Envelope whose result has count, results[] and search_facets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "package_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "fq",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rows",
+                      "value": "10"
+                    },
+                    {
+                      "key": "start",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "facet.field",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_private",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://fyAzclRVXTrirJvYgTtqQvAcveZn.zneHJTX6sI1pj\",\n  \"success\": false,\n  \"result\": {\n    \"count\": 2172,\n    \"sort\": \"string\",\n    \"results\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"notes\": \"string\",\n        \"access_level\": \"string\",\n        \"author\": \"string\",\n        \"author_email\": \"string\",\n        \"license_id\": \"string\",\n        \"metadata_created\": \"string\",\n        \"metadata_modified\": \"string\",\n        \"organization\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\",\n          \"description\": \"string\",\n          \"package_count\": 3064\n        },\n        \"resources\": [\n          {\n            \"id\": \"string\",\n            \"package_id\": \"string\",\n            \"name\": \"string\",\n            \"url\": \"https://XkvRHLxCqszw.txeCiybkBvYhDjJg6Adhi86nawcEiiS,ZEL0GRqt9O-1B28cRUZlKYWd0xrUa,Ter\",\n            \"format\": \"string\",\n            \"description\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"package_id\": \"string\",\n            \"name\": \"string\",\n            \"url\": \"http://JdrjdbqYrvyEKweRpADl.dzFCUt2MQAYPo2cnU\",\n            \"format\": \"string\",\n            \"description\": \"string\"\n          }\n        ]\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"notes\": \"string\",\n        \"access_level\": \"string\",\n        \"author\": \"string\",\n        \"author_email\": \"string\",\n        \"license_id\": \"string\",\n        \"metadata_created\": \"string\",\n        \"metadata_modified\": \"string\",\n        \"organization\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"title\": \"string\",\n          \"description\": \"string\",\n          \"package_count\": 7810\n        },\n        \"resources\": [\n          {\n            \"id\": \"string\",\n            \"package_id\": \"string\",\n            \"name\": \"string\",\n            \"url\": \"https://RQazTUGitsDlpoEgFDeg.mklfTRpinS4t5AaEVxRnYGOdyWOH15Lovwjz4qzN2Z4HTYxyeoT7tnCwnY.LJY5NG7Oe\",\n            \"format\": \"string\",\n            \"description\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"package_id\": \"string\",\n            \"name\": \"string\",\n            \"url\": \"http://RRaKAxNY.ljuEFrrvjN2cVlRlSZfaozSX1YKf9PZXmjtV76AHeMhwt.t4aUc5f+4yyHsR2ten\",\n            \"format\": \"string\",\n            \"description\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"search_facets\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa5a4e16-1bd7-4f2f-8667-3abccfe24f36",
+          "name": "Get one dataset with its resources",
+          "request": {
+            "name": "Get one dataset with its resources",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "package_show"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) Dataset name or id."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb2e5901-8fcb-454c-ac15-2a455c151d66",
+              "name": "Envelope whose result is a Package",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "package_show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df47ba7e-fa7e-4d0e-8408-4315090ca448",
+              "name": "Validation Error when `id` is missing",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "package_show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Conflict",
+              "code": 409,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://DnXDUiyT.rfxersjcHyovHpgWo+TxZNDqAgHWTmlFR7JbyhqJAoJnOPQwlbUyJDKGjsmDIsDgd.Jp2I6xB.mV\",\n  \"success\": false,\n  \"error\": {\n    \"__type\": \"Validation Error\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31e77cdc-91e1-4016-a2db-4cffd71fa7d4",
+          "name": "List recent datasets with their resources",
+          "request": {
+            "name": "List recent datasets with their resources",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "current_package_list_with_resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "15a3bbd5-2809-468a-8348-36f61e725f9a",
+              "name": "Envelope whose result is an array of packages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "current_package_list_with_resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2dfc3ccd-5eb5-445f-8ace-2d69059768ef",
+      "name": "Organizations",
+      "description": {
+        "content": "Publishing organizations and groups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "93841291-773d-4e7b-b1d9-0c94f23f308a",
+          "name": "List publishing organizations",
+          "request": {
+            "name": "List publishing organizations",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "organization_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3c810524-15d5-4253-8f06-76534b74e150",
+              "name": "Envelope whose result is an array of organization names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "organization_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86765338-87c0-4734-96c5-8a8a24fd69ab",
+          "name": "Get one organization",
+          "request": {
+            "name": "Get one organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "organization_show"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) Organization name or id, e.g. `landgate`."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_datasets",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e0dd7745-7c75-4ee5-a233-b408ab5cb595",
+              "name": "Envelope whose result is an Organization",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "organization_show"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "include_datasets",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a61a688-edf9-4749-b322-85a1f6e2b931",
+          "name": "List catalogue groups",
+          "request": {
+            "name": "List catalogue groups",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "group_list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "55a874d6-6df1-4b2f-9f59-f30b1171679e",
+              "name": "Envelope whose result is an array of group names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "group_list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a0be752b-ed27-4894-8b75-26ac1142de8d",
+      "name": "Discovery",
+      "description": {
+        "content": "Autocomplete, resource search and the DCAT catalog",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8b82036-3877-4f69-9b4e-8fa4c5aab43e",
+          "name": "Search resources (distributions) directly",
+          "request": {
+            "name": "Search resources (distributions) directly",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "resource_search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Field-scoped query, e.g. `name:cadastre`."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "baafc030-b429-4fc2-8605-5ec633344386",
+              "name": "Envelope whose result has count and results[]",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "resource_search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0997d34-128b-4649-b6dd-030f928425e4",
+          "name": "Autocomplete dataset titles",
+          "request": {
+            "name": "Autocomplete dataset titles",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "package_autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8198aeab-aabd-43aa-82b6-c9a285069edb",
+              "name": "Envelope whose result is an array of matches",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "package_autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52b9e138-bd93-4de9-a695-f0db5b6a0335",
+          "name": "Autocomplete resource formats",
+          "request": {
+            "name": "Autocomplete resource formats",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "3",
+                "action",
+                "format_autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b021858-9322-43b7-88a5-2fcf332fd508",
+              "name": "Envelope whose result is an array of formats",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "3",
+                    "action",
+                    "format_autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"help\": \"https://MRcpfqmyPfXt.mccXtN.LYdcjIjeR3eN4oN51SW9i3QVpvi7rj0sSIp+1.B\",\n  \"success\": true,\n  \"result\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72ce5ef6-4160-42bf-b949-84b0b65e9fee",
+          "name": "Get the DCAT catalog as JSON-LD",
+          "request": {
+            "name": "Get the DCAT catalog as JSON-LD",
+            "description": {},
+            "url": {
+              "path": [
+                "catalog.jsonld"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/ld+json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1eb1aa8-e784-4d36-95eb-7abd92bbe2f7",
+              "name": "DCAT catalog",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "catalog.jsonld"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/ld+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/ld+json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://catalogue.data.wa.gov.au",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1059d15a-bf7b-4ffd-b000-81d2d5c7ac5c",
+    "name": "Data WA CKAN Action API (operated by Landgate)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Landgate leads implementation of the WA Whole of Government Open Data Policy and operates\ndata.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is\nexposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED\ndescription of the actions that this specific deployment answers.\n\nEvery operation below was probed live on 2026-07-26 and returned HTTP 200 with\n`\"success\": true` and no credential (see `x-evidence`). Only actions that were actually\nexercised are described — the CKAN action surface is larger, and `helpShow` is the\nserver's own machine-readable parameter reference for any action.\n\nScale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the\n`landgate` organization. Licensing is mixed and should not be assumed open — 371 of the\n395 Landgate datasets carry `license_id: custom_other`.\n\n\nContact Support:\n Name: Landgate Customer Service",
+      "type": "text/plain"
+    }
+  }
+}

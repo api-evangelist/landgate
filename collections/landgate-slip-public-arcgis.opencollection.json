@@ -1,0 +1,404 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Landgate SLIP Public Services (ArcGIS REST)",
+    "version": "12.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Server",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get ArcGIS Server info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/info",
+            "params": [
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Returns the ArcGIS Server version and the authentication posture of the public SLIP instance."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List root folders and services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services",
+            "params": [
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Lists the folders (Land_Monitor, Landgate_Public_Imagery, Landgate_Public_Maps, SLIP_Public_Services, Utilities) and any root-level services."
+        },
+        {
+          "info": {
+            "name": "List the services in a folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Lists the map services published inside one SLIP folder, e.g. the 57 services in SLIP_Public_Services."
+        },
+        {
+          "info": {
+            "name": "Get map service metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Returns documentInfo, spatial reference, extent, maxRecordCount and the layer list for a public SLIP map service."
+        },
+        {
+          "info": {
+            "name": "Get the legend for a map service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer/legend",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Returns the legend swatches and labels for every layer in the map service, including base64 image data."
+        },
+        {
+          "info": {
+            "name": "Get layer metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer/:layerId",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric layer id within the map service."
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Returns the field list, geometry type, extent and capabilities of a single layer within a public SLIP map service."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Query",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query features on a layer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer/:layerId/query",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "layerId",
+                "value": "",
+                "type": "path",
+                "description": "Numeric layer id within the map service."
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "SQL where clause, e.g. `1=1`."
+              },
+              {
+                "name": "outFields",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated field list or `*`."
+              },
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "geometryType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "inSR",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outSR",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "returnGeometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "returnCountOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resultOffset",
+                "value": "",
+                "type": "query",
+                "description": "Pagination offset (see conventions/landgate-conventions.yml)."
+              },
+              {
+                "name": "resultRecordCount",
+                "value": "",
+                "type": "query",
+                "description": "Page size; capped by the service maxRecordCount (10000 observed)."
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Standard ArcGIS feature query. Verified anonymously against SLIP_Public_Services/Boundaries/MapServer/14 (LGA boundaries, 139 features)."
+        },
+        {
+          "info": {
+            "name": "Identify features at a location",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer/identify",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "geometry",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "geometryType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tolerance",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mapExtent",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "imageDisplay",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "layers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Returns the features from one or more layers that intersect a point or geometry, given a map extent and display size."
+        },
+        {
+          "info": {
+            "name": "Export a map image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/rest/services/:folder/:service/MapServer/export",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path",
+                "description": "Services folder."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name within the folder, e.g. `Boundaries`."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bboxSR",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "imageSR",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "f",
+                "value": "",
+                "type": "query",
+                "description": "Response format. `json` for the machine-readable response."
+              }
+            ]
+          },
+          "docs": "Renders the map service to an image for a bounding box and size; with f=json the response carries an href to the generated image."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

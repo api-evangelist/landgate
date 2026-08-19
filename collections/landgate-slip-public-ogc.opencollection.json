@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Landgate SLIP Public OGC Web Services (WMS / WFS)",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WMS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OGC WMS 1.3.0 endpoint (GetCapabilities / GetMap / GetFeatureInfo)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/services/:folder/:service/MapServer/WMSServer",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name; WFS is served by the `*_WFS` services."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "layers",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated layer names (GetMap / GetFeatureInfo)."
+              },
+              {
+                "name": "styles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "crs",
+                "value": "",
+                "type": "query",
+                "description": "Coordinate reference system for WMS 1.3.0, e.g. `CRS:84`, `EPSG:4326`."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "width",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "height",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Single OGC WMS endpoint. `request=GetCapabilities` returns the WMS_Capabilities XML\ndocument; `request=GetMap` returns a rendered image.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "WFS",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OGC WFS 2.0.0 endpoint (GetCapabilities / DescribeFeatureType / GetFeature)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://public-services.slip.wa.gov.au/public/services/:folder/:service/MapServer/WFSServer",
+            "params": [
+              {
+                "name": "folder",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "path",
+                "description": "Service name; WFS is served by the `*_WFS` services."
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "typeNames",
+                "value": "",
+                "type": "query",
+                "description": "Feature type, e.g. `esri:DFES_Regions__DFES-015_`."
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "outputFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "srsName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Single OGC WFS endpoint, served by the `*_WFS` map services (e.g.\n`SLIP_Public_Services/Boundaries_WFS`). `request=GetFeature` returns a GML\nFeatureCollection.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,119 +1,132 @@
 generated: '2026-07-26'
 method: derived
 status: candidate
-source: openapi/landgate-slip-public-arcgis-openapi.yml, openapi/landgate-data-wa-ckan-openapi.yml,
-  openapi/landgate-slip-public-ogc-openapi.yml
-note: |
-  Landgate publishes NO MCP server. Searched 2026-07-26: no mcp.* host, no MCP reference on
+source: openapi/landgate-slip-public-arcgis-openapi.yml, openapi/landgate-data-wa-ckan-openapi.yml, openapi/landgate-slip-public-ogc-openapi.yml
+note: 'Landgate publishes NO MCP server. Searched 2026-07-26: no mcp.* host, no MCP reference on
+
   landgate.wa.gov.au or data.wa.gov.au, no /.well-known/ai-plugin.json on any host, nothing in
+
   the Landgate GitHub org, and no npm package. `status: candidate` — the tools below are an
+
   API Evangelist proposal derived one-for-one from operations that were verified callable
+
   anonymously, not something Landgate operates.
 
+
   Why this is worth proposing: the public tier is entirely anonymous and read-only, which is
+
   the easiest possible MCP surface to stand up — no token exchange, no consent, no write
+
   consequence. See agentic-access/landgate-agentic-access.yml, where all 27 operations
+
   classify as connected/read.
+
+  '
 server:
   name: landgate
   transport: http
   url: null
   authentication: none required for the public tier
 tools:
-  - name: search_wa_datasets
-    description: Search the Data WA open data catalogue (2,872 datasets; filter to Landgate's
-      395 with fq=organization:landgate).
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageSearch
-  - name: get_wa_dataset
-    description: Get one Data WA dataset with its resources/distributions.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageShow
-  - name: list_wa_datasets
-    description: List every dataset name in the Data WA catalogue.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageList
-  - name: list_recent_wa_datasets
-    description: List recent datasets with their resources inline.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanCurrentPackageListWithResources
-  - name: list_wa_publishers
-    description: List the agencies publishing to data.wa.gov.au.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanOrganizationList
-  - name: get_wa_publisher
-    description: Get one publishing organization, e.g. landgate.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanOrganizationShow
-  - name: list_wa_groups
-    description: List catalogue thematic groups.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanGroupList
-  - name: list_wa_tags
-    description: List catalogue tags.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanTagList
-  - name: list_wa_licences
-    description: List the licence vocabulary — essential because most Landgate datasets are
-      license_id custom_other, not open.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanLicenseList
-  - name: list_wa_vocabularies
-    description: List controlled vocabularies.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanVocabularyList
-  - name: search_wa_resources
-    description: Search distributions directly, e.g. query=name:cadastre.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanResourceSearch
-  - name: autocomplete_wa_datasets
-    description: Autocomplete dataset titles.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageAutocomplete
-  - name: autocomplete_wa_formats
-    description: Autocomplete resource formats.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanFormatAutocomplete
-  - name: get_wa_catalogue_status
-    description: Get CKAN version and installed extensions.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanStatusShow
-  - name: get_ckan_action_help
-    description: Get the parameter reference for any CKAN action.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanHelpShow
-  - name: get_wa_dcat_catalog
-    description: Fetch the whole catalogue as DCAT JSON-LD.
-    source_operation: openapi/landgate-data-wa-ckan-openapi.yml#getDataWaDcatCatalog
-  - name: get_slip_server_info
-    description: Get SLIP ArcGIS Server version and auth posture.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipServerInfo
-  - name: list_slip_folders
-    description: List SLIP public service folders.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#listSlipRootServices
-  - name: list_slip_services
-    description: List the map services in one SLIP folder.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#listSlipFolderServices
-  - name: get_slip_service
-    description: Get map service metadata including its layer list and maxRecordCount.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipMapService
-  - name: get_slip_layer
-    description: Get a layer's fields, geometry type and extent.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipLayer
-  - name: get_slip_legend
-    description: Get the legend for a SLIP map service.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipMapServiceLegend
-  - name: query_slip_features
-    description: Query features on a SLIP layer with a where clause and/or spatial filter —
-      the workhorse tool (e.g. WA LGA boundaries, 139 features).
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#querySlipLayerFeatures
-  - name: identify_slip_features
-    description: Identify features at a point across the layers of a SLIP service.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#identifySlipFeatures
-  - name: export_slip_map_image
-    description: Render a SLIP map service to an image for a bounding box.
-    source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#exportSlipMapImage
-  - name: slip_wms_request
-    description: Call the OGC WMS 1.3.0 endpoint (GetCapabilities / GetMap).
-    source_operation: openapi/landgate-slip-public-ogc-openapi.yml#slipWmsRequest
-  - name: slip_wfs_request
-    description: Call the OGC WFS 2.0.0 endpoint (GetCapabilities / DescribeFeatureType /
-      GetFeature) on the *_WFS services.
-    source_operation: openapi/landgate-slip-public-ogc-openapi.yml#slipWfsRequest
+- name: search_wa_datasets
+  description: Search the Data WA open data catalogue (2,872 datasets; filter to Landgate's 395 with fq=organization:landgate).
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageSearch
+- name: get_wa_dataset
+  description: Get one Data WA dataset with its resources/distributions.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageShow
+- name: list_wa_datasets
+  description: List every dataset name in the Data WA catalogue.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageList
+- name: list_recent_wa_datasets
+  description: List recent datasets with their resources inline.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanCurrentPackageListWithResources
+- name: list_wa_publishers
+  description: List the agencies publishing to data.wa.gov.au.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanOrganizationList
+- name: get_wa_publisher
+  description: Get one publishing organization, e.g. landgate.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanOrganizationShow
+- name: list_wa_groups
+  description: List catalogue thematic groups.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanGroupList
+- name: list_wa_tags
+  description: List catalogue tags.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanTagList
+- name: list_wa_licences
+  description: List the licence vocabulary — essential because most Landgate datasets are license_id custom_other,
+    not open.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanLicenseList
+- name: list_wa_vocabularies
+  description: List controlled vocabularies.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanVocabularyList
+- name: search_wa_resources
+  description: Search distributions directly, e.g. query=name:cadastre.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanResourceSearch
+- name: autocomplete_wa_datasets
+  description: Autocomplete dataset titles.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanPackageAutocomplete
+- name: autocomplete_wa_formats
+  description: Autocomplete resource formats.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanFormatAutocomplete
+- name: get_wa_catalogue_status
+  description: Get CKAN version and installed extensions.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanStatusShow
+- name: get_ckan_action_help
+  description: Get the parameter reference for any CKAN action.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#ckanHelpShow
+- name: get_wa_dcat_catalog
+  description: Fetch the whole catalogue as DCAT JSON-LD.
+  source_operation: openapi/landgate-data-wa-ckan-openapi.yml#getDataWaDcatCatalog
+- name: get_slip_server_info
+  description: Get SLIP ArcGIS Server version and auth posture.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipServerInfo
+- name: list_slip_folders
+  description: List SLIP public service folders.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#listSlipRootServices
+- name: list_slip_services
+  description: List the map services in one SLIP folder.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#listSlipFolderServices
+- name: get_slip_service
+  description: Get map service metadata including its layer list and maxRecordCount.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipMapService
+- name: get_slip_layer
+  description: Get a layer's fields, geometry type and extent.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipLayer
+- name: get_slip_legend
+  description: Get the legend for a SLIP map service.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#getSlipMapServiceLegend
+- name: query_slip_features
+  description: Query features on a SLIP layer with a where clause and/or spatial filter — the workhorse
+    tool (e.g. WA LGA boundaries, 139 features).
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#querySlipLayerFeatures
+- name: identify_slip_features
+  description: Identify features at a point across the layers of a SLIP service.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#identifySlipFeatures
+- name: export_slip_map_image
+  description: Render a SLIP map service to an image for a bounding box.
+  source_operation: openapi/landgate-slip-public-arcgis-openapi.yml#exportSlipMapImage
+- name: slip_wms_request
+  description: Call the OGC WMS 1.3.0 endpoint (GetCapabilities / GetMap).
+  source_operation: openapi/landgate-slip-public-ogc-openapi.yml#slipWmsRequest
+- name: slip_wfs_request
+  description: Call the OGC WFS 2.0.0 endpoint (GetCapabilities / DescribeFeatureType / GetFeature) on
+    the *_WFS services.
+  source_operation: openapi/landgate-slip-public-ogc-openapi.yml#slipWfsRequest
 coverage:
   tools_proposed: 27
   operations_total: 27
   operations_bound: 27
   gated_operations_excluded: true
 excluded:
-  - surface: SLIP Subscription Services
-    reason: HTTP 401 anonymously; requires a signed licence — no anonymous tool can be proposed
-  - surface: MyLandgate / Land Enquiry Services
-    reason: interactive sign-on only; no documented resource API behind the identity provider
-  - surface: data-downloads.slip.wa.gov.au
-    reason: returns a login redirect page; a SLIP account is required before any file is served
+- surface: SLIP Subscription Services
+  reason: HTTP 401 anonymously; requires a signed licence — no anonymous tool can be proposed
+- surface: MyLandgate / Land Enquiry Services
+  reason: interactive sign-on only; no documented resource API behind the identity provider
+- surface: data-downloads.slip.wa.gov.au
+  reason: returns a login redirect page; a SLIP account is required before any file is served
+deployment:
+  mode: none
+  verified: derived
+  tools: 27
+  checked: '2026-08-12'
+  source: catalog MCP census
