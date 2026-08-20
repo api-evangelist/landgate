@@ -21,6 +21,18 @@ description: Landgate is the Western Australian Land Information Authority — t
   registry.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Real-Estate
+- Australia
+- Land Registry
+- Title
+- Valuation
+- Property Data
+- Open Data
+- Geospatial
+- Government
+- Conveyancing
+- PropTech
+tags_raw:
 - Real Estate
 - Australia
 - Land Registry
@@ -142,6 +154,10 @@ apis:
   humanURL: https://land-enquiry.app.landgate.wa.gov.au/
   baseURL: https://sign-on.app.landgate.wa.gov.au
   tags:
+  - Authentication
+  - OpenID Connect
+  - Gated
+  tags_raw:
   - Authentication
   - OpenID Connect
   - OAuth 2.0
