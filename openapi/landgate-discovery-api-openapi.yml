@@ -1,0 +1,169 @@
+openapi: 3.2.0
+info:
+  title: Data WA CKAN Action API (operated by Landgate) Discovery API
+  version: '3'
+  summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
+  description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
+
+    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
+
+    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
+
+    description of the actions that this specific deployment answers.
+
+
+    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
+
+    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
+
+    exercised are described — the CKAN action surface is larger, and `helpShow` is the
+
+    server''s own machine-readable parameter reference for any action.
+
+
+    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
+
+    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
+
+    395 Landgate datasets carry `license_id: custom_other`.
+
+    '
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+  license:
+    name: Per-dataset; see each package's license_id
+    url: https://catalogue.data.wa.gov.au/api/3/action/license_list
+servers:
+- url: https://catalogue.data.wa.gov.au
+  description: Data WA CKAN catalogue
+tags:
+- name: Discovery
+  description: Autocomplete, resource search and the DCAT catalog
+paths:
+  /api/3/action/resource_search:
+    get:
+      operationId: ckanResourceSearch
+      tags:
+      - Discovery
+      summary: Search resources (distributions) directly
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/resource_search?query=name:cadastre
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: query
+        in: query
+        required: true
+        description: Field-scoped query, e.g. `name:cadastre`.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result has count and results[]
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/package_autocomplete:
+    get:
+      operationId: ckanPackageAutocomplete
+      tags:
+      - Discovery
+      summary: Autocomplete dataset titles
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/package_autocomplete?q=land&limit=3
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result is an array of matches
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/format_autocomplete:
+    get:
+      operationId: ckanFormatAutocomplete
+      tags:
+      - Discovery
+      summary: Autocomplete resource formats
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/format_autocomplete?q=csv
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: q
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result is an array of formats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /catalog.jsonld:
+    get:
+      operationId: getDataWaDcatCatalog
+      tags:
+      - Discovery
+      summary: Get the DCAT catalog as JSON-LD
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/catalog.jsonld
+        status: 200
+        content_type: application/ld+json
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: DCAT catalog
+          content:
+            application/ld+json:
+              schema:
+                type: array
+                items:
+                  type: object
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://catalogue.data.wa.gov.au/api/3/action
+x-authentication: none for read actions (write actions require a CKAN API key not issued publicly)

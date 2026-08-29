@@ -1,0 +1,159 @@
+openapi: 3.2.0
+info:
+  title: Landgate SLIP Public OGC Web Services ( / WFS) WMS API
+  version: '1.0'
+  summary: OpenAPI description of the anonymously callable OGC WMS 1.3.0 and WFS 2.0.0 endpoints fronting Landgate's SLIP public data.
+  description: 'Landgate publishes no OpenAPI. This is an API Evangelist GENERATED OpenAPI description of
+
+    the OGC web services that the SLIP public host answers anonymously. The authoritative
+
+    machine-readable contract for these services remains the OGC GetCapabilities documents,
+
+    which are saved verbatim in this repo as
+
+    `openapi/landgate-slip-public-wms-capabilities.xml` (WMS 1.3.0, 56 layers) and
+
+    `openapi/landgate-slip-public-wfs-capabilities.xml` (WFS 2.0.0, 38 feature types).
+
+
+    OGC services multiplex every operation onto one endpoint via the `request` query
+
+    parameter, so this document models one operation per service endpoint with `request`
+
+    as an enum, rather than inventing paths the server does not have.
+
+
+    All operations were probed live on 2026-07-26 and returned HTTP 200 anonymously
+
+    (see `x-evidence`). Note that WFS lives on the `*_WFS` map services: a WFS
+
+    GetCapabilities against the plain `Boundaries` service returns HTTP 400.
+
+    '
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+servers:
+- url: https://public-services.slip.wa.gov.au/public/services
+  description: SLIP public OGC services (anonymous)
+- url: https://services.slip.wa.gov.au/public/services
+  description: Alternate public host for the same services
+tags:
+- name: WMS
+  description: OGC Web Map Service 1.3.0
+paths:
+  /{folder}/{service}/MapServer/WMSServer:
+    get:
+      operationId: slipWmsRequest
+      tags:
+      - WMS
+      summary: OGC WMS 1.3.0 endpoint (GetCapabilities / GetMap / GetFeatureInfo)
+      description: 'Single OGC WMS endpoint. `request=GetCapabilities` returns the WMS_Capabilities XML
+
+        document; `request=GetMap` returns a rendered image.
+
+        '
+      x-evidence:
+      - url: https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetCapabilities&service=WMS
+        status: 200
+        content_type: text/xml
+        probed: '2026-07-26'
+      - url: https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?service=WMS&version=1.3.0&request=GetMap&layers=0&styles=&crs=CRS:84&bbox=115,-32,116,-31&width=200&height=200&format=image/png
+        status: 200
+        content_type: image/png
+        probed: '2026-07-26'
+      parameters:
+      - $ref: '#/components/parameters/Folder'
+      - $ref: '#/components/parameters/Service'
+      - name: service
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - WMS
+      - name: request
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetCapabilities
+          - GetMap
+          - GetFeatureInfo
+          - GetLegendGraphic
+      - name: version
+        in: query
+        schema:
+          type: string
+          enum:
+          - 1.1.1
+          - 1.3.0
+          default: 1.3.0
+      - name: layers
+        in: query
+        description: Comma-separated layer names (GetMap / GetFeatureInfo).
+        schema:
+          type: string
+      - name: styles
+        in: query
+        schema:
+          type: string
+      - name: crs
+        in: query
+        description: Coordinate reference system for WMS 1.3.0, e.g. `CRS:84`, `EPSG:4326`.
+        schema:
+          type: string
+      - name: bbox
+        in: query
+        schema:
+          type: string
+      - name: width
+        in: query
+        schema:
+          type: integer
+      - name: height
+        in: query
+        schema:
+          type: integer
+      - name: format
+        in: query
+        schema:
+          type: string
+          example: image/png
+      responses:
+        '200':
+          description: Capabilities XML, a rendered map image, or a feature-info document
+          content:
+            text/xml: {}
+            image/png: {}
+        '400':
+          description: OGC ServiceExceptionReport (XML) or an ArcGIS Server error page
+          content:
+            text/xml: {}
+components:
+  parameters:
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name; WFS is served by the `*_WFS` services.
+      schema:
+        type: string
+    Folder:
+      name: folder
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - Land_Monitor
+        - Landgate_Public_Imagery
+        - Landgate_Public_Maps
+        - SLIP_Public_Services
+        - Utilities
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://public-services.slip.wa.gov.au/public/services
+x-authentication: none

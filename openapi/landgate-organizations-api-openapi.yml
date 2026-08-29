@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Data WA CKAN Action API (operated by Landgate) Organizations API
+  version: '3'
+  summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
+  description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
+
+    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
+
+    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
+
+    description of the actions that this specific deployment answers.
+
+
+    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
+
+    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
+
+    exercised are described — the CKAN action surface is larger, and `helpShow` is the
+
+    server''s own machine-readable parameter reference for any action.
+
+
+    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
+
+    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
+
+    395 Landgate datasets carry `license_id: custom_other`.
+
+    '
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+  license:
+    name: Per-dataset; see each package's license_id
+    url: https://catalogue.data.wa.gov.au/api/3/action/license_list
+servers:
+- url: https://catalogue.data.wa.gov.au
+  description: Data WA CKAN catalogue
+tags:
+- name: Organizations
+  description: Publishing organizations and groups
+paths:
+  /api/3/action/organization_list:
+    get:
+      operationId: ckanOrganizationList
+      tags:
+      - Organizations
+      summary: List publishing organizations
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/organization_list
+        status: 200
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: Envelope whose result is an array of organization names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/organization_show:
+    get:
+      operationId: ckanOrganizationShow
+      tags:
+      - Organizations
+      summary: Get one organization
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/organization_show?id=landgate
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: id
+        in: query
+        required: true
+        description: Organization name or id, e.g. `landgate`.
+        schema:
+          type: string
+      - name: include_datasets
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Envelope whose result is an Organization
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/group_list:
+    get:
+      operationId: ckanGroupList
+      tags:
+      - Organizations
+      summary: List catalogue groups
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/group_list
+        status: 200
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: Envelope whose result is an array of group names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://catalogue.data.wa.gov.au/api/3/action
+x-authentication: none for read actions (write actions require a CKAN API key not issued publicly)

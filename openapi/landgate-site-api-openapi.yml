@@ -1,0 +1,166 @@
+openapi: 3.2.0
+info:
+  title: Data WA CKAN Action API (operated by Landgate) Site API
+  version: '3'
+  summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
+  description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
+
+    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
+
+    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
+
+    description of the actions that this specific deployment answers.
+
+
+    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
+
+    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
+
+    exercised are described — the CKAN action surface is larger, and `helpShow` is the
+
+    server''s own machine-readable parameter reference for any action.
+
+
+    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
+
+    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
+
+    395 Landgate datasets carry `license_id: custom_other`.
+
+    '
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+  license:
+    name: Per-dataset; see each package's license_id
+    url: https://catalogue.data.wa.gov.au/api/3/action/license_list
+servers:
+- url: https://catalogue.data.wa.gov.au
+  description: Data WA CKAN catalogue
+tags:
+- name: Site
+  description: Catalogue-level status and reference lists
+paths:
+  /api/3/action/status_show:
+    get:
+      operationId: ckanStatusShow
+      tags:
+      - Site
+      summary: Get catalogue status
+      description: Returns the CKAN version, site title/url and the installed extension list.
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/status_show
+        status: 200
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: Status envelope
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/tag_list:
+    get:
+      operationId: ckanTagList
+      tags:
+      - Site
+      summary: List tags
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/tag_list?limit=5
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result is an array of tag names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/license_list:
+    get:
+      operationId: ckanLicenseList
+      tags:
+      - Site
+      summary: List the licences the catalogue recognises
+      description: Useful for interpreting `license_id` on Landgate datasets — most are `custom_other` (a Landgate licence), not an open licence.
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/license_list
+        status: 200
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: Envelope whose result is an array of licence objects
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/vocabulary_list:
+    get:
+      operationId: ckanVocabularyList
+      tags:
+      - Site
+      summary: List controlled vocabularies
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/vocabulary_list
+        status: 200
+        probed: '2026-07-26'
+      responses:
+        '200':
+          description: Envelope whose result is an array of vocabularies
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/help_show:
+    get:
+      operationId: ckanHelpShow
+      tags:
+      - Site
+      summary: Get the docstring (parameter reference) for any action
+      description: CKAN's own machine-readable parameter reference. Every envelope returned by this API carries a `help` URL pointing back at this action.
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/help_show?name=package_search
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Envelope whose result is the action docstring
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://catalogue.data.wa.gov.au/api/3/action
+x-authentication: none for read actions (write actions require a CKAN API key not issued publicly)

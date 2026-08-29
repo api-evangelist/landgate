@@ -1,0 +1,33 @@
+{
+  "provider": "landgate",
+  "sources": [
+    "landgate-data-wa-ckan-openapi.yml",
+    "landgate-slip-public-arcgis-openapi.yml",
+    "landgate-slip-public-ogc-openapi.yml"
+  ],
+  "outputs": [
+    "landgate-datasets-api-openapi.yml",
+    "landgate-discovery-api-openapi.yml",
+    "landgate-organizations-api-openapi.yml",
+    "landgate-site-api-openapi.yml",
+    "landgate-query-api-openapi.yml",
+    "landgate-server-api-openapi.yml",
+    "landgate-services-api-openapi.yml",
+    "landgate-wfs-api-openapi.yml",
+    "landgate-wms-api-openapi.yml"
+  ],
+  "archived": [
+    "archived openapi/landgate-data-wa-ckan-openapi.yml",
+    "archived openapi/landgate-slip-public-arcgis-openapi.yml",
+    "archived openapi/landgate-slip-public-ogc-openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "landgate-data-wa-ckan-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "landgate-slip-public-arcgis-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "landgate-slip-public-ogc-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+9 apis, 10 total)"
+  ],
+  "skipped": []
+}

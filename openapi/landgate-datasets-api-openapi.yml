@@ -1,0 +1,307 @@
+openapi: 3.2.0
+info:
+  title: Data WA CKAN Action API (operated by Landgate) Datasets API
+  version: '3'
+  summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
+  description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
+
+    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
+
+    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
+
+    description of the actions that this specific deployment answers.
+
+
+    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
+
+    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
+
+    exercised are described — the CKAN action surface is larger, and `helpShow` is the
+
+    server''s own machine-readable parameter reference for any action.
+
+
+    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
+
+    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
+
+    395 Landgate datasets carry `license_id: custom_other`.
+
+    '
+  contact:
+    name: Landgate Customer Service
+    url: https://www.landgate.wa.gov.au/help-centre/
+  license:
+    name: Per-dataset; see each package's license_id
+    url: https://catalogue.data.wa.gov.au/api/3/action/license_list
+servers:
+- url: https://catalogue.data.wa.gov.au
+  description: Data WA CKAN catalogue
+tags:
+- name: Datasets
+  description: Dataset (package) discovery and retrieval
+paths:
+  /api/3/action/package_list:
+    get:
+      operationId: ckanPackageList
+      tags:
+      - Datasets
+      summary: List every dataset name in the catalogue
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/package_list
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result is an array of dataset names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+  /api/3/action/package_search:
+    get:
+      operationId: ckanPackageSearch
+      tags:
+      - Datasets
+      summary: Search datasets (Solr query surface)
+      description: 'The primary discovery operation. Accepts a subset of Solr parameters. Filter to
+
+        Landgate''s own datasets with `fq=organization:landgate` (395 datasets on 2026-07-26).
+
+        '
+      x-evidence:
+      - url: https://catalogue.data.wa.gov.au/api/3/action/package_search?rows=1
+        status: 200
+        probed: '2026-07-26'
+      - url: https://catalogue.data.wa.gov.au/api/3/action/package_search?fq=organization:landgate&rows=0
+        status: 200
+        probed: '2026-07-26'
+        sample: '{"count":395}'
+      parameters:
+      - name: q
+        in: query
+        description: Solr query. Default `*:*`.
+        schema:
+          type: string
+      - name: fq
+        in: query
+        description: Filter query, e.g. `organization:landgate` or `res_format:CSV`.
+        schema:
+          type: string
+      - name: rows
+        in: query
+        description: Page size. Default 10; upper limit 1000.
+        schema:
+          type: integer
+          default: 10
+          maximum: 1000
+      - name: start
+        in: query
+        description: Pagination offset.
+        schema:
+          type: integer
+          default: 0
+      - name: sort
+        in: query
+        schema:
+          type: string
+      - name: facet.field
+        in: query
+        schema:
+          type: string
+      - name: include_private
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Envelope whose result has count, results[] and search_facets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchEnvelope'
+  /api/3/action/package_show:
+    get:
+      operationId: ckanPackageShow
+      tags:
+      - Datasets
+      summary: Get one dataset with its resources
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/package_show?id=1-10-000-000-large-igneous-provinces-dmirs-081
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: id
+        in: query
+        required: true
+        description: Dataset name or id.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Envelope whose result is a Package
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+        '409':
+          description: Validation Error when `id` is missing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /api/3/action/current_package_list_with_resources:
+    get:
+      operationId: ckanCurrentPackageListWithResources
+      tags:
+      - Datasets
+      summary: List recent datasets with their resources
+      x-evidence:
+        url: https://catalogue.data.wa.gov.au/api/3/action/current_package_list_with_resources?limit=1
+        status: 200
+        probed: '2026-07-26'
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+      - name: offset
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Envelope whose result is an array of packages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope'
+components:
+  schemas:
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
+    SearchEnvelope:
+      allOf:
+      - $ref: '#/components/schemas/Envelope'
+      - type: object
+        properties:
+          result:
+            type: object
+            properties:
+              count:
+                type: integer
+              sort:
+                type: string
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Package'
+              search_facets:
+                type: object
+    ErrorEnvelope:
+      type: object
+      description: CKAN error envelope (observed on HTTP 409 validation errors).
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+          const: false
+        error:
+          type: object
+          properties:
+            __type:
+              type: string
+              examples:
+              - Validation Error
+              - Not Found Error
+              - Authorization Error
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+        package_id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        format:
+          type: string
+        description:
+          type: string
+    Package:
+      type: object
+      description: A CKAN dataset. Fields observed on this deployment.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        notes:
+          type: string
+        access_level:
+          type: string
+        author:
+          type: string
+        author_email:
+          type: string
+        license_id:
+          type: string
+        metadata_created:
+          type: string
+        metadata_modified:
+          type: string
+        organization:
+          $ref: '#/components/schemas/Organization'
+        tags:
+          type: array
+          items:
+            type: object
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        package_count:
+          type: integer
+x-generated-by: API Evangelist enrichment pipeline
+x-generated: '2026-07-26'
+x-method: generated
+x-source: live probes of https://catalogue.data.wa.gov.au/api/3/action
+x-authentication: none for read actions (write actions require a CKAN API key not issued publicly)
