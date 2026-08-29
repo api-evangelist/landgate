@@ -19,6 +19,18 @@ description: Landgate is the Western Australian Land Information Authority — t
   is no developer portal, no published OpenAPI, no API key self-service, and no RESO involvement
   of any kind — RESO is a North American MLS standard and is absent from this Australian government
   registry.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Real-Estate
