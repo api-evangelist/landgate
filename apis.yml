@@ -274,6 +274,8 @@ apis:
   humanURL: https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/
   baseURL: https://public-services.slip.wa.gov.au/public/rest/services
   tags:
+  - Servers
+  tags_raw:
   - Server
   properties:
   - type: OpenAPI
