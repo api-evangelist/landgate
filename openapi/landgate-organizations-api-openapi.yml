@@ -1,33 +1,11 @@
 openapi: 3.2.0
 info:
-  title: Data WA CKAN Action API (operated by Landgate) Organizations API
+  title: Data WA CKAN Action API (operated by Landgate)…
   version: '3'
   summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
   description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
 
-    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
-
-    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
-
-    description of the actions that this specific deployment answers.
-
-
-    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
-
-    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
-
-    exercised are described — the CKAN action surface is larger, and `helpShow` is the
-
-    server''s own machine-readable parameter reference for any action.
-
-
-    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
-
-    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
-
-    395 Landgate datasets carry `license_id: custom_other`.
-
-    '
+    data.wa.gov.au.'
   contact:
     name: Landgate Customer Service
     url: https://www.landgate.wa.gov.au/help-centre/

@@ -3,31 +3,7 @@ info:
   title: Landgate SLIP Public (ArcGIS REST) Services API
   version: '12.1'
   summary: OpenAPI description of the anonymously callable ArcGIS Server REST surface of Landgate's Shared Location Information Platform (SLIP) public tier.
-  description: 'Landgate does not publish an OpenAPI definition. This document is an API Evangelist
-
-    GENERATED description of the Esri ArcGIS Server 12.1 REST surface that Landgate serves
-
-    anonymously at https://public-services.slip.wa.gov.au/public/rest.
-
-
-    Every path and operation below was probed live and returned HTTP 200 without any
-
-    credential (see `x-evidence` on each operation, probed 2026-07-26). Nothing here is
-
-    invented: the operations are the standard ArcGIS REST resources that this specific
-
-    server answers, and the parameters are the ones exercised in the probes.
-
-
-    The server''s own machine-readable contract remains the ArcGIS REST services directory
-
-    (`?f=json`), which is saved verbatim in this repo as
-
-    `openapi/landgate-slip-public-arcgis-rest-services.json` and
-
-    `openapi/landgate-slip-public-services-folder.json`.
-
-    '
+  description: Landgate does not publish an OpenAPI definition.
   contact:
     name: Landgate Customer Service
     url: https://www.landgate.wa.gov.au/help-centre/
@@ -201,6 +177,17 @@ components:
                 type: string
               alias:
                 type: string
+    EsriError:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     ServicesDirectory:
       type: object
       properties:
@@ -219,17 +206,6 @@ components:
                 type: string
               type:
                 type: string
-    EsriError:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
   parameters:
     Folder:
       name: folder
@@ -244,6 +220,13 @@ components:
         - Landgate_Public_Maps
         - SLIP_Public_Services
         - Utilities
+    LayerId:
+      name: layerId
+      in: path
+      required: true
+      description: Numeric layer id within the map service.
+      schema:
+        type: integer
     Format:
       name: f
       in: query
@@ -264,13 +247,6 @@ components:
       description: Service name within the folder, e.g. `Boundaries`.
       schema:
         type: string
-    LayerId:
-      name: layerId
-      in: path
-      required: true
-      description: Numeric layer id within the map service.
-      schema:
-        type: integer
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

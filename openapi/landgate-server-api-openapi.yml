@@ -3,31 +3,7 @@ info:
   title: Landgate SLIP Public Services (ArcGIS REST) Server API
   version: '12.1'
   summary: OpenAPI description of the anonymously callable ArcGIS Server REST surface of Landgate's Shared Location Information Platform (SLIP) public tier.
-  description: 'Landgate does not publish an OpenAPI definition. This document is an API Evangelist
-
-    GENERATED description of the Esri ArcGIS Server 12.1 REST surface that Landgate serves
-
-    anonymously at https://public-services.slip.wa.gov.au/public/rest.
-
-
-    Every path and operation below was probed live and returned HTTP 200 without any
-
-    credential (see `x-evidence` on each operation, probed 2026-07-26). Nothing here is
-
-    invented: the operations are the standard ArcGIS REST resources that this specific
-
-    server answers, and the parameters are the ones exercised in the probes.
-
-
-    The server''s own machine-readable contract remains the ArcGIS REST services directory
-
-    (`?f=json`), which is saved verbatim in this repo as
-
-    `openapi/landgate-slip-public-arcgis-rest-services.json` and
-
-    `openapi/landgate-slip-public-services-folder.json`.
-
-    '
+  description: Landgate does not publish an OpenAPI definition.
   contact:
     name: Landgate Customer Service
     url: https://www.landgate.wa.gov.au/help-centre/
@@ -63,6 +39,20 @@ paths:
               schema:
                 $ref: '#/components/schemas/ServerInfo'
 components:
+  parameters:
+    Format:
+      name: f
+      in: query
+      description: Response format. `json` for the machine-readable response.
+      schema:
+        type: string
+        enum:
+        - html
+        - json
+        - pjson
+        - image
+        - kmz
+        default: html
   schemas:
     ServerInfo:
       type: object
@@ -79,20 +69,6 @@ components:
           properties:
             isTokenBasedSecurity:
               type: boolean
-  parameters:
-    Format:
-      name: f
-      in: query
-      description: Response format. `json` for the machine-readable response.
-      schema:
-        type: string
-        enum:
-        - html
-        - json
-        - pjson
-        - image
-        - kmz
-        default: html
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

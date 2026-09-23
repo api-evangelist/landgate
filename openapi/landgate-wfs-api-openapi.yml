@@ -3,33 +3,7 @@ info:
   title: Landgate SLIP Public OGC Web Services (WMS / ) WFS API
   version: '1.0'
   summary: OpenAPI description of the anonymously callable OGC WMS 1.3.0 and WFS 2.0.0 endpoints fronting Landgate's SLIP public data.
-  description: 'Landgate publishes no OpenAPI. This is an API Evangelist GENERATED OpenAPI description of
-
-    the OGC web services that the SLIP public host answers anonymously. The authoritative
-
-    machine-readable contract for these services remains the OGC GetCapabilities documents,
-
-    which are saved verbatim in this repo as
-
-    `openapi/landgate-slip-public-wms-capabilities.xml` (WMS 1.3.0, 56 layers) and
-
-    `openapi/landgate-slip-public-wfs-capabilities.xml` (WFS 2.0.0, 38 feature types).
-
-
-    OGC services multiplex every operation onto one endpoint via the `request` query
-
-    parameter, so this document models one operation per service endpoint with `request`
-
-    as an enum, rather than inventing paths the server does not have.
-
-
-    All operations were probed live on 2026-07-26 and returned HTTP 200 anonymously
-
-    (see `x-evidence`). Note that WFS lives on the `*_WFS` map services: a WFS
-
-    GetCapabilities against the plain `Boundaries` service returns HTTP 400.
-
-    '
+  description: Landgate publishes no OpenAPI.
   contact:
     name: Landgate Customer Service
     url: https://www.landgate.wa.gov.au/help-centre/
@@ -52,9 +26,7 @@ paths:
 
         `SLIP_Public_Services/Boundaries_WFS`). `request=GetFeature` returns a GML
 
-        FeatureCollection.
-
-        '
+        FeatureCollection.'
       x-evidence:
       - url: https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries_WFS/MapServer/WFSServer?service=WFS&request=GetCapabilities
         status: 200

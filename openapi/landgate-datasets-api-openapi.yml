@@ -5,29 +5,7 @@ info:
   summary: OpenAPI description of the anonymously callable CKAN Action API behind data.wa.gov.au, the WA whole-of-government open data catalogue Landgate operates.
   description: 'Landgate leads implementation of the WA Whole of Government Open Data Policy and operates
 
-    data.wa.gov.au. Its catalogue runs CKAN, whose standard `/api/3/action/*` surface is
-
-    exposed anonymously. CKAN publishes no OpenAPI, so this is an API Evangelist GENERATED
-
-    description of the actions that this specific deployment answers.
-
-
-    Every operation below was probed live on 2026-07-26 and returned HTTP 200 with
-
-    `"success": true` and no credential (see `x-evidence`). Only actions that were actually
-
-    exercised are described — the CKAN action surface is larger, and `helpShow` is the
-
-    server''s own machine-readable parameter reference for any action.
-
-
-    Scale observed on 2026-07-26: 2,872 datasets in the catalogue, 395 published by the
-
-    `landgate` organization. Licensing is mixed and should not be assumed open — 371 of the
-
-    395 Landgate datasets carry `license_id: custom_other`.
-
-    '
+    data.wa.gov.au.'
   contact:
     name: Landgate Customer Service
     url: https://www.landgate.wa.gov.au/help-centre/
@@ -75,9 +53,7 @@ paths:
       summary: Search datasets (Solr query surface)
       description: 'The primary discovery operation. Accepts a subset of Solr parameters. Filter to
 
-        Landgate''s own datasets with `fq=organization:landgate` (395 datasets on 2026-07-26).
-
-        '
+        Landgate''s own datasets with `fq=organization:landgate` (395 datasets on 2026-07-26).'
       x-evidence:
       - url: https://catalogue.data.wa.gov.au/api/3/action/package_search?rows=1
         status: 200
@@ -187,72 +163,6 @@ paths:
                 $ref: '#/components/schemas/Envelope'
 components:
   schemas:
-    Envelope:
-      type: object
-      description: Standard CKAN response envelope.
-      required:
-      - help
-      - success
-      properties:
-        help:
-          type: string
-          format: uri
-        success:
-          type: boolean
-        result: {}
-    SearchEnvelope:
-      allOf:
-      - $ref: '#/components/schemas/Envelope'
-      - type: object
-        properties:
-          result:
-            type: object
-            properties:
-              count:
-                type: integer
-              sort:
-                type: string
-              results:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Package'
-              search_facets:
-                type: object
-    ErrorEnvelope:
-      type: object
-      description: CKAN error envelope (observed on HTTP 409 validation errors).
-      properties:
-        help:
-          type: string
-          format: uri
-        success:
-          type: boolean
-          const: false
-        error:
-          type: object
-          properties:
-            __type:
-              type: string
-              examples:
-              - Validation Error
-              - Not Found Error
-              - Authorization Error
-    Resource:
-      type: object
-      properties:
-        id:
-          type: string
-        package_id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        format:
-          type: string
-        description:
-          type: string
     Package:
       type: object
       description: A CKAN dataset. Fields observed on this deployment.
@@ -287,6 +197,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
+    ErrorEnvelope:
+      type: object
+      description: CKAN error envelope (observed on HTTP 409 validation errors).
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+          const: false
+        error:
+          type: object
+          properties:
+            __type:
+              type: string
+              examples:
+              - Validation Error
+              - Not Found Error
+              - Authorization Error
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
     Organization:
       type: object
       properties:
@@ -300,6 +242,40 @@ components:
           type: string
         package_count:
           type: integer
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+        package_id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        format:
+          type: string
+        description:
+          type: string
+    SearchEnvelope:
+      allOf:
+      - $ref: '#/components/schemas/Envelope'
+      - type: object
+        properties:
+          result:
+            type: object
+            properties:
+              count:
+                type: integer
+              sort:
+                type: string
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Package'
+              search_facets:
+                type: object
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

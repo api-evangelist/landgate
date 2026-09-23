@@ -1,9 +1,9 @@
 {
   "provider": "landgate",
   "sources": [
-    "landgate-data-wa-ckan-openapi.yml",
-    "landgate-slip-public-arcgis-openapi.yml",
-    "landgate-slip-public-ogc-openapi.yml"
+    "_ae-authored/landgate-data-wa-ckan-openapi.yml",
+    "_ae-authored/landgate-slip-public-arcgis-openapi.yml",
+    "_ae-authored/landgate-slip-public-ogc-openapi.yml"
   ],
   "outputs": [
     "landgate-datasets-api-openapi.yml",
@@ -16,18 +16,25 @@
     "landgate-wfs-api-openapi.yml",
     "landgate-wms-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/landgate-data-wa-ckan-openapi.yml",
-    "archived openapi/landgate-slip-public-arcgis-openapi.yml",
-    "archived openapi/landgate-slip-public-ogc-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "landgate-data-wa-ckan-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "landgate-slip-public-arcgis-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "landgate-slip-public-ogc-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+9 apis, 10 total)"
+    "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "landgate-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-discovery-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-server-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-site-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-wfs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "landgate-wms-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
