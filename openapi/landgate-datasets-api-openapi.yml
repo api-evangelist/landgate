@@ -197,25 +197,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
-    ErrorEnvelope:
-      type: object
-      description: CKAN error envelope (observed on HTTP 409 validation errors).
-      properties:
-        help:
-          type: string
-          format: uri
-        success:
-          type: boolean
-          const: false
-        error:
-          type: object
-          properties:
-            __type:
-              type: string
-              examples:
-              - Validation Error
-              - Not Found Error
-              - Authorization Error
+    SearchEnvelope:
+      allOf:
+      - $ref: '#/components/schemas/Envelope'
+      - type: object
+        properties:
+          result:
+            type: object
+            properties:
+              count:
+                type: integer
+              sort:
+                type: string
+              results:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Package'
+              search_facets:
+                type: object
     Envelope:
       type: object
       description: Standard CKAN response envelope.
@@ -258,24 +257,25 @@ components:
           type: string
         description:
           type: string
-    SearchEnvelope:
-      allOf:
-      - $ref: '#/components/schemas/Envelope'
-      - type: object
-        properties:
-          result:
-            type: object
-            properties:
-              count:
-                type: integer
-              sort:
-                type: string
-              results:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Package'
-              search_facets:
-                type: object
+    ErrorEnvelope:
+      type: object
+      description: CKAN error envelope (observed on HTTP 409 validation errors).
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+          const: false
+        error:
+          type: object
+          properties:
+            __type:
+              type: string
+              examples:
+              - Validation Error
+              - Not Found Error
+              - Authorization Error
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

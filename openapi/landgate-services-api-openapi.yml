@@ -142,19 +142,17 @@ paths:
                       $ref: '#/components/schemas/EsriError'
 components:
   schemas:
-    MapService:
+    EsriError:
       type: object
       properties:
-        documentInfo:
-          type: object
-        maxRecordCount:
+        code:
           type: integer
-        maxImageWidth:
-          type: integer
-        layers:
+        message:
+          type: string
+        details:
           type: array
           items:
-            type: object
+            type: string
     Layer:
       type: object
       properties:
@@ -177,17 +175,19 @@ components:
                 type: string
               alias:
                 type: string
-    EsriError:
+    MapService:
       type: object
       properties:
-        code:
+        documentInfo:
+          type: object
+        maxRecordCount:
           type: integer
-        message:
-          type: string
-        details:
+        maxImageWidth:
+          type: integer
+        layers:
           type: array
           items:
-            type: string
+            type: object
     ServicesDirectory:
       type: object
       properties:
@@ -207,6 +207,13 @@ components:
               type:
                 type: string
   parameters:
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name within the folder, e.g. `Boundaries`.
+      schema:
+        type: string
     Folder:
       name: folder
       in: path
@@ -240,13 +247,6 @@ components:
         - image
         - kmz
         default: html
-    Service:
-      name: service
-      in: path
-      required: true
-      description: Service name within the folder, e.g. `Boundaries`.
-      schema:
-        type: string
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

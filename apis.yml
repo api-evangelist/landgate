@@ -47,7 +47,7 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
-- Real-Estate
+- Real Estate
 - Australia
 - Land Registry
 - Title
@@ -70,6 +70,7 @@ tags_raw:
 - Government
 - Conveyancing
 - PropTech
+- Real-Estate
 created: '2026-07-26'
 modified: '2026-07-26'
 specificationVersion: '0.23'

@@ -206,6 +206,17 @@ paths:
             image/png: {}
 components:
   schemas:
+    EsriError:
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        details:
+          type: array
+          items:
+            type: string
     FeatureSet:
       type: object
       properties:
@@ -230,18 +241,21 @@ components:
           type: integer
         error:
           $ref: '#/components/schemas/EsriError'
-    EsriError:
-      type: object
-      properties:
-        code:
-          type: integer
-        message:
-          type: string
-        details:
-          type: array
-          items:
-            type: string
   parameters:
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name within the folder, e.g. `Boundaries`.
+      schema:
+        type: string
+    LayerId:
+      name: layerId
+      in: path
+      required: true
+      description: Numeric layer id within the map service.
+      schema:
+        type: integer
     Folder:
       name: folder
       in: path
@@ -255,13 +269,6 @@ components:
         - Landgate_Public_Maps
         - SLIP_Public_Services
         - Utilities
-    LayerId:
-      name: layerId
-      in: path
-      required: true
-      description: Numeric layer id within the map service.
-      schema:
-        type: integer
     Format:
       name: f
       in: query
@@ -275,13 +282,6 @@ components:
         - image
         - kmz
         default: html
-    Service:
-      name: service
-      in: path
-      required: true
-      description: Service name within the folder, e.g. `Boundaries`.
-      schema:
-        type: string
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated
