@@ -141,7 +141,61 @@ paths:
                     error:
                       $ref: '#/components/schemas/EsriError'
 components:
+  parameters:
+    Format:
+      name: f
+      in: query
+      description: Response format. `json` for the machine-readable response.
+      schema:
+        type: string
+        enum:
+        - html
+        - json
+        - pjson
+        - image
+        - kmz
+        default: html
+    Folder:
+      name: folder
+      in: path
+      required: true
+      description: Services folder.
+      schema:
+        type: string
+        enum:
+        - Land_Monitor
+        - Landgate_Public_Imagery
+        - Landgate_Public_Maps
+        - SLIP_Public_Services
+        - Utilities
+    LayerId:
+      name: layerId
+      in: path
+      required: true
+      description: Numeric layer id within the map service.
+      schema:
+        type: integer
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name within the folder, e.g. `Boundaries`.
+      schema:
+        type: string
   schemas:
+    MapService:
+      type: object
+      properties:
+        documentInfo:
+          type: object
+        maxRecordCount:
+          type: integer
+        maxImageWidth:
+          type: integer
+        layers:
+          type: array
+          items:
+            type: object
     EsriError:
       type: object
       properties:
@@ -153,6 +207,24 @@ components:
           type: array
           items:
             type: string
+    ServicesDirectory:
+      type: object
+      properties:
+        currentVersion:
+          type: number
+        folders:
+          type: array
+          items:
+            type: string
+        services:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
     Layer:
       type: object
       properties:
@@ -175,78 +247,6 @@ components:
                 type: string
               alias:
                 type: string
-    MapService:
-      type: object
-      properties:
-        documentInfo:
-          type: object
-        maxRecordCount:
-          type: integer
-        maxImageWidth:
-          type: integer
-        layers:
-          type: array
-          items:
-            type: object
-    ServicesDirectory:
-      type: object
-      properties:
-        currentVersion:
-          type: number
-        folders:
-          type: array
-          items:
-            type: string
-        services:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              type:
-                type: string
-  parameters:
-    Service:
-      name: service
-      in: path
-      required: true
-      description: Service name within the folder, e.g. `Boundaries`.
-      schema:
-        type: string
-    Folder:
-      name: folder
-      in: path
-      required: true
-      description: Services folder.
-      schema:
-        type: string
-        enum:
-        - Land_Monitor
-        - Landgate_Public_Imagery
-        - Landgate_Public_Maps
-        - SLIP_Public_Services
-        - Utilities
-    LayerId:
-      name: layerId
-      in: path
-      required: true
-      description: Numeric layer id within the map service.
-      schema:
-        type: integer
-    Format:
-      name: f
-      in: query
-      description: Response format. `json` for the machine-readable response.
-      schema:
-        type: string
-        enum:
-        - html
-        - json
-        - pjson
-        - image
-        - kmz
-        default: html
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

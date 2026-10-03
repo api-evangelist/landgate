@@ -105,6 +105,13 @@ paths:
             text/xml: {}
 components:
   parameters:
+    Service:
+      name: service
+      in: path
+      required: true
+      description: Service name; WFS is served by the `*_WFS` services.
+      schema:
+        type: string
     Folder:
       name: folder
       in: path
@@ -117,13 +124,6 @@ components:
         - Landgate_Public_Maps
         - SLIP_Public_Services
         - Utilities
-    Service:
-      name: service
-      in: path
-      required: true
-      description: Service name; WFS is served by the `*_WFS` services.
-      schema:
-        type: string
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated

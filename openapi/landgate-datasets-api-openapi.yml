@@ -197,6 +197,35 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Resource'
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        package_count:
+          type: integer
+    Resource:
+      type: object
+      properties:
+        id:
+          type: string
+        package_id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        format:
+          type: string
+        description:
+          type: string
     SearchEnvelope:
       allOf:
       - $ref: '#/components/schemas/Envelope'
@@ -228,35 +257,6 @@ components:
         success:
           type: boolean
         result: {}
-    Organization:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        package_count:
-          type: integer
-    Resource:
-      type: object
-      properties:
-        id:
-          type: string
-        package_id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        format:
-          type: string
-        description:
-          type: string
     ErrorEnvelope:
       type: object
       description: CKAN error envelope (observed on HTTP 409 validation errors).
