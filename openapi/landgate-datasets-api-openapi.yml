@@ -163,53 +163,6 @@ paths:
                 $ref: '#/components/schemas/Envelope'
 components:
   schemas:
-    Package:
-      type: object
-      description: A CKAN dataset. Fields observed on this deployment.
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        title:
-          type: string
-        notes:
-          type: string
-        access_level:
-          type: string
-        author:
-          type: string
-        author_email:
-          type: string
-        license_id:
-          type: string
-        metadata_created:
-          type: string
-        metadata_modified:
-          type: string
-        organization:
-          $ref: '#/components/schemas/Organization'
-        tags:
-          type: array
-          items:
-            type: object
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/Resource'
-    Organization:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        package_count:
-          type: integer
     Resource:
       type: object
       properties:
@@ -244,19 +197,6 @@ components:
                   $ref: '#/components/schemas/Package'
               search_facets:
                 type: object
-    Envelope:
-      type: object
-      description: Standard CKAN response envelope.
-      required:
-      - help
-      - success
-      properties:
-        help:
-          type: string
-          format: uri
-        success:
-          type: boolean
-        result: {}
     ErrorEnvelope:
       type: object
       description: CKAN error envelope (observed on HTTP 409 validation errors).
@@ -276,6 +216,66 @@ components:
               - Validation Error
               - Not Found Error
               - Authorization Error
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        package_count:
+          type: integer
+    Package:
+      type: object
+      description: A CKAN dataset. Fields observed on this deployment.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        title:
+          type: string
+        notes:
+          type: string
+        access_level:
+          type: string
+        author:
+          type: string
+        author_email:
+          type: string
+        license_id:
+          type: string
+        metadata_created:
+          type: string
+        metadata_modified:
+          type: string
+        organization:
+          $ref: '#/components/schemas/Organization'
+        tags:
+          type: array
+          items:
+            type: object
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/Resource'
+    Envelope:
+      type: object
+      description: Standard CKAN response envelope.
+      required:
+      - help
+      - success
+      properties:
+        help:
+          type: string
+          format: uri
+        success:
+          type: boolean
+        result: {}
 x-generated-by: API Evangelist enrichment pipeline
 x-generated: '2026-07-26'
 x-method: generated
