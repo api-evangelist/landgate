@@ -1,4 +1,4 @@
-# Landgate (landgate)
+# Landgate
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,134 +66,136 @@
 
 Landgate is the Western Australian Land Information Authority — the WA government agency that maintains the state land titles register, values every rateable property in Western Australia, and curates the state's foundational location data (cadastre, tenure, property addresses, sales evidence, imagery, elevation, geographic names). In the Australian real estate value chain Landgate sits underneath the listing portals (REA Group's realestate.com.au and Domain) and underneath PEXA's electronic conveyancing rail as the authoritative source of the public land record for WA; since 2019 the automated land titling and registry operations have been operated under a commercial services arrangement while Landgate retains the Registrar of Titles function and the data custodianship. Its API posture is genuinely split and should not be overstated — a real, anonymously callable public surface exists (the SLIP Shared Location Information Platform ArcGIS REST directory plus OGC WMS/WFS services, and the Data WA CKAN Action API that Landgate operates for the whole WA public sector), while the richer registry and subscription data sits behind SLIP subscription, transaction, publication, broker, distributor and value-added-reseller licences that must be signed and, for bulk downloads, behind a MyLandgate account login. There is no developer portal, no published OpenAPI, no API key self-service, and no RESO involvement of any kind — RESO is a North American MLS standard and is absent from this Australian government registry.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/landgate/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/landgate/refs/heads/main/apis.yml)
+**Areas:** Real Estate · Australia · Land Registry · Title · Valuation · Property Data · Open Data · Geospatial · Government · Conveyancing · PropTech
 
-## Tags
+## Landgate on APIs.io
 
-- Real Estate
-- Australia
-- Land Registry
-- Title
-- Valuation
-- Property Data
-- Open Data
-- Geospatial
-- Government
-- Conveyancing
-- PropTech
+Everything profiled for Landgate is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/landgate/](https://apis.io/providers/landgate/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (10)
 
-- **Created:** 2026-07-26
-- **Modified:** 2026-07-26
+- [MyLandgate OpenID Connect / OAuth 2.0 (PingFederate)](https://apis.io/apis/landgate/mylandgate-openid-connect/) — Landgate's customer identity provider, running PingFederate. The OpenID Connect discovery document is served anonymously (HTTP 200, 2026-07-26) at…
+- [Landgate Datasets API](https://apis.io/apis/landgate/landgate-datasets-api/) — Dataset (package) discovery and retrieval
+- [Landgate Discovery API](https://apis.io/apis/landgate/landgate-discovery-api/) — Autocomplete, resource search and the DCAT catalog
+- [Landgate Organizations API](https://apis.io/apis/landgate/landgate-organizations-api/) — Publishing organizations and groups
+- [Landgate Query API](https://apis.io/apis/landgate/landgate-query-api/) — Feature query, identify and image export
+- [Landgate Server API](https://apis.io/apis/landgate/landgate-server-api/) — Server-level information and the services directory
+- [Landgate Services API](https://apis.io/apis/landgate/landgate-services-api/) — Map service and layer metadata
+- [Landgate Site API](https://apis.io/apis/landgate/landgate-site-api/) — Catalogue-level status and reference lists
+- [Landgate WFS API](https://apis.io/apis/landgate/landgate-wfs-api/) — OGC Web Feature Service 2.0.0
+- [Landgate WMS API](https://apis.io/apis/landgate/landgate-wms-api/) — OGC Web Map Service 1.3.0
 
-## APIs
+### Published properties
 
-### SLIP Public Services (ArcGIS REST)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The public tier of Landgate's Shared Location Information Platform (SLIP), served as an Esri ArcGIS Server 12.1 REST services directory. Confirmed anonymously reachable on 2026-07-26 with HTTP 200 and `authInfo.isTokenBasedSecurity` false — 65 map services across five folders (SLIP_Public_Services with 57 services, plus Landgate_Public_Maps, Landgate_Public_Imagery, Land_Monitor and Utilities), covering cadastre, administrative and LGA boundaries, buildings and structures, bushfire prone areas, climate, disaster, transport and marine layers. A live layer query returned real LGA boundary features without any credential.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/](https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/)
-- **Base URL:** `https://public-services.slip.wa.gov.au/public/rest/services`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [landgate](https://apis.io/servers/landgate/landgate/)
 
-- Geospatial
-- Cadastre
-- Boundaries
-- Open Access
-- ArcGIS
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [ArcGIS REST services directory](openapi/landgate-slip-public-arcgis-rest-services.json)
-- [ArcGIS SLIP_Public_Services folder](openapi/landgate-slip-public-services-folder.json)
-- [API Reference](https://public-services.slip.wa.gov.au/public/rest/services?f=json)
-- [Documentation](https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/)
-- [Locate map viewer](https://maps.slip.wa.gov.au/landgate/locate/)
+- [Landgate Agentic Access](https://apis.io/agentic-access/landgate/landgate-agentic-access/)
 
-### SLIP Public OGC Web Services (WMS / WFS)
+#### Collections (6)
 
-OGC-standard web services fronting the same SLIP public data. A WMS 1.3.0 GetCapabilities document (56 layers) and a WFS 2.0.0 GetCapabilities document (38 feature types) were both retrieved anonymously with HTTP 200 on 2026-07-26 and are saved verbatim. These GetCapabilities documents are the machine-readable contract for this surface — there is no OpenAPI and no OData `$metadata` anywhere on the Landgate estate.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/](https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/slip/)
-- **Base URL:** `https://public-services.slip.wa.gov.au/public/services`
+- [Data WA CKAN Action API (operated by Landgate)](https://apis.io/collections/landgate/open-landgate-data-wa-ckan/)
+- [API Collection](https://apis.io/collections/landgate/open-landgate-mylandgate-openid-configuration/)
+- [Landgate SLIP Public Services (ArcGIS REST)](https://apis.io/collections/landgate/open-landgate-slip-public-arcgis/)
+- [API Collection](https://apis.io/collections/landgate/open-landgate-slip-public-arcgis-rest-services/)
+- [Landgate SLIP Public OGC Web Services (WMS / WFS)](https://apis.io/collections/landgate/open-landgate-slip-public-ogc/)
+- [API Collection](https://apis.io/collections/landgate/open-landgate-slip-public-services-folder/)
 
-#### Tags
+#### Overlays (3)
 
-- Geospatial
-- OGC
-- WMS
-- WFS
-- Open Access
+OpenAPI overlays, including conversational phrasing for each operation.
 
-#### Properties
+- [Landgate Data Wa Ckan Overlay](https://apis.io/overlays/landgate/landgate-data-wa-ckan-overlay/)
+- [Landgate Slip Public Arcgis Overlay](https://apis.io/overlays/landgate/landgate-slip-public-arcgis-overlay/)
+- [Landgate Slip Public Ogc Overlay](https://apis.io/overlays/landgate/landgate-slip-public-ogc-overlay/)
 
-- [WMS 1.3.0 GetCapabilities](openapi/landgate-slip-public-wms-capabilities.xml)
-- [WFS 2.0.0 GetCapabilities](openapi/landgate-slip-public-wfs-capabilities.xml)
-- [Live WMS GetCapabilities](https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/Boundaries/MapServer/WMSServer?request=GetCapabilities&service=WMS)
-- [Documentation](https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/)
+#### Security (2)
 
-### Data WA CKAN Action API
+Authentication, trust centre, and vulnerability disclosure.
 
-Landgate leads implementation of the WA Whole of Government Open Data Policy and operates data.wa.gov.au, whose catalogue runs CKAN with the standard `/api/3/action` surface exposed anonymously. Confirmed 2026-07-26 — `status_show`, `package_search`, `package_list` and `organization_show` all returned HTTP 200 without credentials; the catalogue holds 2,872 datasets, of which 395 are published by the Landgate organization. A DCAT JSON-LD catalog is served at `/catalog.jsonld`. Note honestly that the API is open but most Landgate datasets in it carry a custom Landgate licence rather than an open licence (371 of 395 are `custom_other`; only 2 are public domain and 5 are CC non-commercial).
+- [Landgate Authentication](https://apis.io/security/landgate/landgate-authentication/)
+- [Landgate Domain Security](https://apis.io/security/landgate/landgate-domain-security/)
 
-- **Human URL:** [https://www.data.wa.gov.au/](https://www.data.wa.gov.au/)
-- **Base URL:** `https://catalogue.data.wa.gov.au/api/3/action`
+#### OAuth scopes (1)
 
-#### Tags
+The permissions the API asks for.
 
-- Open Data
-- Catalog
-- CKAN
-- DCAT
-- Government
+- [Landgate Scopes](https://apis.io/scopes/landgate/landgate-scopes/)
 
-#### Properties
+## Where to find this API
 
-- [CKAN status_show](https://catalogue.data.wa.gov.au/api/3/action/status_show)
-- [API Reference (help_show)](https://catalogue.data.wa.gov.au/api/3/action/help_show?name=package_search)
-- [DCAT JSON-LD catalog](https://catalogue.data.wa.gov.au/catalog.jsonld)
-- [Documentation](https://www.landgate.wa.gov.au/location-data-and-services/programs-and-initiatives/data-wa/)
-- [Dataset catalogue](https://catalogue.data.wa.gov.au/dataset)
-
-### MyLandgate OpenID Connect / OAuth 2.0 (PingFederate)
-
-Landgate's customer identity provider, running PingFederate. The OpenID Connect discovery document is served anonymously (HTTP 200, 2026-07-26) at `/.well-known/openid-configuration` and is saved verbatim. It is a real, machine-readable authorization-server contract — but it is the sign-on for MyLandgate, Land Enquiry Services and SLIP subscriber accounts, not a public developer API. There is no public client registration endpoint, no published scope catalogue beyond the standard openid/profile/email/address/phone plus an ATO scope, and no developer documentation. Listed because the artifact is genuine, not because it is self-serve.
-
-- **Human URL:** [https://land-enquiry.app.landgate.wa.gov.au/](https://land-enquiry.app.landgate.wa.gov.au/)
-- **Base URL:** `https://sign-on.app.landgate.wa.gov.au`
-
-#### Tags
-
-- Authentication
-- OpenID Connect
-- OAuth 2.0
-- Gated
-
-#### Properties
-
-- [OpenID configuration (harvested)](openapi/landgate-mylandgate-openid-configuration.json)
-- [OpenID configuration (live)](https://sign-on.app.landgate.wa.gov.au/.well-known/openid-configuration)
-- [Login](https://land-enquiry.app.landgate.wa.gov.au/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.landgate.wa.gov.au/)
-- [About](https://www.landgate.wa.gov.au/about-us/)
 - [Documentation](https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/)
-- [Pricing / Licensing](https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/)
+- [Pricing](https://www.landgate.wa.gov.au/location-data-and-services/discovering-landgate-data/licensing/)
 - [Support](https://www.landgate.wa.gov.au/help-centre/)
-- [Data WA portal](https://www.data.wa.gov.au/)
+- [Changelog](https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/)
+- [Blog](https://www.landgate.wa.gov.au/about-us/customer-news-and-media/news-and-media-articles/)
+- [Terms of service](https://www.landgate.wa.gov.au/disclaimer)
+- [Privacy policy](https://www.landgate.wa.gov.au/privacy)
+- [GitHub](https://github.com/Landgate)
 
-## RESO Posture
+## API Evangelist rating
 
-No RESO reference found. RESO Web API and Data Dictionary certification are North American MLS/broker constructs administered by an industry body; Landgate is an Australian state land registry and is neither an MLS nor a listing portal. No RESO certification directory listing, no OData `$metadata`, and no Universal Property Identifier (UPI) are present. Landgate identifies land by WA cadastral identifiers instead — lot on plan, Certificate of Title volume/folio, and LGATE-nnn product codes.
+**Kin Score 36.1** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Access Gate
+| Facet | Score |
+|---|---|
+| Discoverability | 82.1 |
+| Contract quality | 14.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 38.2 |
 
-**licence-agreement.** The open SLIP and CKAN tier needs no signup at all, but everything of substance requires a signed Landgate licence: SLIP Subscription, Location Information Subscription, Transaction, Publication, Broker Agreement, Distributor Agreement, Value Added Reseller (VAR) Agreement, or a Trial Licence. Bulk downloads additionally require a MyLandgate account. There is no self-serve API key, no application form for developers, and onboarding runs through Landgate Customer Experience by phone and email.
+**Agent readiness 36.5** — agent-ready
 
-## Maintainers
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
 
-- **Kin Lane** — kin@apievangelist.com
+**Regulatory alignment 42.2** — Government & Public Sector
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/landgate/](https://apis.io/providers/landgate/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Landgate: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/landgate/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
